@@ -1,0 +1,12 @@
+.button {
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-xl);
+  padding-block: 6px;
+  padding-inline: 12px;
+  inline-size: 100%;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
