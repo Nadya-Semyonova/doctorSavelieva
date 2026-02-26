@@ -1,0 +1,33 @@
+.customButtonPrev {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  z-index: 2;
+  padding: 8px;
+  background-color: var(--color-bg-disabled);
+  border-radius: 100px;
+  transform: rotate(-90deg);
+  border: none;
+}
+
+.customButtonNext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  z-index: 2;
+  padding: 8px;
+  background-color: var(--color-bg-disabled);
+  border-radius: 100px;
+  transform: rotate(90deg);
+  border: none;
+}
+
+.buttonDeactive {
+  opacity: 0.3;
+}
