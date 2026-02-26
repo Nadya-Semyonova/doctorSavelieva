@@ -1,4 +1,4 @@
-import { CONTACTS } from "../../shared/config/contacts";
+import { CONTACTS } from "../../assets/data/contacts";
 import Map from "../../shared/ui/Map/Map";
 
 export default function Address() {
