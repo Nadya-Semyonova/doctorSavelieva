@@ -14,7 +14,7 @@ export default function ButtonDefault({
     return (
       <button
         type={type}
-        onClick={() => handleClick()}
+        onClick={handleClick}
         className={`${style.button} ${styleButton}`}
         aria-label={ariaLabel}
         disabled={!status}

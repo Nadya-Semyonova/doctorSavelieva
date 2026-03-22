@@ -1,12 +1,13 @@
 .button {
   font-family: var(--font-secondary);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-xl);
-  padding-block: 6px;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+  padding-block: 12px;
   padding-inline: 12px;
   inline-size: 100%;
   border-radius: 10px;
-  background: transparent;
+  background: var(--button-bg-color-blue);
+  color: var(--button-text-color-blue);
   border: none;
   cursor: pointer;
 }
