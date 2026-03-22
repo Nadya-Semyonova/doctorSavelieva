@@ -109,16 +109,16 @@ src/
 │ │ └── ButtonDefault.css
 │ │
 │ ├── assets/ # Изображения, иконки, статические файлы
-|      └── fonts/
-│      └── images/
-│      |     └── Gallery/
-|      |          └── Full/
-|      |          └── Thumbs/
-|      └──data/  
+| └── fonts/
+│ └── images/
+│ | └── Gallery/
+| | └── Full/
+| | └── Thumbs/
+| └──data/  
 |
 ├── styles/ # Глобальные стили и переменные
-|   └── variables/
-|   └── global/
+| └── variables/
+| └── global/
 ├── types/ # Общие TypeScript-типы
 │
 |

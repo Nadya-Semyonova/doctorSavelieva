@@ -17,6 +17,11 @@ export interface IUsersCardsSwiper {
   sliderId?: string; // ДОБАВЛЯЕМ для переключения разных слайдеров Скорее всего не нужно
 }
 
+export interface IHeader {
+  onNavigate?: (sectionId: string) => void; // Опциональный колбэк для навигации
+  onConsultationClick?: () => void; // Опциональный колбэк для кнопки консультации
+}
+
 // import { SwiperSlide } from "swiper/react";
 //         <SwiperSlide>
 //         Нужый компонент в 1 экземпляре
