@@ -11,7 +11,8 @@ import type { IUsersCardsSwiper } from '../../../types/types';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import styles from './CarouselSlider.module.css';
-import ChevronRight from '../../../assets/images/IconsSvg/chevronright';
+import ChevronRight from '../../../assets/images/IconsSvg/ChevronRight';
+
 
 export default function CarouselSlider({
   children,
