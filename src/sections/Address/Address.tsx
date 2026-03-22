@@ -4,6 +4,9 @@ import Map from "../../shared/ui/Map/Map";
 import styles from './Address.module.css'
 
 export default function Address() {
+  const handleClinicBooking = () => {
+    window.open('https://dobrodoctor39.ru/', '_blank', 'noopener,noreferrer');
+  };
   return (
     <section className={styles.section}>
       <h2 className={styles.title}>Адреса</h2>
@@ -16,7 +19,10 @@ export default function Address() {
           </p>
 
           <div className={styles.action}>
-            <ButtonDefault status={false}>
+            <ButtonDefault 
+              handleClick={handleClinicBooking}
+              ariaLabel="Перейти на сайт клиники Добрый Докторъ"
+            >
               Записаться в клинике
             </ButtonDefault>
           </div>
