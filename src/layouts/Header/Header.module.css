@@ -40,7 +40,7 @@
   background: none;
   border: none;
   padding: var(--spacing-sm) var(--spacing-md);
-  font-family: var(--font-primary);
+  /* font-family: var(--font-primary); */
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   color: var(--text-primary);
@@ -78,9 +78,9 @@
 .buttonConsultation {
   min-width: 334px;
   height: 48px;
-  font-family: var(--font-primary);
+  /* font-family: var(--font-primary); */
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
+  /* font-weight: var(--font-weight-semibold); */
   background-color: var(--button-bg-color-blue);
   color: var(--button-text-color-blue);
   border: none;
