@@ -1,3 +1,4 @@
+import { NavLink, Link } from 'react-router-dom';
 import type { IHeader } from "../../types/types";
 import ButtonDefault from "../../shared/ui/Button/ButtonDefault";
 import styles from "./Header.module.css";
@@ -35,43 +36,66 @@ export default function Header({
         <nav className={styles.nav} aria-label="Основная навигация">
           <ul className={styles.navList}>
             <li className={styles.navItem}>
-              <button
-                className={styles.navLink}
-                onClick={() => handleNavClick("about")}
+              <NavLink
+                to="/#about"
+                className={({ isActive }) => 
+                  isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+                }
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("about");
+                }}
                 aria-label="Перейти к разделу обо мне"
               >
                 Обо мне
-              </button>
+              </NavLink>
             </li>
             <li className={styles.navItem}>
-              <button
-                className={styles.navLink}
-                onClick={() => handleNavClick("benefit")}
+              <NavLink
+                to="/#benefit"
+                className={({ isActive }) => 
+                  isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+                }
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("benefit");
+                }}
                 aria-label="Перейти к разделу о пользе"
               >
                 Польза
-              </button>
+              </NavLink>
             </li>
             <li className={styles.navItem}>
-              <button
-                className={styles.navLink}
-                onClick={() => handleNavClick("reviews")}
+              <NavLink
+                to="/#reviews"
+                className={({ isActive }) => 
+                  isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+                }
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("reviews");
+                }}
                 aria-label="Перейти к разделу отзывов"
               >
                 Отзывы
-              </button>
+              </NavLink>
             </li>
           </ul>
         </nav>
 
         <div className={styles.consultationButton}>
-          <ButtonDefault
-            name="Записаться на консультацию"
-            handleClick={handleConsultation}
-            styleButton={styles.buttonConsultation}
-            ariaLabel="Записаться на консультацию"
-            type="button"
-          />
+          <Link to="/#appointment" onClick={(e) => {
+            e.preventDefault();
+            handleConsultation();
+          }}>
+            <ButtonDefault
+              name="Записаться на консультацию"
+              handleClick={handleConsultation}
+              styleButton={styles.buttonConsultation}
+              ariaLabel="Записаться на консультацию"
+              type="button"
+            />
+          </Link>
         </div>
       </div>
     </header>

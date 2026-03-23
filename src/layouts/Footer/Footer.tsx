@@ -1,6 +1,6 @@
-import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import styles from './Footer.module.css';
+import ButtonDefault from '../../shared/ui/Button/ButtonDefault';
 
 interface FooterProps {
   className?: string;
@@ -21,6 +21,10 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
     e.preventDefault();
     scrollToSection(sectionId);
   };
+
+  function handleAppointmentClick(): void {
+    throw new Error('Function not implemented.');
+  }
 
   return (
     <footer className={`${styles.footer} ${className || ''}`}>
@@ -69,13 +73,13 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
 
           {/* Правая колонка - кнопка записи */}
           <div className={styles.ctaSection}>
-            <a 
-              href="#appointment" 
-              className={styles.ctaButton}
-              onClick={(e) => handleAnchorClick(e, 'appointment')}
-            >
-              Записаться на консультацию
-            </a>
+            <ButtonDefault
+              name="Записаться на консультацию"
+              handleClick={handleAppointmentClick}
+              styleButton={styles.ctaButton}
+              type="button"
+              ariaLabel="Перейти к форме записи на консультацию"
+            />
           </div>
         </div>
 
