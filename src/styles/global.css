@@ -5,10 +5,11 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+header {
   margin: 0;
   padding: 0;
-  background-image: url('/src/assets/images/Background.png');
+  background-image: url("/src/assets/images/Background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -36,7 +37,6 @@ h5,
 h6 {
   font-family: var(--font-primary);
   color: var(--color-text);
-
 }
 
 h1 {

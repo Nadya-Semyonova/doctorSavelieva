@@ -105,22 +105,22 @@ src/
 ├── shared/ # Переиспользуемый код (без бизнес-логики)
 │ ├── ui/ # UI-компоненты (атомы)
 │ │ └── Button/
-│ │ |  ├── ButtonDefault.tsx # Универсальная кнопка
-│ │ |  └── ButtonDefault.css
+│ │ | ├── ButtonDefault.tsx # Универсальная кнопка
+│ │ | └── ButtonDefault.css
 │ │ └── CarouselSlider/
-| | |   ├── CarouselSlider.tsx # Универсальный слайдер
-│ │ |   └── CarouselSlider.css
+| | | ├── CarouselSlider.tsx # Универсальный слайдер
+│ │ | └── CarouselSlider.css
 | | └── Map/
-| |     ├── Map.tsx # Универсальный компонент карты
-│ │     └── Map.css
+| | ├── Map.tsx # Универсальный компонент карты
+│ │ └── Map.css
 │ ├── assets/ # Изображения, иконки, статические файлы
 | └── fonts/
 │ └── images/
 │ | └── Gallery/ # фото
-| | |    └── Full/
-| | |    └── Thumbs/
+| | | └── Full/
+| | | └── Thumbs/
 | | └── IconsSvg/ # svg иконки
-| └──data/  # данные с отзывами, контактами и тд
+| └──data/ # данные с отзывами, контактами и тд
 |
 ├── styles/ # Глобальные стили и переменные
 | └── variables/

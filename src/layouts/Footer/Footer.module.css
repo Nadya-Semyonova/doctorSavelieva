@@ -42,7 +42,6 @@
   display: inline-block;
 }
 
-
 .legalLink:hover {
   color: var(--color-primary);
 }
@@ -72,7 +71,6 @@
   position: relative;
   display: inline-block;
 }
-
 
 .anchorLink:hover {
   color: var(--color-primary);
