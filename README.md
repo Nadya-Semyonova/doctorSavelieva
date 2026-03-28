@@ -48,81 +48,79 @@ npm run stylelint:fix
 
 # 3. АРХИТЕКТУРА (Feature-Sliced Design) дополнять по мере развития сайта
 
+
+```
 src/
-├── app/ # Инициализация приложения
-│ ├── App.tsx # Корневой компонент приложения
-│ └── App.css # Глобальные стили App
+├── app/                        # Инициализация приложения
+│   ├── App.tsx                 # Корневой компонент приложения
+│   └── App.css                 # Глобальные стили App
 │
-├── layouts/ # Каркас страницы
-│ ├── MainLayout.tsx # Общий layout: Header + main + Footer
-│ ├── Header/
-│ │ └── Header.tsx # Шапка сайта (навигация)
-│ └── Footer/
-│ └── Footer.tsx # Подвал сайта
+├── layouts/                    # Каркас страницы
+│   ├── MainLayout.tsx          # Общий layout: Header + main + Footer
+│   ├── Header/
+│   │   └── Header.tsx          # Шапка сайта (навигация)
+│   └── Footer/
+│       └── Footer.tsx          # Подвал сайта
 │
-├── pages/ # Страницы приложения
-│ └── HomePage.tsx # Главная страница (композиция секций)
-│ ├── documents/
-│ │ ├── OfferAgreement.tsx # текст договора-оферты
-│ │ └── PrivacyPolicy.tsx # текст политики конфеденциальности
-| | └── dociments.css # стили
-|
-├── sections/ # Смысловые секции лендинга
-│ ├── Hero/
-│ │ ├── Hero.tsx # Заголовок врача
-│ │ └── Hero.css
-│ │
-│ ├── About/
-│ │ ├── About.tsx # Информация о докторе
-│ │ └── About.css
-│ │
-│ ├── Benefit/
-│ │ ├── Benefit.tsx # Блок о пользе онлайн консультации
-│ │ └── Benefit.css
-│ │
-│ ├── Appointment/
-│ │ ├── Appointment.tsx # Блок записи на приём
-│ │ └── Appointment.css
-│ │
-│ ├── Reviews/
-│ │ ├── Reviews.tsx # Отзывы пациентов
-│ │ └── Reviews.css
-│ │
-│ ├── Links/
-│ │ ├── Links.tsx # Полезные ссылки / соцсети
-│ │ └── Links.css
-│ │
-│ └── Address/
-│ ├── Address.tsx # Адрес и контакты
-│ └── Address.css
+├── pages/                      # Страницы приложения
+│   └── HomePage.tsx            # Главная страница (композиция секций)
 │
-├── shared/ # Переиспользуемый код (без бизнес-логики)
-│ ├── ui/ # UI-компоненты (атомы)
-│ │ └── Button/
-│ │ | ├── ButtonDefault.tsx # Универсальная кнопка
-│ │ | └── ButtonDefault.css
-│ │ └── CarouselSlider/
-| | | ├── CarouselSlider.tsx # Универсальный слайдер
-│ │ | └── CarouselSlider.css
-| | └── Map/
-| | ├── Map.tsx # Универсальный компонент карты
-│ │ └── Map.css
-│ ├── assets/ # Изображения, иконки, статические файлы
-| └── fonts/
-│ └── images/
-│ | └── Gallery/ # фото
-| | | └── Full/
-| | | └── Thumbs/
-| | └── IconsSvg/ # svg иконки
-| └──data/ # данные с отзывами, контактами и тд
-|
-├── styles/ # Глобальные стили и переменные
-| └── variables/
-| └── global/
-├── types/ # Общие TypeScript-типы
+├── documents/                  # Документы
+│   ├── OfferAgreement.tsx      # Текст договора-оферты
+│   ├── PrivacyPolicy.tsx       # Текст политики конфиденциальности
+│   └── documents.css           # Стили для документов
 │
-|
-└── main.tsx # Точка входа (bootstrap React)
+├── sections/                   # Смысловые секции лендинга
+│   ├── Hero/
+│   │   ├── Hero.tsx            # Заголовок врача
+│   │   └── Hero.css
+│   ├── About/
+│   │   ├── About.tsx           # Информация о докторе
+│   │   └── About.css
+│   ├── Benefit/
+│   │   ├── Benefit.tsx         # Блок о пользе онлайн консультации
+│   │   └── Benefit.css
+│   ├── Appointment/
+│   │   ├── Appointment.tsx     # Блок записи на приём
+│   │   └── Appointment.css
+│   ├── Reviews/
+│   │   ├── Reviews.tsx         # Отзывы пациентов
+│   │   └── Reviews.css
+│   ├── Links/
+│   │   ├── Links.tsx           # Полезные ссылки / соцсети
+│   │   └── Links.css
+│   └── Address/
+│       ├── Address.tsx         # Адрес и контакты
+│       └── Address.css
+│
+├── shared/                     # Переиспользуемый код (без бизнес-логики)
+│   ├── ui/                     # UI-компоненты (атомы)
+│   │   ├── Button/
+│   │   │   ├── ButtonDefault.tsx    # Универсальная кнопка
+│   │   │   └── ButtonDefault.css
+│   │   ├── CarouselSlider/
+│   │   │   ├── CarouselSlider.tsx   # Универсальный слайдер
+│   │   │   └── CarouselSlider.css
+│   │   └── Map/
+│   │       ├── Map.tsx              # Универсальный компонент карты
+│   │       └── Map.css
+│   ├── assets/                 # Изображения, иконки, статические файлы
+│   │   ├── fonts/
+│   │   └── images/
+│   │       ├── Gallery/
+│   │       │   ├── Full/
+│   │       │   └── Thumbs/
+│   │       └── IconsSvg/       # SVG иконки
+│   └── data/                   # Данные с отзывами, контактами и т.д.
+│
+├── styles/                     # Глобальные стили и переменные
+│   ├── variables/
+│   └── global/
+│
+├── types/                      # Общие TypeScript-типы
+│
+└── main.tsx                    # Точка входа (bootstrap React)
+```
 
 # 4. Особенности проекта
 
