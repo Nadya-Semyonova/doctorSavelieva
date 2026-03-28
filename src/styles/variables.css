@@ -38,10 +38,10 @@
   --border-color-dark: #ced4da;
 
   /* Цвета кнопки */
-  --button-bg-color-blue: #004887;
-  --button-bg-color-white: #e8f5ff;
-  --button-text-color-blue: #e8f5ff;
-  --button-text-color-white: #004887;
+  --button-bg-color-blue: rgba(0, 72, 135, 1);
+  --button-bg-color-white: rgba(255, 255, 255, 1);
+  --button-text-color-blue: rgba(232, 245, 255, 1);
+  --button-text-color-white: rgba(0, 72, 135, 1);
 
   /* ======================================================================
        Типографика - Шрифты
