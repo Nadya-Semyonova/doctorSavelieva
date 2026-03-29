@@ -1,9 +1,9 @@
 .footer {
-padding: 110px 95px;
-display:flex;
-justify-content: space-between;
-margin-top: auto;
-font-family: var( --font-secondary);
+  padding: 110px 95px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  font-family: var(--font-secondary);
 }
 
 .container {
@@ -31,7 +31,7 @@ font-family: var( --font-secondary);
 .legalLink {
   background: transparent;
   color: var(--color-text);
-  font-size: var( --font-size-lg);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-regular);
   text-decoration: none;
   padding: var(--spacing-xs) 0;
@@ -61,7 +61,7 @@ font-family: var( --font-secondary);
 .anchorLink {
   background: transparent;
   color: var(--color-text);
-  font-size: var( --font-size-lg);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-regular);
   text-decoration: none;
   padding: var(--spacing-xs) 0;
@@ -94,14 +94,14 @@ font-family: var( --font-secondary);
   padding: 7px 23px;
   border: 2px solid var(--color-primary);
   border-radius: var(--border-radius-md);
-  transition: all var(--transition-base);
+  transition: all var(--transition-base, 0.3s ease);
   white-space: nowrap;
   cursor: pointer;
   text-align: center;
 }
 
 .ctaButton:hover {
-  background-color: var( --button-bg-color-white);
+  background-color: var(--button-bg-color-white);
   color: var(--text-inverse);
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);

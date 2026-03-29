@@ -9,7 +9,25 @@ export default function ButtonDefault({
   ariaLabel,
   children,
   status = true,
+  href,
+  target = "_self",
 }: IButtonDefault) {
+  // Если есть href, рендерим как ссылку
+  if (href) {
+    return (
+      <a
+        href={href}
+        target={target}
+        rel={target === "_blank" ? "noopener noreferrer" : undefined}
+        className={`${style.button} ${styleButton}`}
+        aria-label={ariaLabel}
+      >
+        {children || name}
+      </a>
+    );
+  }
+
+  // Если есть handleClick, рендерим кнопку с обработчиком
   if (handleClick) {
     return (
       <button
@@ -24,6 +42,7 @@ export default function ButtonDefault({
     );
   }
 
+  // Обычная кнопка
   return (
     <button type={type} className={`${style.button} ${styleButton}`}>
       {children || name}
