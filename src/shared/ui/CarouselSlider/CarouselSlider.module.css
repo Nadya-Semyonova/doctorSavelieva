@@ -1,33 +1,72 @@
-.customButtonPrev {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.container {
+  position: relative;
+  padding: 40px 40px;
+}
+
+.customButtonPrev,
+.customButtonNext {
   position: absolute;
   top: 50%;
-  left: 16px;
-  z-index: 2;
-  padding: 8px;
-  background-color: var(--color-bg-disabled);
-  border-radius: 100px;
-  transform: rotate(-90deg);
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-else);
   border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base, 0.3s ease);
+  z-index: 10;
+}
+
+.customButtonPrev {
+  left: 0;
+}
+
+.customButtonPrev svg {
+  transform: rotate(180deg);
 }
 
 .customButtonNext {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  z-index: 2;
-  padding: 8px;
-  background-color: var(--color-bg-disabled);
-  border-radius: 100px;
-  transform: rotate(90deg);
-  border: none;
+  right: 0;
+}
+
+.customButtonPrev:hover:not(.buttonDeactive),
+.customButtonNext:hover:not(.buttonDeactive) {
+  background: var(--button-bg-color-blue);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: var(--shadow-lg);
 }
 
 .buttonDeactive {
   opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .customButtonPrev,
+  .customButtonNext {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .customButtonPrev,
+  .customButtonNext {
+    width: 28px;
+    height: 28px;
+  }
 }

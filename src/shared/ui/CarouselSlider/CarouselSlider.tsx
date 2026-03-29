@@ -1,28 +1,64 @@
-// надо корректировать под наш макет, также вопрос к иконкам кнопок переключения
-
-
-import { useState, useRef } from 'react';
-import { Swiper } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { useState, useRef, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 
 import type { IUsersCardsSwiper } from '../../../types/types';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import styles from './CarouselSlider.module.css';
 import ChevronRight from '../../../assets/images/IconsSvg/ChevronRight';
 
-
 export default function CarouselSlider({
   children,
-  bgButtons,
-  spaceBetween,
-  slidesPerView,
+  spaceBetween = 20,
+  slidesPerView = 1,
+  slidesPerViewMobile = 1,
+  slidesPerViewTablet = 2,
+  slidesPerViewDesktop = 3,
+  showPagination = true,
+  sliderId,
 }: IUsersCardsSwiper) {
   const [begButton, setBegButton] = useState<boolean>(true);
   const [endButton, setEndButton] = useState<boolean>(false);
+  const [, setCurrentBreakpoint] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
   const swiperRef = useRef<SwiperType | null>(null);
+
+  // Определение брейкпоинтов для Swiper
+  const breakpoints = {
+    320: {
+      slidesPerView: slidesPerViewMobile,
+      spaceBetween: 12,
+    },
+    768: {
+      slidesPerView: slidesPerViewTablet,
+      spaceBetween: 16,
+    },
+    1024: {
+      slidesPerView: slidesPerViewDesktop,
+      spaceBetween: spaceBetween,
+    },
+  };
+
+  // Отслеживание текущего брейкпоинта для анимации
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setCurrentBreakpoint('mobile');
+      } else if (width < 1024) {
+        setCurrentBreakpoint('tablet');
+      } else {
+        setCurrentBreakpoint('desktop');
+      }
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const onEnd = () => {
     setEndButton(true);
@@ -35,7 +71,7 @@ export default function CarouselSlider({
     setEndButton(false);
   };
 
-  const onBegging = () => {
+  const onBeginning = () => {
     setBegButton(true);
   };
 
@@ -46,33 +82,51 @@ export default function CarouselSlider({
     setBegButton(false);
   };
 
+  // Преобразуем children в массив, если это не массив
+  const slidesArray = Array.isArray(children) ? children : [children];
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id={sliderId}>
       <Swiper
-        spaceBetween={spaceBetween || 0}
-        slidesPerView={slidesPerView || 1}
+        spaceBetween={spaceBetween}
+        slidesPerView={slidesPerView}
         slidesPerGroup={1}
-        modules={[Navigation]}
-        navigation={false} // ОТКЛЮЧАЕМ встроенную навигацию Swiper
-        onReachBeginning={onBegging}
+        modules={[Navigation, Pagination]}
+        navigation={false}
+        pagination={showPagination ? {
+          clickable: true,
+          dynamicBullets: false,
+        } : false}
+        breakpoints={breakpoints}
+        onReachBeginning={onBeginning}
         onReachEnd={onEnd}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
+        onSlideChange={(swiper) => {
+          setBegButton(swiper.isBeginning);
+          setEndButton(swiper.isEnd);
+        }}
       >
-        {children}
+        {slidesArray.map((slide, index) => (
+          <SwiperSlide key={index}>
+            {slide}
+          </SwiperSlide>
+        ))}
       </Swiper>
+      
       <button
-        className={`custom-button-prev ${bgButtons} ${styles.customButtonPrev} ${begButton ? styles.buttonDeactive : ''}`}
+        className={`${styles.customButtonPrev} ${begButton ? styles.buttonDeactive : ''}`}
         onClick={handleClickPrev}
         type="button"
         tabIndex={0}
         aria-label="Предыдущий слайд"
       >
-        <ChevronRight/>
+        <ChevronRight />
       </button>
+      
       <button
-        className={`custom-button-next ${bgButtons} ${styles.customButtonNext} ${endButton ? styles.buttonDeactive : ''}`}
+        className={`${styles.customButtonNext} ${endButton ? styles.buttonDeactive : ''}`}
         onClick={handleClickNext}
         type="button"
         tabIndex={0}
