@@ -4,40 +4,17 @@
        ====================================================================== */
 
   /* Основные цвета бренда */
-  --color-primary: #007bff; /* Основной синий */
-  --color-secondary: #6c757d; /* Серый */
-  --color-accent: #ff6b6b; /* Акцентный (красный/оранжевый) */
-  --color-text: #032645; /* Цвет текста */
+  --color-text:rgba(3, 38, 69, 1); /* Цвет текста */
 
-  /* Оттенки primary */
-  --color-primary-light: #4da3ff;
-  --color-primary-dark: #0056b3;
-
-  /* Цвета фона */
-  --bg-primary: #ffffff; /* Основной фон */
-  --bg-secondary: #f8f9fa; /* Вторичный фон */
-  --bg-tertiary: #e9ecef; /* Третичный фон */
-  --bg-dark: #343a40; /* Темный фон */
+ /* Цвета фона */
+  --bg-primary: rgba(248, 252, 255, 1); /* Основной фон */
+  --bg-secondary: rgba(0, 72, 135, 1); /* Вторичный фон */
 
   /* Цвета текста */
-  --text-primary: #212529; /* Основной текст */
-  --text-secondary: #6c757d; /* Вторичный текст */
-  --text-muted: #adb5bd; /* Бледный текст */
-  --text-light: #f8f9fa; /* Светлый текст (на темном фоне) */
-  --text-inverse: #ffffff; /* Инверсный текст */
+  --text-primary:rgba(3, 38, 69, 1); /* Основной текст */
+  --text-secondary: rgba(0, 72, 135, 1); /* Вторичный текст */
 
-  /* Цвета состояний */
-  --color-success: #28a745; /* Успех (зеленый) */
-  --color-warning: #ffc107; /* Предупреждение (желтый) */
-  --color-danger: #dc3545; /* Ошибка/Опасность (красный) */
-  --color-info: #17a2b8; /* Информация (голубой) */
-
-  /* Цвета границ */
-  --border-color: #dee2e6;
-  --border-color-light: #e9ecef;
-  --border-color-dark: #ced4da;
-
-  /* Цвета кнопки */
+/* Цвета кнопки */
   --button-bg-color-blue: rgba(0, 72, 135, 1);
   --button-bg-color-white: rgba(255, 255, 255, 1);
   --button-text-color-blue: rgba(232, 245, 255, 1);
@@ -69,15 +46,7 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  /* Высота строки */
-  --line-height-tight: 1.2;
-  --line-height-base: 1.5;
-  --line-height-loose: 1.8;
 
-  /* Межбуквенный интервал */
-  --letter-spacing-tight: -0.02em;
-  --letter-spacing-base: normal;
-  --letter-spacing-wide: 0.02em;
 
   /* ======================================================================
        Отступы и интервалы
