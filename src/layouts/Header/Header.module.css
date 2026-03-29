@@ -52,7 +52,7 @@
 }
 
 .navLink:hover {
-  color: var(--color-primary);
+  color: var(--button-bg-color-white);
 }
 
 .navLink:active {
@@ -90,9 +90,10 @@
 }
 
 .buttonConsultation:hover {
-  background-color: var(--color-primary-dark);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  background-color: var( --button-bg-color-white);
+  color: var(--text-inverse);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .buttonConsultation:active {
