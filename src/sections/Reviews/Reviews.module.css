@@ -1,6 +1,6 @@
 .reviews {
   padding: 64px 0;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   z-index: 0;
 }
