@@ -9,7 +9,7 @@ export default function Address() {
     window.open('https://dobrodoctor39.ru/', '_blank', 'noopener,noreferrer');
   };
   return (
-    <section className={styles.section}>
+    <section className={styles.address}>
       <div className={styles.wrapper}>
         <h2 className={styles.title}>Адреса</h2>
 

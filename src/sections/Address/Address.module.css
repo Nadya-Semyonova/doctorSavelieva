@@ -1,8 +1,8 @@
-.section {
+.address {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding: 110px 0;
+  padding: 110px 95px;
   position: relative;
   overflow: visible;
 }
@@ -10,7 +10,6 @@
 .wrapper {
   position: relative;
   z-index: 1;
-  padding: 0 95px; 
 }
 
 .title {
