@@ -6,6 +6,7 @@
   --color-bg-primary: #F8FCFF; 
   --color-bg-secondary: #004887; 
   --color-bg-accent: #E8F5FF;
+  --color-white: #FFFFFF;
 
   --button-bg-color-blue: #004887;
   --button-bg-secondary: #FFFFFF;
@@ -69,5 +70,5 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --breakpoint-2xl: 1400px;
+  --breakpoint-2xl: 1440px;
 }

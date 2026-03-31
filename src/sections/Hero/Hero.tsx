@@ -8,7 +8,7 @@ export default function Hero() {
       <div className={styles.content}>
         <div className={styles.info}>
           <div className={styles.textBlock}>
-            <h1>
+            <h1 className={styles.title}>
               Ревматолог 
             </h1>
 
