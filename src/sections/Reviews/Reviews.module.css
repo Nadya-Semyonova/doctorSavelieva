@@ -21,9 +21,9 @@
 
 .title {
   font-family: var(--font-primary);
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-h1);
   font-weight: var(--font-weight-semibold);
-  color: var(--text-primary);
+  color: var(--color-text-primary);
   margin: 0 0 30px 0;
   display: flex;
 }
@@ -38,8 +38,8 @@
 
 .ratingLabel {
   font-family: var(--font-secondary);
-  font-size: var(--font-size-xl);
-  color: var(--text-primary);
+  font-size: var(--font-size-text);
+  color: var(--color-text-primary);
   font-weight: var(--font-weight-regular);
 }
 
@@ -51,9 +51,9 @@
 
 .ratingNumber {
   font-family: var(--font-primary);
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-text);
   font-weight: var(--font-weight-bold);
-  color: var(--bg-secondary);
+  color: var(--color-bg-secondary);
 }
 
 .starsDisplay {
@@ -73,10 +73,10 @@
 /* Кнопка "Все отзывы" */
 .allReviewsButton {
   background: transparent;
-  border: 2px solid var(--bg-secondary);
-  color: var(--bg-secondary);
+  border: 2px solid var(--color-bg-secondary);
+  color: var(--color-bg-secondary);
   padding: 14px 20px;
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-text);
   font-weight: var(--font-weight-regular);
   border-radius: var(--border-radius-lg);
   transition: all var(--transition-base, 0.3s ease);
@@ -85,15 +85,15 @@
 }
 
 .allReviewsButton:hover {
-  background: var(--bg-secondary);
-  color: var(--button-text-color-blue);
+  background: var(--color-bg-secondary);
+  color: var(--button-text-primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
 /* Карточка отзыва */
 .reviewCard {
-  background: var(--bg-else);
+  background: var(--color-bg-accent);
   border-radius: var(--border-radius-lg);
   padding: 24px;
   height: 350px;
@@ -113,7 +113,7 @@
 
 .reviewDate {
   font-family: var(--font-secondary);
-  font-size: var(var(--font-size-lg));
+  font-size: var(var(--font-size-small));
   color: var(--text-secondary);
   padding-inline-start: 10px;
   padding-block-start: 5px;
@@ -127,7 +127,7 @@
 
 .ratingValue {
   font-family: var(--font-primary);
-  font-size: var(var(--font-size-lg));
+  font-size: var(var(--font-size-small));
   font-weight: var(--font-weight-bold);
   color: var(--color-text);
 }
@@ -138,7 +138,7 @@
 }
 
 .star {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-small);
   color: #d4d4d4;
 }
 
@@ -150,7 +150,7 @@
   flex: 1;
   overflow-y: auto;
   font-family: var(--font-secondary);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-small);
   color: var(--color-text);
   padding-right: 8px;
   text-align: left;
@@ -162,12 +162,12 @@
 }
 
 .reviewText::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: var(--color-bg-secondary);
   border-radius: 4px;
 }
 
 .reviewText::-webkit-scrollbar-thumb {
-  background: var(--bg-secondary);
+  background: var(--color-bg-secondary);
   border-radius: 4px;
 }
 
@@ -192,7 +192,7 @@
   }
 
   .title {
-    font-size: var(--font-size-2xl, 2rem);
+    font-size: var(--font-size-h2, 2rem);
   }
 
   .reviewCard {
@@ -214,7 +214,7 @@
   }
 
   .title {
-    font-size: var(--font-size-xl, 1.5rem);
+    font-size: var(--font-size-text, 1.5rem);
   }
 
   .ratingLabel {
@@ -222,7 +222,7 @@
   }
 
   .ratingNumber {
-    font-size: var(--font-size-lg, 1.25rem);
+    font-size: var(--font-size-small, 1.25rem);
   }
 
   .reviewCard {

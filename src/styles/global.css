@@ -40,24 +40,24 @@ h6 {
 }
 
 h1 {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-h1);
   font-weight: var(--font-weight-bold);
 }
 
 h2 {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-h1);
   font-weight: var(--font-weight-semibold);
 }
 
 h3 {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-text);
   font-weight: var(--font-weight-semibold);
 }
 
 p {
   font-family: var(--font-secondary);
   font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-text);
 }
 
 a {

@@ -37,9 +37,9 @@
   border: none;
   padding: var(--spacing-sm) var(--spacing-md);
   font-family: var(--font-secondary);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-small);
   font-weight: var(--font-weight-regular);
-  color: var(--button-text-color-white);
+  color: var(--button-text-secondary);
   cursor: pointer;
   transition: color var(--transition-fast);
   white-space: nowrap;
@@ -52,7 +52,7 @@
 }
 
 .navLink:hover {
-  color: var(--button-bg-color-white);
+  color: var(--button-bg-secondary);
 }
 
 .navLink:active {
@@ -74,10 +74,10 @@
   min-width: 334px;
   height: 48px;
   font-family: var(--font-secondary);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-small);
   font-weight: var(--font-weight-bold);
   background-color: var(--button-bg-color-blue);
-  color: var(--button-text-color-blue);
+  color: var(--button-text-primary);
   border: none;
   border-radius: var(--border-radius-md);
   cursor: pointer;
@@ -90,7 +90,7 @@
 }
 
 .buttonConsultation:hover {
-  background-color: var(--button-bg-color-white);
+  background-color: var(--button-bg-secondary);
   color: var(--text-inverse);
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);

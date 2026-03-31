@@ -1,55 +1,32 @@
 :root {
-  /* ======================================================================
-       Цвета - Основная палитра
-       ====================================================================== */
+     /*********** COLORS **************/
+  --color-text-primary: #032645; 
+  --color-text-secondary: #004887; 
 
-  /* Основные цвета бренда */
-  --color-text: rgba(3, 38, 69, 1); /* Цвет текста */
+  --color-bg-primary: #F8FCFF; 
+  --color-bg-secondary: #004887; 
+  --color-bg-accent: #E8F5FF;
 
-  /* Цвета фона */
-  --bg-primary: rgba(248, 252, 255, 1); /* Основной фон */
-  --bg-secondary: rgba(0, 72, 135, 1); /* Вторичный фон */
-  --bg-else: rgba(232, 245, 255, 1);
+  --button-bg-color-blue: #004887;
+  --button-bg-secondary: #FFFFFF;
+  --button-text-primary: #E8F5FF;
+  --button-text-secondary: #004887;
 
-  /* Цвета текста */
-  --text-primary: rgba(3, 38, 69, 1); /* Основной текст */
-  --text-secondary: rgba(0, 72, 135, 1); /* Вторичный текст */
+     /*********** FONTS **************/
 
-  /* Цвета кнопки */
-  --button-bg-color-blue: rgba(0, 72, 135, 1);
-  --button-bg-color-white: rgba(255, 255, 255, 1);
-  --button-text-color-blue: rgba(232, 245, 255, 1);
-  --button-text-color-white: rgba(0, 72, 135, 1);
-
-  /* ======================================================================
-       Типографика - Шрифты
-       ====================================================================== */
-
-  /* Семейства шрифтов */
   --font-primary: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   --font-secondary: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 
-  /* Размеры шрифта */
-  --font-size-xs: 0.75rem; /* 12px */
-  --font-size-sm: 0.875rem; /* 14px */
-  --font-size-base: 1rem; /* 16px */
-  --font-size-md: 1.125rem; /* 18px */
-  --font-size-lg: 1.25rem; /* 20px */
-  --font-size-xl: 1.5rem; /* 24px */
-  --font-size-2xl: 2rem; /* 32px */
-  --font-size-3xl: 2.5rem; /* 40px */
-  --font-size-4xl: 3rem; /* 48px */
+  --font-size-small: 1.25rem; /* 20px */
+  --font-size-text: 1.5rem; /* 24px */
+  --font-size-h2: 2rem; /* 32px */
+  --font-size-h1: 2.5rem; /* 40px */
 
-  /* Толщина шрифта */
-  --font-weight-light: 300;
   --font-weight-regular: 400;
-  --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  /* ======================================================================
-       Отступы и интервалы
-       ====================================================================== */
+     /*********** SPACING **************/
 
   /* Базовый отступ (8px) */
   --spacing-unit: 0.5rem; /* 8px */
@@ -65,9 +42,7 @@
   --container-padding: var(--spacing-md);
   --container-max-width: 1200px;
 
-  /* ======================================================================
-       Границы и тени
-       ====================================================================== */
+    /*********** Границы и тени **************/
 
   /* Радиус границ */
   --border-radius-sm: 0.25rem; /* 4px */
@@ -81,19 +56,14 @@
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
 
-  /* ======================================================================
-       Анимации и переходы
-       ====================================================================== */
+     /*********** Анимации и переходы **************/
 
   --transition-fast: 0.15s ease;
   --transition-base: 0.3s ease;
   --transition-slow: 0.5s ease;
-
   --animation-curve: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* ======================================================================
-       Брейкпоинты (для медиа-запросов)
-       ====================================================================== */
+     /*********** Брейкпоинты (для медиа-запросов) **************/
 
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
