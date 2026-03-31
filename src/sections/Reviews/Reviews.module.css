@@ -20,9 +20,6 @@
 }
 
 .title {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-h1);
-  font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
   margin: 0 0 30px;
   display: flex;
@@ -210,10 +207,6 @@
   .allReviewsButton {
     text-align: center;
     white-space: normal;
-  }
-
-  .title {
-    font-size: var(--font-size-text, 1.5rem);
   }
 
   .ratingLabel {

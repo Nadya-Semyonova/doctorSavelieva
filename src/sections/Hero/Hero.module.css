@@ -13,7 +13,6 @@
   padding: 30px 125px;
 }
 
-/* Текст */
 .info {
   display: flex;
   flex-direction: column;
@@ -28,7 +27,10 @@
   gap: 4px;
 }
 
-/* Фото */
+.title {
+  color: var(--color-text-primary);
+}
+
 .imageWrapper {
   width: 535px;
   height: 515px;
@@ -43,7 +45,6 @@
   transform: scale(1.4);
 }
 
-/* Волна */
 .wave {
   position: absolute;
   z-index: 0;

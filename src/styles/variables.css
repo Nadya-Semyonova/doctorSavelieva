@@ -10,7 +10,7 @@
   --button-text-primary: #e8f5ff;
   --button-text-secondary: #004887;
 
-  /*********** FONTS **************/
+     /*********** FONTS **************/
 
   --font-primary: "Roboto", -apple-system, blinkmacsystemfont, "Segoe UI", arial, sans-serif;
   --font-secondary: "Lato", -apple-system, blinkmacsystemfont, "Segoe UI", arial, sans-serif;
@@ -22,7 +22,7 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  /*********** SPACING **************/
+     /*********** SPACING **************/
 
   /* Базовый отступ (8px) */
   --spacing-unit: 0.5rem; /* 8px */
@@ -38,7 +38,7 @@
   --container-padding: var(--spacing-md);
   --container-max-width: 1200px;
 
-  /*********** Границы и тени **************/
+    /*********** Границы и тени **************/
 
   /* Радиус границ */
   --border-radius-sm: 0.25rem; /* 4px */
@@ -52,18 +52,18 @@
   --shadow-lg: 0 10px 15px rgb(0 0 0 / 10%);
   --shadow-xl: 0 20px 25px rgb(0 0 0 / 15%);
 
-  /*********** Анимации и переходы **************/
+     /*********** Анимации и переходы **************/
 
   --transition-fast: 0.15s ease;
   --transition-base: 0.3s ease;
   --transition-slow: 0.5s ease;
   --animation-curve: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /*********** Брейкпоинты (для медиа-запросов) **************/
+     /*********** Брейкпоинты (для медиа-запросов) **************/
 
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --breakpoint-2xl: 1400px;
+  --breakpoint-2xl: 1440px;
 }
