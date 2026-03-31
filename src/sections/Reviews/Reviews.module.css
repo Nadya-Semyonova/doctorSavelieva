@@ -21,16 +21,15 @@
 
 .title {
   color: var(--color-text-primary);
-  margin: 0 0 30px 0;
+  margin: 0 0 30px;
   display: flex;
 }
 
 .ratingBlock {
   display: flex;
-  flex-direction: column;
+  flex-flow: column wrap;
   align-items: start;
   gap: 12px;
-  flex-wrap: wrap;
 }
 
 .ratingLabel {
@@ -110,7 +109,7 @@
 
 .reviewDate {
   font-family: var(--font-secondary);
-  font-size: var(var(--font-size-small));
+  font-size: var(--font-size-small);
   color: var(--text-secondary);
   padding-inline-start: 10px;
   padding-block-start: 5px;
@@ -124,7 +123,7 @@
 
 .ratingValue {
   font-family: var(--font-primary);
-  font-size: var(var(--font-size-small));
+  font-size: var(--font-size-small);
   font-weight: var(--font-weight-bold);
   color: var(--color-text);
 }
@@ -182,8 +181,8 @@
   display: block;
 }
 
-/* Адаптив */
-@media (max-width: 1024px) {
+/* Адаптив
+@media (width <= 1024px) {
   .reviews {
     padding: 48px 0;
   }
@@ -198,7 +197,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .reviewsHeader {
     flex-direction: column;
     align-items: stretch;
@@ -228,7 +227,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .reviews {
     padding: 32px 0;
   }
@@ -245,20 +244,4 @@
   .starsDisplay {
     order: -1;
   }
-}
-
-/* Анимация */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-on-scroll {
-  animation: fadeInUp 0.6s ease forwards;
-}
+} */

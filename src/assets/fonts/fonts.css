@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Roboto";
+  font-family: Roboto;
   src:
     url("./Roboto-Medium.woff2") format("woff2"),
     url("./Roboto-Medium.woff") format("woff");
@@ -9,7 +9,7 @@
 }
 
 @font-face {
-  font-family: "Lato";
+  font-family: Lato;
   src:
     url("./Lato-Regular.woff2") format("woff2"),
     url("./Lato-Regular.woff") format("woff");

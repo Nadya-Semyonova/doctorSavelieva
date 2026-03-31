@@ -1,6 +1,6 @@
-import { Link as RouterLink } from 'react-router-dom';
-import styles from './Footer.module.css';
-import ButtonDefault from '../../shared/ui/Button/ButtonDefault';
+import { Link as RouterLink } from "react-router-dom";
+import styles from "./Footer.module.css";
+import ButtonDefault from "../../shared/ui/Button/ButtonDefault";
 
 interface FooterProps {
   className?: string;
@@ -11,8 +11,8 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
+        behavior: "smooth",
+        block: "start",
       });
     }
   };
@@ -23,49 +23,43 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
   };
 
   function handleAppointmentClick(): void {
-    throw new Error('Function not implemented.');
+    throw new Error("Function not implemented.");
   }
 
   return (
-    <footer className={`${styles.footer} ${className || ''}`}>
+    <footer className={`${styles.footer} ${className || ""}`}>
       <div className={styles.container}>
         <div className={styles.footerContent}>
           {/* Левая колонка - юридические документы (заглушки) */}
           <div className={styles.legalSection}>
-            <RouterLink 
-              to="/offer-agreement" 
-              className={styles.legalLink}
-            >
+            <RouterLink to="/offer-agreement" className={styles.legalLink}>
               Договор оферты
             </RouterLink>
-            <RouterLink 
-              to="/privacy-policy" 
-              className={styles.legalLink}
-            >
+            <RouterLink to="/privacy-policy" className={styles.legalLink}>
               Политика конфиденциальности
             </RouterLink>
           </div>
 
           {/* Центральная колонка - якорные ссылки */}
           <div className={styles.navSection}>
-            <a 
-              href="#about" 
+            <a
+              href="#about"
               className={styles.anchorLink}
-              onClick={(e) => handleAnchorClick(e, 'about')}
+              onClick={(e) => handleAnchorClick(e, "about")}
             >
               Обо мне
             </a>
-            <a 
-              href="#benefit" 
+            <a
+              href="#benefit"
               className={styles.anchorLink}
-              onClick={(e) => handleAnchorClick(e, 'benefit')}
+              onClick={(e) => handleAnchorClick(e, "benefit")}
             >
               Польза
             </a>
-            <a 
-              href="#reviews" 
+            <a
+              href="#reviews"
               className={styles.anchorLink}
-              onClick={(e) => handleAnchorClick(e, 'reviews')}
+              onClick={(e) => handleAnchorClick(e, "reviews")}
             >
               Отзывы
             </a>

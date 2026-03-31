@@ -1,13 +1,10 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link } from "react-router-dom";
 import type { IHeader } from "../../types/types";
 import ButtonDefault from "../../shared/ui/Button/ButtonDefault";
 import styles from "./Header.module.css";
-import Logo from '../../shared/ui/Logo/Logo';
+import Logo from "../../shared/ui/Logo/Logo";
 
-export default function Header({ 
-  onNavigate, 
-  onConsultationClick 
-}: IHeader) {
+export default function Header({ onNavigate, onConsultationClick }: IHeader) {
   const handleScrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -39,7 +36,7 @@ export default function Header({
             <li className={styles.navItem}>
               <NavLink
                 to="/#about"
-                className={({ isActive }) => 
+                className={({ isActive }) =>
                   isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
                 }
                 onClick={(e) => {
@@ -54,7 +51,7 @@ export default function Header({
             <li className={styles.navItem}>
               <NavLink
                 to="/#benefit"
-                className={({ isActive }) => 
+                className={({ isActive }) =>
                   isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
                 }
                 onClick={(e) => {
@@ -69,7 +66,7 @@ export default function Header({
             <li className={styles.navItem}>
               <NavLink
                 to="/#reviews"
-                className={({ isActive }) => 
+                className={({ isActive }) =>
                   isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
                 }
                 onClick={(e) => {
@@ -87,10 +84,13 @@ export default function Header({
           <Logo />
         </div>
         <div className={styles.consultationButton}>
-          <Link to="/#appointment" onClick={(e) => {
-            e.preventDefault();
-            handleConsultation();
-          }}>
+          <Link
+            to="/#appointment"
+            onClick={(e) => {
+              e.preventDefault();
+              handleConsultation();
+            }}
+          >
             <ButtonDefault
               name="Записаться на консультацию"
               handleClick={handleConsultation}

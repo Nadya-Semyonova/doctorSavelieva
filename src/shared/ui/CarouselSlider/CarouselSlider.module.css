@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  padding: 40px 40px;
+  padding: 40px;
 }
 
 .customButtonPrev,
@@ -47,7 +47,7 @@
 }
 
 /* Адаптив */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .container {
     padding: 0 20px;
   }
@@ -59,7 +59,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .container {
     padding: 0 12px;
   }

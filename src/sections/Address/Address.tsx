@@ -2,11 +2,11 @@ import { CONTACTS } from "../../assets/data/contacts";
 import ButtonDefault from "../../shared/ui/Button/ButtonDefault";
 import Map from "../../shared/ui/Map/Map";
 import Wave from "../../shared/ui/Waves/Wave";
-import styles from './Address.module.css'
+import styles from "./Address.module.css";
 
 export default function Address() {
   const handleClinicBooking = () => {
-    window.open('https://dobrodoctor39.ru/', '_blank', 'noopener,noreferrer');
+    window.open("https://dobrodoctor39.ru/", "_blank", "noopener,noreferrer");
   };
   return (
     <section className={styles.address}>
@@ -16,12 +16,11 @@ export default function Address() {
         <div className={styles.content}>
           <div className={styles.info}>
             <p className={styles.text}>
-              Очный приём проводится в городе Калининград в клинике
-              «Добрый Докторъ».
+              Очный приём проводится в городе Калининград в клинике «Добрый Докторъ».
             </p>
 
             <div className={styles.action}>
-              <ButtonDefault 
+              <ButtonDefault
                 handleClick={handleClinicBooking}
                 ariaLabel="Перейти на сайт клиники Добрый Докторъ"
               >
@@ -30,9 +29,7 @@ export default function Address() {
             </div>
 
             <div className={styles.textSecondary}>
-              <p>
-                На очном приеме использую в своей работе:
-              </p>
+              <p>На очном приеме использую в своей работе:</p>
 
               <ul className={styles.list}>
                 <li>УЗИ-навигацию,</li>
@@ -51,5 +48,5 @@ export default function Address() {
 
       <Wave className={styles.wave} variant="address" />
     </section>
-  )
+  );
 }

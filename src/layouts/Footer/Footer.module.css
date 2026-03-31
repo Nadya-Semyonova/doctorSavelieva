@@ -55,9 +55,8 @@
 /* Центральная колонка - навигационные ссылки */
 .navSection {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   gap: 30px;
-  flex-wrap: wrap;
   flex-shrink: 0;
 }
 
@@ -131,7 +130,7 @@
    Адаптивность - Планшеты и ноутбуки
    ====================================================================== */
 
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
   .footerContent {
     gap: var(--spacing-xl);
   }
@@ -145,7 +144,7 @@
    Адаптивность - Планшеты (768px - 991px)
    ====================================================================== */
 
-@media (max-width: 991px) {
+@media (width <= 991px) {
   .footer {
     padding: var(--spacing-lg) 0 var(--spacing-md);
   }
@@ -177,7 +176,7 @@
    Адаптивность - Мобильные устройства (до 767px)
    ====================================================================== */
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .footer {
     padding: var(--spacing-lg) 0 var(--spacing-md);
   }
@@ -234,7 +233,7 @@
    Адаптивность - Маленькие мобильные (до 480px)
    ====================================================================== */
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .footer {
     padding: var(--spacing-md) 0 var(--spacing-sm);
   }
@@ -303,10 +302,4 @@
 .legalLink:active,
 .anchorLink:active {
   color: var(--color-primary-dark);
-}
-
-.ctaButton:active {
-  transform: translateY(0);
-  background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
 }
