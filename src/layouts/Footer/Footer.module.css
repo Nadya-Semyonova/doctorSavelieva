@@ -34,7 +34,7 @@
 .legalLink {
   background: transparent;
   color: var(--color-text);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-small);
   font-weight: var(--font-weight-regular);
   text-decoration: none;
   padding: var(--spacing-xs) 0;
@@ -45,7 +45,7 @@
 }
 
 .legalLink:hover {
-  color: var(--button-bg-color-white);
+  color: var(--button-bg-secondary);
 }
 
 .legalLink:hover::after {
@@ -64,7 +64,7 @@
 .anchorLink {
   background: transparent;
   color: var(--color-text);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-small);
   font-weight: var(--font-weight-regular);
   text-decoration: none;
   padding: var(--spacing-xs) 0;
@@ -75,7 +75,7 @@
 }
 
 .anchorLink:hover {
-  color: var(--button-bg-color-white);
+  color: var(--button-bg-secondary);
 }
 
 .anchorLink:hover::after {
@@ -104,7 +104,7 @@
 }
 
 .ctaButton:hover {
-  background-color: var(--button-bg-color-white);
+  background-color: var(--button-bg-secondary);
   color: var(--text-inverse);
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
