@@ -1,0 +1,24 @@
+.logo {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--primary-color, #0066cc);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.logoText {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-text);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
