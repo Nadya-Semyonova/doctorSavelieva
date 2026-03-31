@@ -2,6 +2,7 @@ import { NavLink, Link } from 'react-router-dom';
 import type { IHeader } from "../../types/types";
 import ButtonDefault from "../../shared/ui/Button/ButtonDefault";
 import styles from "./Header.module.css";
+import Logo from '../../shared/ui/Logo/Logo';
 
 export default function Header({ 
   onNavigate, 
@@ -82,7 +83,9 @@ export default function Header({
             </li>
           </ul>
         </nav>
-
+        <div className={styles.logoCenter}>
+          <Logo />
+        </div>
         <div className={styles.consultationButton}>
           <Link to="/#appointment" onClick={(e) => {
             e.preventDefault();

@@ -65,7 +65,8 @@ src/
 ├── layouts/                    # Каркас страницы
 │   ├── MainLayout.tsx          # Общий layout: Header + main + Footer
 │   ├── Header/
-│   │   └── Header.tsx          # Шапка сайта (навигация)
+│   │   ├── Header.tsx          # Шапка сайта (навигация + логотип)
+│   │   └── Header.module.css   # Стили для хедера (включая позиционирование лого)
 │   └── Footer/
 │       └── Footer.tsx          # Подвал сайта
 │
@@ -108,8 +109,11 @@ src/
 │   │   ├── CarouselSlider/
 │   │   │   ├── CarouselSlider.tsx   # Универсальный слайдер
 │   │   │   └── CarouselSlider.css
+│   │   ├── Logo/
+│   │   │   ├── Logo.tsx        # Компонент логотипа (текст "ревматолог Савельева")
+│   │   │   └── Logo.module.css # Стили для логотипа
 │   │   └── Map/
-│   │       ├── Map.tsx              # Универсальный компонент карты
+│   │       ├── Map.tsx         # Универсальный компонент карты
 │   │       └── Map.css
 │   ├── assets/                 # Изображения, иконки, статические файлы
 │   │   ├── fonts/
@@ -125,6 +129,7 @@ src/
 │   └── global/
 │
 ├── types/                      # Общие TypeScript-типы
+│   └── types.ts                # Добавлены типы для Logo компонента (опционально)
 │
 └── main.tsx                    # Точка входа (bootstrap React)
 ```
