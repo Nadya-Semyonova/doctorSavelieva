@@ -1,27 +1,32 @@
-import { useRef, useEffect } from 'react';
-import {reviews}  from '../../assets/data/reviews.data'
-import ButtonDefault from '../../shared/ui/Button/ButtonDefault';
-import CarouselSlider from '../../shared/ui/CarouselSlider/CarouselSlider';
-import ReviewCard from './ReviewCard'
-import styles from './Reviews.module.css';
-import Wave from '../../shared/ui/Waves/Wave';
+import { useRef, useEffect } from "react";
+import { reviews } from "../../assets/data/reviews.data";
+import ButtonDefault from "../../shared/ui/Button/ButtonDefault";
+import CarouselSlider from "../../shared/ui/CarouselSlider/CarouselSlider";
+import ReviewCard from "./ReviewCard";
+import styles from "./Reviews.module.css";
+import Wave from "../../shared/ui/Waves/Wave";
 
 export default function Reviews() {
   const sectionRef = useRef<HTMLElement>(null);
 
   // Вычисляем средний рейтинг
   const averageRating = reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length;
-  
+
   // Форматируем рейтинг до 1 десятичного знака
   const formattedRating = averageRating.toFixed(1);
 
   // Анимация появления при скролле
   useEffect(() => {
+    // Сохраняем текущее значение ref в переменную
+    const currentSection = sectionRef.current;
+
+    if (!currentSection) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const cards = entry.target.querySelectorAll('.animate-on-scroll');
+            const cards = entry.target.querySelectorAll(".animate-on-scroll");
             cards.forEach((card, idx) => {
               setTimeout(() => {
                 card.classList.add(styles.animated);
@@ -31,19 +36,15 @@ export default function Reviews() {
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    observer.observe(currentSection);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      observer.unobserve(currentSection);
     };
-  }, []);
+  }, []); // Пустой массив зависимостей, так как используем сохраненную переменную
 
   // Создаем слайды из отзывов
   const reviewSlides = reviews.map((review, index) => (
@@ -68,11 +69,11 @@ export default function Reviews() {
                 <span className={styles.ratingNumber}>{formattedRating}</span>
                 <div className={styles.starsDisplay}>
                   {[...Array(5)].map((_, i) => (
-                    <span 
-                      key={i} 
-                      className={`${styles.starIcon} ${i < Math.floor(parseFloat(formattedRating)) ? styles.starIconFilled : ''}`}
+                    <span
+                      key={i}
+                      className={`${styles.starIcon} ${i < Math.floor(parseFloat(formattedRating)) ? styles.starIconFilled : ""}`}
                     >
-                      {i < Math.floor(parseFloat(formattedRating)) ? '★' : '☆'}
+                      {i < Math.floor(parseFloat(formattedRating)) ? "★" : "☆"}
                     </span>
                   ))}
                 </div>
@@ -99,7 +100,7 @@ export default function Reviews() {
           </CarouselSlider>
         </div>
       </div>
-            <Wave className={styles.wave} variant="reviews" />
+      <Wave className={styles.wave} variant="reviews" />
     </section>
   );
 }

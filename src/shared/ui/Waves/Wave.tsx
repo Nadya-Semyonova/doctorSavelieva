@@ -3,31 +3,28 @@ import {
   WaveBenefit,
   WaveReviews,
   WaveAddress,
-} from '../../../assets/images/IconsSvg/Waves'
+} from "../../../assets/images/IconsSvg/Waves";
 
 const map = {
   hero: WaveHero,
   benefit: WaveBenefit,
   reviews: WaveReviews,
   address: WaveAddress,
-} as const
+} as const;
 
-type WaveVariant = keyof typeof map
+type WaveVariant = keyof typeof map;
 
 interface WaveProps {
-  variant?: WaveVariant
-  className?: string
+  variant?: WaveVariant;
+  className?: string;
 }
 
-export default function Wave({
-  variant = 'hero',
-  className,
-}: WaveProps) {
-  const WaveComponent = map[variant] || WaveHero
+export default function Wave({ variant = "hero", className }: WaveProps) {
+  const WaveComponent = map[variant] || WaveHero;
 
   return (
     <div className={className}>
       <WaveComponent />
     </div>
-  )
+  );
 }

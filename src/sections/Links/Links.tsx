@@ -3,5 +3,5 @@ export default function Links() {
     <section className="links">
       <h2>Присоединяйся к сообществу в Telegram</h2>
     </section>
-  )
+  );
 }

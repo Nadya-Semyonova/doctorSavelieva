@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import styles from './Map.module.css'
+import { useState } from "react";
+import styles from "./Map.module.css";
 
 interface MapProps {
-  src: string
-  title?: string
+  src: string;
+  title?: string;
 }
 
-export default function Map({ src, title = 'Карта проезда' }: MapProps) {
-  const [isLoaded, setIsLoaded] = useState(false)
+export default function Map({ src, title = "Карта проезда" }: MapProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <div className={styles.wrapper}>
@@ -22,5 +22,5 @@ export default function Map({ src, title = 'Карта проезда' }: MapPro
         allowFullScreen
       />
     </div>
-  )
+  );
 }

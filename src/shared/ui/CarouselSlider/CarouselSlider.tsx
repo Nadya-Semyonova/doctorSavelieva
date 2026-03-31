@@ -1,15 +1,15 @@
-import { useState, useRef, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import type { Swiper as SwiperType } from 'swiper';
+import { useState, useRef, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 
-import type { IUsersCardsSwiper } from '../../../types/types';
+import type { IUsersCardsSwiper } from "../../../types/types";
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import styles from './CarouselSlider.module.css';
-import ChevronRight from '../../../assets/images/IconsSvg/ChevronRight';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import styles from "./CarouselSlider.module.css";
+import ChevronRight from "../../../assets/images/IconsSvg/ChevronRight";
 
 export default function CarouselSlider({
   children,
@@ -23,7 +23,7 @@ export default function CarouselSlider({
 }: IUsersCardsSwiper) {
   const [begButton, setBegButton] = useState<boolean>(true);
   const [endButton, setEndButton] = useState<boolean>(false);
-  const [, setCurrentBreakpoint] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
+  const [, setCurrentBreakpoint] = useState<"mobile" | "tablet" | "desktop">("desktop");
   const swiperRef = useRef<SwiperType | null>(null);
 
   // Определение брейкпоинтов для Swiper
@@ -47,17 +47,17 @@ export default function CarouselSlider({
     const handleResize = () => {
       const width = window.innerWidth;
       if (width < 768) {
-        setCurrentBreakpoint('mobile');
+        setCurrentBreakpoint("mobile");
       } else if (width < 1024) {
-        setCurrentBreakpoint('tablet');
+        setCurrentBreakpoint("tablet");
       } else {
-        setCurrentBreakpoint('desktop');
+        setCurrentBreakpoint("desktop");
       }
     };
-    
+
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const onEnd = () => {
@@ -93,10 +93,14 @@ export default function CarouselSlider({
         slidesPerGroup={1}
         modules={[Navigation, Pagination]}
         navigation={false}
-        pagination={showPagination ? {
-          clickable: true,
-          dynamicBullets: false,
-        } : false}
+        pagination={
+          showPagination
+            ? {
+                clickable: true,
+                dynamicBullets: false,
+              }
+            : false
+        }
         breakpoints={breakpoints}
         onReachBeginning={onBeginning}
         onReachEnd={onEnd}
@@ -109,14 +113,12 @@ export default function CarouselSlider({
         }}
       >
         {slidesArray.map((slide, index) => (
-          <SwiperSlide key={index}>
-            {slide}
-          </SwiperSlide>
+          <SwiperSlide key={index}>{slide}</SwiperSlide>
         ))}
       </Swiper>
-      
+
       <button
-        className={`${styles.customButtonPrev} ${begButton ? styles.buttonDeactive : ''}`}
+        className={`${styles.customButtonPrev} ${begButton ? styles.buttonDeactive : ""}`}
         onClick={handleClickPrev}
         type="button"
         tabIndex={0}
@@ -124,9 +126,9 @@ export default function CarouselSlider({
       >
         <ChevronRight />
       </button>
-      
+
       <button
-        className={`${styles.customButtonNext} ${endButton ? styles.buttonDeactive : ''}`}
+        className={`${styles.customButtonNext} ${endButton ? styles.buttonDeactive : ""}`}
         onClick={handleClickNext}
         type="button"
         tabIndex={0}
