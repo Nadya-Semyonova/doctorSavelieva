@@ -1,3 +1,5 @@
+import AccordionSection from "./AccordionSection/AccordionSection";
+
 export default function About() {
   return (
     <section className="about">
@@ -7,6 +9,12 @@ export default function About() {
         ревматических заболеваний. Она придерживается принципов доказательной медицины, что
         гарантирует пациентам эффективное и безопасное лечение.
       </p>
+
+      {/* пример как вставлять аккордеон */}
+      <AccordionSection title="Что это?">
+        <p>Это скрытый текст 👀</p>
+      </AccordionSection>
+      
     </section>
   );
 }
