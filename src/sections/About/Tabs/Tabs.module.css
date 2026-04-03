@@ -1,0 +1,27 @@
+.tabs {
+  display: flex;
+  gap: 20px;
+}
+
+.tabButton {
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-small);
+  padding-block: 18px;
+  inline-size: 240px;
+  border-radius: 10px;
+  background: var(--button-bg-secondary);
+  color: var(--button-text-secondary);
+  border: none;
+  cursor: pointer;
+}
+
+/* подумать и сделать общий стиль для кнопок при ховере и нажатии */
+.tabButton:hover {
+  color: var(--color-text-primary);
+}
+
+.active {
+  background: var(--button-bg-color-blue);
+  color: var(--button-text-primary);
+}
