@@ -41,3 +41,9 @@ export interface IHeader {
   onNavigate?: (sectionId: string) => void; // Опциональный колбэк для навигации
   onConsultationClick?: () => void; // Опциональный колбэк для кнопки консультации
 }
+
+export interface IEducationSection {
+  id: string;
+  title: string;
+  content: string;
+}

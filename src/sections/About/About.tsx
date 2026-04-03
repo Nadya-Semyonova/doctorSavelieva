@@ -1,3 +1,4 @@
+import { educationData } from "../../assets/data/educationData";
 import AccordionSection from "./AccordionSection/AccordionSection";
 
 export default function About() {
@@ -11,10 +12,12 @@ export default function About() {
       </p>
 
       {/* пример как вставлять аккордеон */}
-      <AccordionSection title="Что это?">
-        <p>Это скрытый текст 👀</p>
-      </AccordionSection>
-      
+      {educationData.map((item) => (
+        <AccordionSection key={item.id} title={item.title}>
+          <p>{item.content}</p>
+        </AccordionSection>
+      ))}
+
     </section>
   );
 }
