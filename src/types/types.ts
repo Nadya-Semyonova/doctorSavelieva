@@ -7,19 +7,19 @@ export interface IButtonDefault {
   ariaLabel?: string;
   children?: React.ReactNode;
   status?: boolean;
-  href?: string; // добавляем для внешних ссылок
-  target?: "_blank" | "_self"; // добавляем target
+  href?: string; 
+  target?: "_blank" | "_self"; 
 }
 
 export interface IUsersCardsSwiper {
-  children: React.ReactNode | React.ReactNode[]; // расширяем тип для поддержки массива слайдов
+  children: React.ReactNode | React.ReactNode[]; 
   bgButtons?: string;
   spaceBetween?: number;
   slidesPerView?: number;
   slidesPerViewMobile?: number; // добавлено для адаптива
   slidesPerViewTablet?: number; // добавлено для адаптива
   slidesPerViewDesktop?: number; // добавлено для адаптива
-  showPagination?: boolean; // добавляем пагинацию
+  showPagination?: boolean; 
   sliderId?: string;
 }
 
@@ -34,16 +34,24 @@ export interface IReviewCard {
   date: string;
   rating: number;
   text: string;
-  index: number; // для анимации
+  index: number; 
 }
 
 export interface IHeader {
-  onNavigate?: (sectionId: string) => void; // Опциональный колбэк для навигации
-  onConsultationClick?: () => void; // Опциональный колбэк для кнопки консультации
+  onNavigate?: (sectionId: string) => void; 
+  onConsultationClick?: () => void; 
 }
 
 export interface IEducationSection {
   id: string;
   title: string;
   content: string;
+}
+
+export interface IAppointmentFormData {
+  fullName: string;
+  phone: string;
+  email: string;
+  consentPersonal: boolean;
+  consentOffer: boolean;
 }

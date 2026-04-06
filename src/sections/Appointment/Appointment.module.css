@@ -1,0 +1,106 @@
+.appointment {
+  position: relative;
+  padding: 0 95px 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 75px;
+  padding: 61px 48px;
+  background-color: #fff;
+  border-radius: var(--border-radius-lg);
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+.title {
+  font-size: var(--font-size-h2);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  font-weight: var(--font-weight-semibold);
+  text-align: left;
+}
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+ text-align: left;
+ font-family: var( --font-secondary);
+ font-size: var( --font-size-text);
+ font-weight: var(--font-weight-regular);
+ gap:20px;
+}
+
+
+
+.notice {
+  padding: var(--spacing-lg);
+  background-color: var( --color-bg-accent);
+  border-left: 4px solid var(--color-bg-secondary);
+  border-radius: var(--border-radius-md);
+}
+
+.noticeTitle {
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
+}
+
+.noticeText {
+  font-size: var(--font-size-small);
+  color: var(--color-text-primary);
+}
+
+.rightColumn {
+padding-inline-end: 49px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.checkboxes {
+  margin: var(--spacing-md) 0;
+  text-align: left;
+}
+
+.submitButton {
+  width: 100%;
+  padding: var(--spacing-md);
+  font-size: var(--font-size-text) ;
+  background-color: var(--color-bg-secondary);
+  color: var(--button-text-primary);
+  border: none ;
+  border-radius: var(--border-radius-md) ;
+  cursor: pointer ;
+  transition: all var(--transition-fast) ;
+  margin-top: var(--spacing-md);
+}
+
+.submitButton:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* @media (max-width: 968px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .title {
+    font-size: calc(var(--font-size-h1) * 0.9);
+  }
+} */
