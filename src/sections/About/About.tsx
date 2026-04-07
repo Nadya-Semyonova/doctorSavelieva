@@ -3,6 +3,7 @@ import EducationTab from "./EducationTab/EducationTab";
 import Tabs, { type TabId } from "./Tabs/Tabs";
 import styles from "./About.module.css";
 import DirectionsTab from "./DirectionsTab/DirectionsTab";
+import ExperienceTab from "./ExperienceTab/ExperienceTab";
 
 export default function About() {
   const [activeTab, setActiveTab] = useState<TabId>("education");
@@ -20,7 +21,7 @@ export default function About() {
 
       {activeTab === "education" && <EducationTab />}
 
-      {activeTab === "experience" && <p>Контент опыта</p>}
+      {activeTab === "experience" && <ExperienceTab />}
 
       {activeTab === "directions" && <DirectionsTab />}
 
