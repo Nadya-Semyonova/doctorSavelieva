@@ -1,8 +1,9 @@
 .about {
-  padding: 95px;
+  padding: 100px 95px;
   display: flex;
   flex-direction: column;
   gap: 50px;
+  position: relative;
 }
 
 .info {
@@ -11,4 +12,3 @@
   gap: 20px;
   text-align: left;
 }
-

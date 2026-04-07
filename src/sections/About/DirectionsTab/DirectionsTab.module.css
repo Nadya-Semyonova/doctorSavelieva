@@ -1,0 +1,34 @@
+.directions {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 80%;
+  text-align: left;
+}
+
+.directionsContent {
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-text);
+  color: var(--color-text-primary);
+}
+
+.directionsList {
+  list-style: none;
+}
+
+.directionsList li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.directionsList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-text-primary);
+  border-radius: 50%;
+}

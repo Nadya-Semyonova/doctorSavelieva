@@ -1,7 +1,7 @@
 import AccordionSection from "../AccordionSection/AccordionSection";
 import CarouselSlider from "../../../shared/ui/CarouselSlider/CarouselSlider";
 import { educationData } from "../../../assets/data/educationData";
-import styles from "./EducationSection.module.css";
+import styles from "./EducationTab.module.css";
 import diploma from "../../../assets/images/Gallery/Thumbs/diploma.png";
 import diplomaRevma from "../../../assets/images/Gallery/Thumbs/diploma_revma.png";
 import diplomaUltrasound from "../../../assets/images/Gallery/Thumbs/diploma_ultrasaund.png";
