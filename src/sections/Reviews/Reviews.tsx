@@ -96,6 +96,7 @@ export default function Reviews() {
             slidesPerViewMobile={1}
             spaceBetween={20}
             showPagination={false}
+            variant="side"
           >
             {reviewSlides}
           </CarouselSlider>

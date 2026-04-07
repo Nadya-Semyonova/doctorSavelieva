@@ -1,0 +1,14 @@
+.about {
+  padding: 95px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
