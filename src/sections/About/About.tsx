@@ -1,7 +1,8 @@
 import { useState } from "react";
-import EducationSection from "./EducationSection/EducationSection";
+import EducationTab from "./EducationTab/EducationTab";
 import Tabs, { type TabId } from "./Tabs/Tabs";
 import styles from "./About.module.css";
+import DirectionsTab from "./DirectionsTab/DirectionsTab";
 
 export default function About() {
   const [activeTab, setActiveTab] = useState<TabId>("education");
@@ -17,11 +18,11 @@ export default function About() {
 
       <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
 
-      {activeTab === "education" && <EducationSection />}
+      {activeTab === "education" && <EducationTab />}
 
       {activeTab === "experience" && <p>Контент опыта</p>}
 
-      {activeTab === "directions" && <p>Контент направлений</p>}
+      {activeTab === "directions" && <DirectionsTab />}
 
     </section>
   );
