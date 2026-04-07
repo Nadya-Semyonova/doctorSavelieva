@@ -1,13 +1,9 @@
 .container {
   position: relative;
-  padding: 40px;
 }
 
 .customButtonPrev,
 .customButtonNext {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -17,26 +13,56 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition-base, 0.3s ease);
+  transition: background var(--transition-base, 0.3s ease),
+              transform var(--transition-base, 0.3s ease),
+              box-shadow var(--transition-base, 0.3s ease);
   z-index: 10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.side {
+  padding: 0 50px;
 }
 
 .customButtonPrev {
   left: 0;
 }
 
-.customButtonPrev svg {
-  transform: rotate(180deg);
-}
-
 .customButtonNext {
   right: 0;
 }
 
+.customButtonPrev svg {
+  transform: rotate(180deg);
+}
+
+/* hover ТОЛЬКО для боковых */
 .customButtonPrev:hover:not(.buttonDeactive),
 .customButtonNext:hover:not(.buttonDeactive) {
   background: var(--button-bg-color-blue);
   transform: translateY(-50%) scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+/* === НИЖНИЕ СТРЕЛКИ === */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.bottom {
+  position: static;
+  transform: none;
+}
+
+/* hover для нижних */
+.bottom:hover:not(.buttonDeactive) {
+  background: var(--button-bg-color-blue);
+  transform: scale(1.05); 
   box-shadow: var(--shadow-lg);
 }
 
@@ -46,7 +72,6 @@
   pointer-events: none;
 }
 
-/* Адаптив */
 @media (width <= 768px) {
   .container {
     padding: 0 20px;

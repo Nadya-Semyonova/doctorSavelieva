@@ -1,30 +1,23 @@
 import { useState } from "react";
-import { educationData } from "../../assets/data/educationData";
-import AccordionSection from "./AccordionSection/AccordionSection";
+import EducationSection from "./EducationSection/EducationSection";
 import Tabs, { type TabId } from "./Tabs/Tabs";
+import styles from "./About.module.css";
 
 export default function About() {
   const [activeTab, setActiveTab] = useState<TabId>("education");
 
   return (
-    <section className="about">
-      <h2>Обо мне</h2>
-      <p>
-        Ревматолог Савельева - опытный врач-ревматолог с 16-летним стажем. Придерживаюсь принципов доказательной медицины, что
-        гарантирует пациентам эффективное и безопасное лечение.
-      </p>
+    <section className={styles.about}>
+      <div className={styles.info}> 
+        <h2 className={styles.title}>Обо мне</h2>
+        <p className={styles.intro}>
+          Ревматолог Савельева - опытный врач-ревматолог с 16-летним стажем. Придерживаюсь принципов доказательной медицины, что гарантирует пациентам эффективное и безопасное лечение.
+        </p>
+      </div>
 
       <Tabs activeTab={activeTab} onTabChange={setActiveTab} />
 
-      {activeTab === "education" && (
-        <>
-          {educationData.map((item) => (
-            <AccordionSection key={item.id} title={item.title}>
-              <p>{item.content}</p>
-            </AccordionSection>
-          ))}
-        </>
-      )}
+      {activeTab === "education" && <EducationSection />}
 
       {activeTab === "experience" && <p>Контент опыта</p>}
 
