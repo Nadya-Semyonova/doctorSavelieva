@@ -1,16 +1,16 @@
 /* сделать стили нормальные (?) шрифт (?) и подкорректировать сам текст */
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+  padding: 100px;
+  font-family: var(--font-secondary);
+  background-color: var(--color-bg-primary);
+
 }
 
 .content {
   margin-top: 20px;
+  text-align: start;
 }
 
 .content p {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
