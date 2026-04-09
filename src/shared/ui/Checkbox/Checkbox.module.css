@@ -53,7 +53,7 @@
 }
 
 .checkboxInput:focus + .checkboxCustom {
-  box-shadow: 0 0 0 3px rgba(0, 72, 135, 0.2);
+  box-shadow: 0 0 0 3px rgb(0 72 135 / 20%);
 }
 
 .checkboxText {
