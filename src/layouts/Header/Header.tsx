@@ -1,10 +1,14 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 import type { IHeader } from "../../types/types";
 import ButtonDefault from "../../shared/ui/Button/ButtonDefault";
 import styles from "./Header.module.css";
 import Logo from "../../shared/ui/Logo/Logo";
 
 export default function Header({ onNavigate, onConsultationClick }: IHeader) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === "/";
+
   const handleScrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -15,16 +19,27 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
   const handleNavClick = (sectionId: string) => {
     if (onNavigate) {
       onNavigate(sectionId);
-    } else {
+    } else if (isHomePage) {
       handleScrollToSection(sectionId);
+    } else {
+      navigate("/");
+
+      setTimeout(() => {
+        handleScrollToSection(sectionId);
+      }, 100);
     }
   };
 
   const handleConsultation = () => {
     if (onConsultationClick) {
       onConsultationClick();
-    } else {
+    } else if (isHomePage) {
       handleScrollToSection("appointment");
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        handleScrollToSection("appointment");
+      }, 100);
     }
   };
 
@@ -35,7 +50,7 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
           <ul className={styles.navList}>
             <li className={styles.navItem}>
               <NavLink
-                to="/#about"
+                to="/"
                 className={({ isActive }) =>
                   isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
                 }
@@ -50,7 +65,7 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
             </li>
             <li className={styles.navItem}>
               <NavLink
-                to="/#benefit"
+                to="/"
                 className={({ isActive }) =>
                   isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
                 }
@@ -65,7 +80,7 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
             </li>
             <li className={styles.navItem}>
               <NavLink
-                to="/#reviews"
+                to="/"
                 className={({ isActive }) =>
                   isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
                 }
@@ -85,7 +100,7 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
         </div>
         <div className={styles.consultationButton}>
           <Link
-            to="/#appointment"
+            to="/"
             onClick={(e) => {
               e.preventDefault();
               handleConsultation();

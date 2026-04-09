@@ -10,10 +10,18 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <About />
-      <Benefit />
-      <Appointment />
-      <Reviews />
+      <section id="about">
+        <About />
+      </section>
+      <section id="benefit">
+        <Benefit />
+      </section>
+      <section id="reviews">
+        <Reviews />
+      </section>
+      <section id="appointment">
+        <Appointment />
+      </section>
       <Links />
       <Address />
     </>
