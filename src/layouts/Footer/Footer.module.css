@@ -1,5 +1,6 @@
 .footer {
-  padding: 110px 95px;
+  padding-inline-start: 95px;
+  padding-inline-end: 95px;
   display: flex;
   justify-content: space-between;
   margin-top: auto;
@@ -19,7 +20,6 @@
   justify-content: space-between;
   align-items: center;
   gap: var(--spacing-lg);
-  margin-bottom: var(--spacing-xl);
 }
 
 /* Левая колонка - юридические документы */
@@ -52,7 +52,7 @@
   width: 100%;
 }
 
-/* Центральная колонка - навигационные ссылки */
+/* Центральная колонка - навигационные ссылки
 .navSection {
   display: flex;
   flex-flow: row wrap;
@@ -82,7 +82,7 @@
 }
 
 /* Правая колонка - кнопка записи */
-.ctaSection {
+/* .ctaSection {
   flex-shrink: 0;
 }
 
@@ -111,7 +111,7 @@
 
 .ctaButton:active {
   transform: translateY(0);
-}
+} */ 
 
 /* Копирайт */
 .copyright {
@@ -126,180 +126,3 @@
   margin: 0;
 }
 
-/* ======================================================================
-   Адаптивность - Планшеты и ноутбуки
-   ====================================================================== */
-
-@media (width <= 1024px) {
-  .footerContent {
-    gap: var(--spacing-xl);
-  }
-
-  .navSection {
-    gap: var(--spacing-md);
-  }
-}
-
-/* ======================================================================
-   Адаптивность - Планшеты (768px - 991px)
-   ====================================================================== */
-
-@media (width <= 991px) {
-  .footer {
-    padding: var(--spacing-lg) 0 var(--spacing-md);
-  }
-
-  .footerContent {
-    gap: var(--spacing-xl);
-  }
-
-  .legalSection {
-    gap: var(--spacing-sm);
-  }
-
-  .navSection {
-    gap: var(--spacing-md);
-  }
-
-  .legalLink,
-  .anchorLink {
-    font-size: var(--font-size-sm);
-  }
-
-  .ctaButton {
-    font-size: var(--font-size-sm);
-    padding: var(--spacing-xs) var(--spacing-md);
-  }
-}
-
-/* ======================================================================
-   Адаптивность - Мобильные устройства (до 767px)
-   ====================================================================== */
-
-@media (width <= 767px) {
-  .footer {
-    padding: var(--spacing-lg) 0 var(--spacing-md);
-  }
-
-  .footerContent {
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-lg);
-  }
-
-  /* Левая колонка - юридические документы */
-  .legalSection {
-    flex-direction: row;
-    justify-content: center;
-    gap: var(--spacing-xl);
-    order: 2;
-  }
-
-  .legalLink {
-    white-space: nowrap;
-  }
-
-  /* Центральная колонка - навигационные ссылки */
-  .navSection {
-    justify-content: center;
-    gap: var(--spacing-xl);
-    order: 1;
-  }
-
-  .anchorLink {
-    white-space: nowrap;
-  }
-
-  /* Правая колонка - кнопка записи */
-  .ctaSection {
-    order: 3;
-    text-align: center;
-  }
-
-  .ctaButton {
-    width: 100%;
-    max-width: 280px;
-    white-space: normal;
-    word-break: keep-all;
-  }
-
-  .copyright p {
-    font-size: var(--font-size-xs);
-  }
-}
-
-/* ======================================================================
-   Адаптивность - Маленькие мобильные (до 480px)
-   ====================================================================== */
-
-@media (width <= 480px) {
-  .footer {
-    padding: var(--spacing-md) 0 var(--spacing-sm);
-  }
-
-  .footerContent {
-    gap: var(--spacing-lg);
-  }
-
-  .legalSection {
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-md);
-  }
-
-  .navSection {
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-md);
-  }
-
-  .legalLink,
-  .anchorLink {
-    white-space: normal;
-    text-align: center;
-  }
-
-  .ctaButton {
-    max-width: 100%;
-    width: 100%;
-    padding: var(--spacing-sm) var(--spacing-md);
-  }
-}
-
-/* ======================================================================
-   Поддержка для пользователей с ограниченными возможностями
-   ====================================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  .legalLink,
-  .anchorLink,
-  .ctaButton,
-  .legalLink::after,
-  .anchorLink::after {
-    transition: none;
-  }
-
-  .ctaButton:hover {
-    transform: none;
-  }
-
-  a[href^="#"] {
-    scroll-behavior: auto;
-  }
-}
-
-/* Фокус-состояния для доступности */
-.legalLink:focus-visible,
-.anchorLink:focus-visible,
-.ctaButton:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-  border-radius: var(--border-radius-sm);
-}
-
-/* Активные состояния */
-.legalLink:active,
-.anchorLink:active {
-  color: var(--color-primary-dark);
-}
