@@ -13,7 +13,7 @@ import pkUs3 from "../../../assets/images/Gallery/Thumbs/PK_US3.png";
 import pkUs4 from "../../../assets/images/Gallery/Thumbs/PK_US4.png";
 import pkUs5 from "../../../assets/images/Gallery/Thumbs/PK_US5.png";
 
-export default function EducationSection() {
+export default function EducationTab() {
   return (
     <div className={styles.education}>
       <div className={styles.left}>
