@@ -46,7 +46,6 @@
   box-shadow: var(--shadow-lg);
 }
 
-/* === НИЖНИЕ СТРЕЛКИ === */
 .controls {
   display: flex;
   justify-content: center;
@@ -59,7 +58,6 @@
   transform: none;
 }
 
-/* hover для нижних */
 .bottom:hover:not(.buttonDeactive) {
   background: var(--button-bg-color-blue);
   transform: scale(1.05); 

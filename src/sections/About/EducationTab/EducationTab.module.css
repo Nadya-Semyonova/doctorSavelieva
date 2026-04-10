@@ -21,8 +21,8 @@
 
 .right img {
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  max-height: 460px;
+  object-fit: contain;
   border-radius: 12px;
 }
 
