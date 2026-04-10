@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage";
 import "./App.css";
 import PrivacyPolicy from "../pages/documents/PrivacyPolicy";
 import OfferAgreement from "../pages/documents/OfferAgreement";
+import { SchoolPage } from "../pages/SchoolPage/SchoolPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/offer-agreement" element={<OfferAgreement />} />
+          <Route path="/school" element={<SchoolPage />} />
         </Routes>
       </MainLayout>
     </Router>
