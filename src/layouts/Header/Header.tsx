@@ -23,11 +23,15 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
       handleScrollToSection(sectionId);
     } else {
       navigate("/");
-
       setTimeout(() => {
         handleScrollToSection(sectionId);
       }, 100);
     }
+  };
+
+  // Новый обработчик для перехода на страницу школы
+  const handleSchoolClick = () => {
+    navigate("/school");
   };
 
   const handleConsultation = () => {
@@ -91,6 +95,21 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
                 aria-label="Перейти к разделу отзывов"
               >
                 Отзывы
+              </NavLink>
+            </li>
+            <li className={styles.navItem}>
+              <NavLink
+                to="/school"
+                className={({ isActive }) =>
+                  isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+                }
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleSchoolClick();
+                }}
+                aria-label="Перейти на страницу школа для пациентов"
+              >
+                Школа
               </NavLink>
             </li>
           </ul>
