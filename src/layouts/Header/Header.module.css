@@ -6,22 +6,23 @@
 }
 
 .container {
-  max-width: var(--container-max-width);
+  max-width: calc(100% - 190px); /* 95px слева + 95px справа = 190px */
   margin: 0 auto;
-  padding: var(--spacing-md) var(--container-padding);
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  padding: var(--spacing-md) 0; /* Убираем горизонтальные padding, оставляем только вертикальные */
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: var(--spacing-lg);
 }
 
 .logoCenter {
-  justify-self: center;
   flex-shrink: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav {
-  justify-self: start;
   flex-shrink: 0;
 }
 
@@ -71,7 +72,6 @@
 
 /* Кнопка консультации */
 .consultationButton {
-  justify-self: end;
   flex-shrink: 0;
 }
 
