@@ -41,7 +41,7 @@
 }
 
 .checkboxInput:checked + .checkboxCustom::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 5px;
   top: 1px;

@@ -19,9 +19,7 @@ export default function Tabs({ activeTab, onTabChange }: ITabsProps) {
       {tabs.map((tab) => (
         <button
           key={tab.id}
-          className={`${styles.tabButton} ${
-            activeTab === tab.id ? styles.active : ""
-          }`}
+          className={`${styles.tabButton} ${activeTab === tab.id ? styles.active : ""}`}
           onClick={() => onTabChange(tab.id)}
         >
           {tab.label}

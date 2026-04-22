@@ -88,9 +88,7 @@ export default function CarouselSlider({
       ) : (
         <>
           <button
-            className={`${styles.customButtonPrev} ${
-              isBeginning ? styles.buttonDeactive : ""
-            }`}
+            className={`${styles.customButtonPrev} ${isBeginning ? styles.buttonDeactive : ""}`}
             onClick={() => swiperRef.current?.slidePrev()}
             type="button"
             aria-label="Предыдущий слайд"
@@ -99,9 +97,7 @@ export default function CarouselSlider({
           </button>
 
           <button
-            className={`${styles.customButtonNext} ${
-              isEnd ? styles.buttonDeactive : ""
-            }`}
+            className={`${styles.customButtonNext} ${isEnd ? styles.buttonDeactive : ""}`}
             onClick={() => swiperRef.current?.slideNext()}
             type="button"
             aria-label="Следующий слайд"

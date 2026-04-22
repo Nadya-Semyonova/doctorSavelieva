@@ -13,9 +13,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background var(--transition-base, 0.3s ease),
-              transform var(--transition-base, 0.3s ease),
-              box-shadow var(--transition-base, 0.3s ease);
+  transition:
+    background var(--transition-base, 0.3s ease),
+    transform var(--transition-base, 0.3s ease),
+    box-shadow var(--transition-base, 0.3s ease);
   z-index: 10;
   position: absolute;
   top: 50%;
@@ -60,7 +61,7 @@
 
 .bottom:hover:not(.buttonDeactive) {
   background: var(--button-bg-color-blue);
-  transform: scale(1.05); 
+  transform: scale(1.05);
   box-shadow: var(--shadow-lg);
 }
 

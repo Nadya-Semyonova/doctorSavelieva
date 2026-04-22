@@ -6,7 +6,6 @@ import ReviewCard from "./ReviewCard";
 import styles from "./Reviews.module.css";
 import Wave from "../../shared/ui/Waves/Wave";
 
-
 export default function Reviews() {
   const sectionRef = useRef<HTMLElement>(null);
 

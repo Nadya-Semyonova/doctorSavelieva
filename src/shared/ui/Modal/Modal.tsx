@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import styles from './Modal.module.css';
+import { useEffect } from "react";
+import styles from "./Modal.module.css";
 
 interface IModalProps {
   isOpen: boolean;
@@ -11,13 +11,13 @@ interface IModalProps {
 const Modal: React.FC<IModalProps> = ({ isOpen, onClose, children, title }) => {
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
 
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
