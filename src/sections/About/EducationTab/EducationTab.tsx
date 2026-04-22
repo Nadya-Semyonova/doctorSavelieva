@@ -83,10 +83,7 @@ export default function EducationTab() {
       </div>
 
       {selectedIndex !== null && (
-        <div
-          className={styles.modal}
-          onClick={() => setSelectedIndex(null)}
-        >
+        <div className={styles.modal} onClick={() => setSelectedIndex(null)}>
           <Swiper
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             initialSlide={selectedIndex}

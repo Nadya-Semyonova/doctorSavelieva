@@ -8,11 +8,7 @@ type Props = {
   defaultOpen?: boolean;
 };
 
-export default function AccordionSection({
-  title,
-  children,
-  defaultOpen = false,
-}: Props) {
+export default function AccordionSection({ title, children, defaultOpen = false }: Props) {
   const [open, setOpen] = useState(defaultOpen);
   const [height, setHeight] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -31,17 +27,10 @@ export default function AccordionSection({
       >
         <h3 className={style.accordionTitle}>{title}</h3>
 
-        <ChevronUp
-          className={`${style.accordionIcon} ${
-            open ? style.accordionIconOpen : ""
-          }`}
-        />
+        <ChevronUp className={`${style.accordionIcon} ${open ? style.accordionIconOpen : ""}`} />
       </button>
 
-      <div
-        className={style.accordionContent}
-        style={{ height }}
-      >
+      <div className={style.accordionContent} style={{ height }}>
         <div ref={ref} className={style.accordionInner}>
           {children}
         </div>

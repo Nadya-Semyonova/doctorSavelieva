@@ -10,10 +10,12 @@ export default function About() {
 
   return (
     <section className={styles.about}>
-      <div className={styles.info}> 
+      <div className={styles.info}>
         <h2 className={styles.title}>Обо мне</h2>
         <p className={styles.intro}>
-          Савельева Юлия Олеговна - опытный врач- ревматолог с 16-летним стажем. Придерживаюсь принципов доказательной медицины, что гарантирует пациентам эффективное и безопасное лечение.
+          Савельева Юлия Олеговна - опытный врач- ревматолог с 16-летним стажем. Придерживаюсь
+          принципов доказательной медицины, что гарантирует пациентам эффективное и безопасное
+          лечение.
         </p>
       </div>
 
@@ -24,7 +26,6 @@ export default function About() {
       {activeTab === "experience" && <ExperienceTab />}
 
       {activeTab === "directions" && <DirectionsTab />}
-
     </section>
   );
 }

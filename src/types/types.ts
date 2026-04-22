@@ -7,19 +7,19 @@ export interface IButtonDefault {
   ariaLabel?: string;
   children?: React.ReactNode;
   status?: boolean;
-  href?: string; 
-  target?: "_blank" | "_self"; 
+  href?: string;
+  target?: "_blank" | "_self";
 }
 
 export interface IUsersCardsSwiper {
-  children: React.ReactNode | React.ReactNode[]; 
+  children: React.ReactNode | React.ReactNode[];
   bgButtons?: string;
   spaceBetween?: number;
   slidesPerView?: number;
   slidesPerViewMobile?: number; // добавлено для адаптива
   slidesPerViewTablet?: number; // добавлено для адаптива
   slidesPerViewDesktop?: number; // добавлено для адаптива
-  showPagination?: boolean; 
+  showPagination?: boolean;
   sliderId?: string;
 }
 
@@ -34,12 +34,12 @@ export interface IReviewCard {
   date: string;
   rating: number;
   text: string;
-  index: number; 
+  index: number;
 }
 
 export interface IHeader {
-  onNavigate?: (sectionId: string) => void; 
-  onConsultationClick?: () => void; 
+  onNavigate?: (sectionId: string) => void;
+  onConsultationClick?: () => void;
 }
 
 export interface IEducationSection {

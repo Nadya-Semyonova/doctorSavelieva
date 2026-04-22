@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import styles from './Checkbox.module.css';
+import { Link } from "react-router-dom";
+import styles from "./Checkbox.module.css";
 
 interface ICheckboxProps {
   checked: boolean;
@@ -23,7 +23,7 @@ const Checkbox: React.FC<ICheckboxProps> = ({
   };
 
   return (
-    <label className={`${styles.checkboxLabel} ${disabled ? styles.disabled : ''}`}>
+    <label className={`${styles.checkboxLabel} ${disabled ? styles.disabled : ""}`}>
       <input
         type="checkbox"
         checked={checked}
@@ -33,7 +33,7 @@ const Checkbox: React.FC<ICheckboxProps> = ({
       />
       <span className={styles.checkboxCustom}></span>
       <span className={styles.checkboxText}>
-        {labelText}{' '}
+        {labelText}{" "}
         <Link to={linkHref} className={styles.checkboxLink}>
           {linkText}
         </Link>

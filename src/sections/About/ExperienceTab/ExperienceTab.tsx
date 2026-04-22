@@ -15,7 +15,7 @@ export default function ExperienceTab() {
       </p>
 
       <div className={styles.right}>
-        <CarouselSlider 
+        <CarouselSlider
           slidesPerViewMobile={1}
           slidesPerViewTablet={1}
           slidesPerViewDesktop={1}
