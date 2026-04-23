@@ -1,15 +1,10 @@
 import { useState } from "react";
-// import emailjs from '@emailjs/browser';
 import Input from "../../shared/ui/Input/Input";
 import Checkbox from "../../shared/ui/Checkbox/Checkbox";
 import Modal from "../../shared/ui/Modal/Modal";
 import ButtonDefault from "../../shared/ui/Button/ButtonDefault";
 import styles from "./Appointment.module.css";
 
-// // Конфигурация EmailJS (замените на свои значения)
-// const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-// const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-// const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
 
 const Appointment = () => {
   const [fullName, setFullName] = useState("");
@@ -141,42 +136,37 @@ const Appointment = () => {
     //   fullName: fullName.trim(),
     //   phone: phone,
     //   email: email.trim(),
-    //   consentPersonal: consentPersonal ? 'Да' : 'Нет',
-    //   consentOffer: consentOffer ? 'Да' : 'Нет',
-    //   dateTime: new Date().toLocaleString('ru-RU', {
-    //     day: '2-digit',
-    //     month: '2-digit',
-    //     year: 'numeric',
-    //     hour: '2-digit',
-    //     minute: '2-digit',
-    //     second: '2-digit',
+    //   consentPersonal: consentPersonal ? "Да" : "Нет",
+    //   consentOffer: consentOffer ? "Да" : "Нет",
+    //   dateTime: new Date().toLocaleString("ru-RU", {
+    //     day: "2-digit",
+    //     month: "2-digit",
+    //     year: "numeric",
+    //     hour: "2-digit",
+    //     minute: "2-digit",
+    //     second: "2-digit",
     //   }),
     // };
 
-    // try {
-    //   await emailjs.send(
-    //     EMAILJS_SERVICE_ID,
-    //     EMAILJS_TEMPLATE_ID,
-    //     templateParams,
-    //     EMAILJS_PUBLIC_KEY
-    //   );
+    try {
 
-    // Очистка формы
-    setFullName("");
-    setPhone("");
-    setEmail("");
-    setConsentPersonal(false);
-    setConsentOffer(false);
-    setErrors({ fullName: "", phone: "", email: "" });
 
-    // Показать модальное окно
-    setIsModalOpen(true);
-    // } catch (error) {
-    //   console.error('Error sending email:', error);
-    //   alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.');
-    // } finally {
-    //   setIsSubmitting(false);
-    // }
+      // Очистка формы
+      setFullName("");
+      setPhone("");
+      setEmail("");
+      setConsentPersonal(false);
+      setConsentOffer(false);
+      setErrors({ fullName: "", phone: "", email: "" });
+
+      // Показать модальное окно
+      setIsModalOpen(true);
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert("Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
