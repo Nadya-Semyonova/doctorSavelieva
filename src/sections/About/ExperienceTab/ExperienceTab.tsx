@@ -21,7 +21,7 @@ export default function ExperienceTab() {
           slidesPerViewDesktop={1}
           variant="bottom"
         >
-          <img src="" alt="Ортез" />
+          <img src=".\src\assets\images\Gallery\Photo\2jw25Zv1QU.png" alt="Ортез" />
         </CarouselSlider>
       </div>
     </div>

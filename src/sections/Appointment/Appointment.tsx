@@ -5,7 +5,6 @@ import Modal from "../../shared/ui/Modal/Modal";
 import ButtonDefault from "../../shared/ui/Button/ButtonDefault";
 import styles from "./Appointment.module.css";
 
-
 const Appointment = () => {
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
@@ -132,25 +131,7 @@ const Appointment = () => {
 
     setIsSubmitting(true);
 
-    // const templateParams = {
-    //   fullName: fullName.trim(),
-    //   phone: phone,
-    //   email: email.trim(),
-    //   consentPersonal: consentPersonal ? "Да" : "Нет",
-    //   consentOffer: consentOffer ? "Да" : "Нет",
-    //   dateTime: new Date().toLocaleString("ru-RU", {
-    //     day: "2-digit",
-    //     month: "2-digit",
-    //     year: "numeric",
-    //     hour: "2-digit",
-    //     minute: "2-digit",
-    //     second: "2-digit",
-    //   }),
-    // };
-
     try {
-
-
       // Очистка формы
       setFullName("");
       setPhone("");
