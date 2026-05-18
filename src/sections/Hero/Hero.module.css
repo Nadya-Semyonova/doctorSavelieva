@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  padding: 30px 125px;
+  padding: 100px 95px;
 }
 
 .info {
