@@ -1,6 +1,6 @@
 .benefit {
   position: relative;
-  padding: 350px 95px 170px;
+  padding-inline: 95px;
   overflow: visible;
 }
 
@@ -23,7 +23,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 👈 2 колонки */
+  grid-template-columns: 1fr 1fr; 
   gap: 20px;
 }
 
