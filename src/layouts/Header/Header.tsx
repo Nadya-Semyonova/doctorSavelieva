@@ -109,7 +109,7 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
                 }}
                 aria-label="Перейти на страницу школа для пациентов"
               >
-                Школа
+                Школа для пациентов
               </NavLink>
             </li>
           </ul>
