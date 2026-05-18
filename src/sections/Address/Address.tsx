@@ -1,7 +1,6 @@
 import { CONTACTS } from "../../assets/data/contacts";
 import ButtonDefault from "../../shared/ui/Button/ButtonDefault";
 import Map from "../../shared/ui/Map/Map";
-import Wave from "../../shared/ui/Waves/Wave";
 import styles from "./Address.module.css";
 
 export default function Address() {
@@ -19,14 +18,15 @@ export default function Address() {
               Очный приём проводится в городе Калининград в клинике «Добрый Докторъ».
             </p>
 
-            <div className={styles.action}>
+
               <ButtonDefault
                 handleClick={handleClinicBooking}
                 ariaLabel="Перейти на сайт клиники Добрый Докторъ"
+                styleButton={styles.action}
               >
                 Записаться в клинике
               </ButtonDefault>
-            </div>
+
 
             <div className={styles.textSecondary}>
               <p>На очном приеме использую в своей работе:</p>
@@ -45,8 +45,6 @@ export default function Address() {
           </div>
         </div>
       </div>
-
-      <Wave className={styles.wave} variant="address" />
     </section>
   );
 }

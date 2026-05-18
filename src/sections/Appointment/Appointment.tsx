@@ -159,6 +159,9 @@ const Appointment = () => {
             <p className={styles.infoText}>
               Консультация проводится в формате видеозвонка или текстовом.
             </p>
+            <p className={styles.infoText}>
+              После вашей заявки с вами свяжется доктор для обсуждения деталей
+            </p>
             <p className={styles.price}>
               Стоимость консультации составляет <strong>2500 рублей</strong>.
             </p>
