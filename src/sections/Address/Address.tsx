@@ -18,15 +18,13 @@ export default function Address() {
               Очный приём проводится в городе Калининград в клинике «Добрый Докторъ».
             </p>
 
-
-              <ButtonDefault
-                handleClick={handleClinicBooking}
-                ariaLabel="Перейти на сайт клиники Добрый Докторъ"
-                styleButton={styles.action}
-              >
-                Записаться в клинике
-              </ButtonDefault>
-
+            <ButtonDefault
+              handleClick={handleClinicBooking}
+              ariaLabel="Перейти на сайт клиники Добрый Докторъ"
+              styleButton={styles.action}
+            >
+              Записаться в клинике
+            </ButtonDefault>
 
             <div className={styles.textSecondary}>
               <p>На очном приеме использую в своей работе:</p>
