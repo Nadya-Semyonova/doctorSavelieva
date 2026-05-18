@@ -47,6 +47,14 @@
 .LinkButton {
   grid-column: 1 / 3;
   justify-self: center;
+  transition: all var(--transition-base, 0.3s ease);
+}
+
+.LinkButton:hover {
+  background-color: var(--button-bg-secondary);
+  color: var(--text-inverse);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 /* @media (max-width: 768px) {

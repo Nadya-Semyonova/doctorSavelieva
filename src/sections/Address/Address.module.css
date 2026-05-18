@@ -36,8 +36,17 @@
 }
 
 .action {
-  text-align: left;
+  text-align: center;
   width: 80%;
+  cursor: pointer;
+  transition: all var(--transition-base, 0.3s ease);
+}
+
+.action:hover {
+  background-color: var(--button-bg-secondary);
+  color: var(--text-inverse);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .list {
@@ -68,15 +77,4 @@
   overflow: hidden;
 }
 
-.wave {
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
 
-.wave svg {
-  width: 100%;
-  display: block;
-}

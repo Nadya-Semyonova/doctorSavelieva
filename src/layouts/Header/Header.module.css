@@ -6,9 +6,9 @@
 }
 
 .container {
-  max-width: calc(100% - 190px); /* 95px слева + 95px справа = 190px */
+  max-width: calc(100% - 190px); 
   margin: 0 auto;
-  padding: var(--spacing-md) 0; /* Убираем горизонтальные padding, оставляем только вертикальные */
+  padding: var(--spacing-md) 0; 
   display: flex;
   align-items: center;
   justify-content: space-between;
