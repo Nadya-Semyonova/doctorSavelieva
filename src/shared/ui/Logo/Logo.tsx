@@ -13,9 +13,13 @@ export default function Logo({ onClick }: LogoProps) {
       onClick={onClick}
       aria-label="Вернуться на главную страницу"
     >
-      <span className={styles.logoText}>
-        <strong> Ревматолог Савельева</strong>
-      </span>
+      <div className={styles.logoCircle}>
+        <span className={styles.logoInitials}>РС</span>
+      </div>
+      <div className={styles.logoText}>
+        <span className={styles.logoName}>Ревматолог</span>
+        <span className={styles.logoSurname}>Савельева</span>
+      </div>
     </Link>
   );
 }
