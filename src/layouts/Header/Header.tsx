@@ -1,4 +1,5 @@
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import type { IHeader } from "../../types/types";
 import ButtonDefault from "../../shared/ui/Button/ButtonDefault";
 import styles from "./Header.module.css";
@@ -8,11 +9,13 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
   const location = useLocation();
   const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleScrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
+      setIsMobileMenuOpen(false); // Закрываем меню после клика
     }
   };
 
@@ -27,11 +30,12 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
         handleScrollToSection(sectionId);
       }, 100);
     }
+    setIsMobileMenuOpen(false);
   };
 
-  // Новый обработчик для перехода на страницу школы
   const handleSchoolClick = () => {
     navigate("/school");
+    setIsMobileMenuOpen(false);
   };
 
   const handleConsultation = () => {
@@ -45,58 +49,39 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
         handleScrollToSection("appointment");
       }, 100);
     }
+    setIsMobileMenuOpen(false);
   };
+
+  // Навигационные пункты для переиспользования
+  const navItems = [
+    { id: "about", label: "Обо мне" },
+    { id: "benefit", label: "Польза" },
+    { id: "reviews", label: "Отзывы" },
+  ];
 
   return (
     <header className={styles.header}>
       <div className={styles.container}>
+        {/* Десктопная навигация */}
         <nav className={styles.nav} aria-label="Основная навигация">
           <ul className={styles.navList}>
-            <li className={styles.navItem}>
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
-                }
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick("about");
-                }}
-                aria-label="Перейти к разделу обо мне"
-              >
-                Обо мне
-              </NavLink>
-            </li>
-            <li className={styles.navItem}>
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
-                }
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick("benefit");
-                }}
-                aria-label="Перейти к разделу о пользе"
-              >
-                Польза
-              </NavLink>
-            </li>
-            <li className={styles.navItem}>
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
-                }
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick("reviews");
-                }}
-                aria-label="Перейти к разделу отзывов"
-              >
-                Отзывы
-              </NavLink>
-            </li>
+            {navItems.map((item) => (
+              <li key={item.id} className={styles.navItem}>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+                  }
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.id);
+                  }}
+                  aria-label={`Перейти к разделу ${item.label.toLowerCase()}`}
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
             <li className={styles.navItem}>
               <NavLink
                 to="/school"
@@ -114,9 +99,13 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
             </li>
           </ul>
         </nav>
+
+        {/* Логотип */}
         <div className={styles.logoCenter}>
           <Logo />
         </div>
+
+        {/* Десктопная кнопка консультации */}
         <div className={styles.consultationButton}>
           <Link
             to="/"
@@ -133,6 +122,53 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
               type="button"
             />
           </Link>
+        </div>
+
+        {/* Бургер-меню для мобильных */}
+        <div className={styles.burgerMenu}>
+          <button
+            className={`${styles.burgerButton} ${isMobileMenuOpen ? styles.open : ""}`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
+            aria-expanded={isMobileMenuOpen}
+          >
+            <span className={styles.burgerLine}></span>
+            <span className={styles.burgerLine}></span>
+            <span className={styles.burgerLine}></span>
+          </button>
+
+          {isMobileMenuOpen && (
+            <nav className={styles.mobileNav}>
+              <ul className={styles.mobileNavList}>
+                {navItems.map((item) => (
+                  <li key={item.id} className={styles.mobileNavItem}>
+                    <button
+                      className={styles.mobileNavLink}
+                      onClick={() => handleNavClick(item.id)}
+                    >
+                      {item.label}
+                    </button>
+                  </li>
+                ))}
+                <li className={styles.mobileNavItem}>
+                  <button
+                    className={styles.mobileNavLink}
+                    onClick={handleSchoolClick}
+                  >
+                    Школа для пациентов
+                  </button>
+                </li>
+                <li className={styles.mobileNavItem}>
+                  <button
+                    className={styles.mobileConsultBtn}
+                    onClick={handleConsultation}
+                  >
+                    Записаться на консультацию
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          )}
         </div>
       </div>
     </header>
