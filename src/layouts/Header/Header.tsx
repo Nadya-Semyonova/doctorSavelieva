@@ -1,5 +1,5 @@
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { IHeader } from "../../types/types";
 import ButtonDefault from "../../shared/ui/Button/ButtonDefault";
 import styles from "./Header.module.css";
@@ -11,11 +11,21 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
   const isHomePage = location.pathname === "/";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1200 && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isMobileMenuOpen]);
+
   const handleScrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
-      setIsMobileMenuOpen(false); // Закрываем меню после клика
+      setIsMobileMenuOpen(false);
     }
   };
 
@@ -52,7 +62,6 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
     setIsMobileMenuOpen(false);
   };
 
-  // Навигационные пункты для переиспользования
   const navItems = [
     { id: "about", label: "Обо мне" },
     { id: "benefit", label: "Польза" },
@@ -62,7 +71,12 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        {/* Десктопная навигация */}
+        {/* Логотип */}
+        <div className={styles.logoLeft}>
+          <Logo />
+        </div>
+
+        {/* Десктопная навигация  */}
         <nav className={styles.nav} aria-label="Основная навигация">
           <ul className={styles.navList}>
             {navItems.map((item) => (
@@ -100,12 +114,7 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
           </ul>
         </nav>
 
-        {/* Логотип */}
-        <div className={styles.logoCenter}>
-          <Logo />
-        </div>
-
-        {/* Десктопная кнопка консультации */}
+        {/* Десктопная кнопка консультации  */}
         <div className={styles.consultationButton}>
           <Link
             to="/"
@@ -151,18 +160,12 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
                   </li>
                 ))}
                 <li className={styles.mobileNavItem}>
-                  <button
-                    className={styles.mobileNavLink}
-                    onClick={handleSchoolClick}
-                  >
+                  <button className={styles.mobileNavLink} onClick={handleSchoolClick}>
                     Школа для пациентов
                   </button>
                 </li>
                 <li className={styles.mobileNavItem}>
-                  <button
-                    className={styles.mobileConsultBtn}
-                    onClick={handleConsultation}
-                  >
+                  <button className={styles.mobileConsultBtn} onClick={handleConsultation}>
                     Записаться на консультацию
                   </button>
                 </li>

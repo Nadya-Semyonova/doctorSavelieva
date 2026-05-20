@@ -1,42 +1,105 @@
 .logo {
-  text-decoration: none;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  transition: opacity 0.2s ease;
-  flex-shrink: 0;
+  gap: 12px;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 .logo:hover {
-  opacity: 0.8;
+  opacity: 0.85;
+  transform: translateX(2px);
 }
 
-.logo:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-  border-radius: 4px;
+.logoCircle {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(
+    135deg,
+    var(--button-bg-color-blue) 0%,
+    var(--button-text-secondary) 100%
+  );
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.logo:hover .logoCircle {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-md);
+}
+
+.logoInitials {
+  color: var(--button-text-primary);
+  font-size: var(--font-size-small);
+  font-weight: bold;
+  font-family: var(--font-primary);
+  letter-spacing: 1px;
 }
 
 .logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logoName {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
   font-family: var(--font-secondary);
-  font-size: var(--font-size-text);
+}
+
+.logoSurname {
+  font-size: 1.125rem;
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
-  line-height: 1.3;
+  font-family: var(--font-secondary);
 }
 
 /* Планшеты */
-@media (max-width: 991px) {
-  .logoText {
-    font-size: 1.25rem; /* Уменьшаем на планшетах */
+@media (width <= 991px) {
+  .logoCircle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .logoInitials {
+    font-size: 1.125rem;
+  }
+
+  .logoName {
+    font-size: 0.75rem;
+  }
+
+  .logoSurname {
+    font-size: 1rem;
   }
 }
 
-/* Мобильные - текст в две строки */
-@media (max-width: 767px) {
-  .logoText {
+/* Мобильные устройства */
+@media (width <= 767px) {
+  .logo {
+    gap: 8px;
+  }
+
+  .logoCircle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logoInitials {
     font-size: 1rem;
-    max-width: 140px;
-    display: block;
-    word-break: break-word;
+  }
+
+  .logoName {
+    font-size: 0.6875rem;
+  }
+
+  .logoSurname {
+    font-size: 0.875rem;
   }
 }

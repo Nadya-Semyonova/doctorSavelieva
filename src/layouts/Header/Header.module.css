@@ -3,27 +3,29 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  background-color: var(--color-bg-primary);
 }
 
 .container {
-  max-width: calc(100% - 190px);
+  max-width: 1440px;
   margin: 0 auto;
-  padding: var(--spacing-md) 0;
+  padding: 30px 95px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--spacing-lg);
+  gap: 40px;
 }
 
-.logoCenter {
+/* ========== ЛОГОТИП  ========== */
+.logoLeft {
   flex-shrink: 0;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
+/* ========== НАВИГАЦИЯ  ========== */
 .nav {
-  flex-shrink: 0;
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .navList {
@@ -54,6 +56,8 @@
   justify-content: center;
   height: 48px;
   background-color: transparent;
+  text-decoration: none;
+  position: relative;
 }
 
 .navLink:hover {
@@ -70,13 +74,13 @@
   border-radius: var(--border-radius-sm);
 }
 
-/* Кнопка консультации */
+/* ========== КНОПКА КОНСУЛЬТАЦИИ (справа) ========== */
 .consultationButton {
   flex-shrink: 0;
 }
 
 .buttonConsultation {
-  min-width: 334px;
+  min-width: 280px;
   height: 48px;
   font-family: var(--font-secondary);
   font-size: var(--font-size-small);
@@ -110,7 +114,7 @@
   outline-offset: 2px;
 }
 
-/* ========== Бургер-меню (по умолчанию скрыто) ========== */
+/* ========== БУРГЕР-МЕНЮ (по умолчанию скрыто) ========== */
 .burgerMenu {
   display: none;
 }
@@ -119,44 +123,118 @@
   display: none;
 }
 
-/* ========== Планшеты (768px - 991px) ========== */
-@media (max-width: 991px) {
+/* ========== СТИЛИ ДЛЯ МОБИЛЬНОГО МЕНЮ ========== */
+.mobileNav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--color-bg-primary);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  z-index: 999;
+  border-top: 1px solid var(--color-text-primary);
+}
+
+.mobileNavList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobileNavItem {
+  margin: 0;
+}
+
+.mobileNavLink {
+  width: 100%;
+  padding: var(--spacing-md);
+  text-align: left;
+  background: none;
+  border: none;
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-regular);
+  color: var(--button-text-secondary);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  border-radius: var(--border-radius-sm);
+}
+
+.mobileNavLink:hover {
+  background-color: var(--color-bg-accent);
+}
+
+.mobileConsultBtn {
+  width: 50%;
+  margin-top: var(--spacing-sm);
+  background-color: var(--button-bg-color-blue);
+  color: var(--button-text-primary);
+  border: none;
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-text);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mobileConsultBtn:hover {
+  background-color: var(--button-bg-secondary);
+  color: var(--color-text-primary);
+}
+
+/* ========== АДАПТИВНЫЕ МЕДИА-ЗАПРОСЫ ========== */
+
+/* Экран 1300-1440px  */
+@media (width <= 1440px) and (width >= 1301px) {
   .container {
-    gap: var(--spacing-sm);
+    padding: 25px 60px;
+    gap: 30px;
   }
-  
+
   .navList {
-    gap: var(--spacing-md);
+    gap: 20px;
   }
-  
+
   .navLink {
+    font-size: var(--font-size-small);
     padding: var(--spacing-sm) var(--spacing-sm);
-    font-size: 1rem;
   }
-  
+
   .buttonConsultation {
-    min-width: 200px;
+    min-width: 260px;
     padding: 0 var(--spacing-md);
-    font-size: 1rem;
+    font-size: var(--font-size-text);
   }
 }
 
-/* ========== Мобильные (до 767px) ========== */
-@media (max-width: 767px) {
+/* Экран 1300px и меньше - показываем бургер */
+@media (width <= 1300px) {
   .container {
-    padding: var(--spacing-sm) var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    gap: 0;
   }
-  
-  /* Скрываем обычную навигацию */
+
   .nav {
     display: none;
   }
-  
-  /* Показываем бургер */
+
+  .consultationButton {
+    display: none;
+  }
+
   .burgerMenu {
     display: block;
   }
-  
+
   .burgerButton {
     display: flex;
     flex-direction: column;
@@ -170,7 +248,7 @@
     z-index: 1001;
     position: relative;
   }
-  
+
   .burgerLine {
     width: 100%;
     height: 3px;
@@ -178,86 +256,71 @@
     border-radius: 3px;
     transition: all var(--transition-fast);
   }
-  
-  /* Анимация открытого бургера */
+
   .burgerButton.open .burgerLine:nth-child(1) {
     transform: translateY(10px) rotate(45deg);
   }
-  
+
   .burgerButton.open .burgerLine:nth-child(2) {
     opacity: 0;
   }
-  
+
   .burgerButton.open .burgerLine:nth-child(3) {
     transform: translateY(-10px) rotate(-45deg);
   }
-  
-  /* Мобильное меню */
-  .mobileNav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: var(--color-bg-primary);
-    padding: var(--spacing-md);
-    box-shadow: var(--shadow-md);
-    z-index: 999;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Планшеты  */
+@media (width <= 1199px) {
+  .container {
+    padding: 16px 30px;
   }
-  
-  .mobileNavList {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    list-style: none;
-    margin: 0;
-    padding: 0;
+
+  .burgerButton {
+    width: 28px;
+    height: 22px;
   }
-  
-  .mobileNavItem {
-    margin: 0;
+
+  .burgerLine {
+    height: 2.5px;
   }
-  
+
+  .burgerButton.open .burgerLine:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .burgerButton.open .burgerLine:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
   .mobileNavLink {
-    width: 100%;
-    padding: var(--spacing-md);
-    text-align: left;
-    background: none;
-    border: none;
-    font-family: var(--font-secondary);
-    font-size: 1.125rem;
-    font-weight: var(--font-weight-regular);
-    color: var(--button-text-secondary);
-    cursor: pointer;
-    transition: background-color var(--transition-fast);
-    border-radius: var(--border-radius-sm);
-  }
-  
-  .mobileNavLink:hover {
-    background-color: var(--color-bg-accent);
-  }
-  
-  .mobileConsultBtn {
-    width: 100%;
-    margin-top: var(--spacing-sm);
-    background-color: var(--button-bg-color-blue);
-    color: var(--button-text-primary);
-    border: none;
-    padding: var(--spacing-md);
-    border-radius: var(--border-radius-md);
-    font-family: var(--font-secondary);
     font-size: 1rem;
-    font-weight: var(--font-weight-bold);
-    cursor: pointer;
+    padding: 12px;
   }
-  
-  /* Уменьшаем кнопку консультации в десктопной части */
-  .consultationButton {
-    display: none;
+
+  .mobileConsultBtn {
+    padding: 12px;
+    font-size: 0.9375rem;
   }
-  
-  /* Логотип на мобильных */
-  .logoCenter {
-    flex-shrink: 1;
+}
+
+/* Мобильные устройства (до 767px) */
+@media (width <= 767px) {
+  .container {
+    padding: 12px 20px;
+  }
+
+  .mobileNav {
+    padding: 16px;
+  }
+
+  .mobileNavLink {
+    font-size: 0.9375rem;
+    padding: 10px 12px;
+  }
+
+  .mobileConsultBtn {
+    padding: 10px 12px;
+    font-size: 0.875rem;
   }
 }
