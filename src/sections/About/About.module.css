@@ -12,3 +12,18 @@
   gap: 20px;
   text-align: left;
 }
+
+/* Адаптив для планшетов */
+@media (max-width: 1390px) {
+    .about {
+        padding: 60px 40px;
+    }
+}
+
+/* Адаптив для мобильных телефонов */
+@media (max-width: 767px) {
+    .about {
+        padding: 40px 20px;
+        gap: 40px;
+    }
+}

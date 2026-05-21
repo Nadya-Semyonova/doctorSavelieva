@@ -16,7 +16,7 @@
   cursor: pointer;
 }
 
-/* подумать и сделать общий стиль для кнопок при ховере и нажатии */
+
 .tabButton:hover {
   color: var(--color-text-primary);
 }
@@ -24,4 +24,26 @@
 .active {
   background: var(--button-bg-color-blue);
   color: var(--button-text-primary);
+}
+
+/* Адаптив для планшетов */
+@media (max-width: 1390px) {
+    .tabs {
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    .tabButton {
+        flex: 1 1 auto;
+        min-width: 180px;
+        width: auto;
+        padding-block: 14px;
+    }
+}
+
+/* Адаптив для мобильных телефонов */
+@media (max-width: 767px) {
+    .tabButton {
+        width: 100%;
+        min-width: unset;
+    }
 }
