@@ -48,3 +48,14 @@
   padding-top: 12px;
   color: var(--color-text-primary);
 }
+
+/* Адаптив для планшетов и мобильных телефонов */
+@media (max-width: 1390px) {
+    .accordionContent {
+        width: 100%; /* Убираем фиксированную ширину */
+    }
+    .accordionInner {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}

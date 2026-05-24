@@ -32,3 +32,21 @@
   background-color: var(--color-text-primary);
   border-radius: 50%;
 }
+
+/* Адаптив для планшетов */
+@media (max-width: 1390px) {
+    .directions {
+        width: 100%;
+        gap: 40px;
+    }
+}
+
+/* Адаптив для мобильных телефонов */
+@media (max-width: 767px) {
+    .directions {
+        gap: 30px;
+    }
+    .directionsList li {
+        word-break: break-word; /* Добавляем перенос длинных слов */
+    }
+}
