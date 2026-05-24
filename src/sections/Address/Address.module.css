@@ -76,3 +76,201 @@
   border-radius: 16px;
   overflow: hidden;
 }
+
+/* ========== TABLET: < 1440px ========== */
+@media (max-width: 1439px) {
+  .address {
+    padding: 0 40px 80px;
+    gap: 24px;
+  }
+
+  .title {
+    font-size: clamp(1.5rem, 4vw, var(--font-size-h2));
+  }
+
+  .content {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .info {
+    gap: 32px;
+    font-size: clamp(1.125rem, 2.5vw, var(--font-size-text));
+  }
+
+  .text {
+    line-height: 1.5;
+  }
+
+  .action {
+    width: 100%;
+    max-width: 320px;
+    padding-block: 12px;
+    font-size: clamp(1rem, 2.5vw, var(--font-size-small));
+  }
+
+  .textSecondary {
+    font-size: clamp(1.125rem, 2.5vw, var(--font-size-text));
+  }
+
+  .textSecondary p {
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .list li {
+    padding-left: 16px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    /* 🔥 Разрешаем перенос без тире */
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+  }
+
+  .list li::before {
+    top: 10px;
+    width: 6px;
+    height: 6px;
+  }
+
+  .map {
+    height: 350px;
+  }
+}
+
+/* ========== MOBILE: < 768px ========== */
+@media (max-width: 767px) {
+  .address {
+    padding: 0 20px 60px;
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .content {
+    /* 🔥 Одна колонка: текст сверху, карта снизу */
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .info {
+    gap: 24px;
+    font-size: 1.125rem;
+  }
+
+  .text {
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .action {
+    width: 100%;
+    max-width: 280px;
+    margin-inline: auto;
+    padding-block: 14px;
+    font-size: 1rem;
+    display: block;
+  }
+
+  .textSecondary {
+    font-size: 1.0625rem;
+  }
+
+  .textSecondary p {
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .list {
+    text-align: left;
+    max-width: 400px;
+    margin-inline: auto;
+    padding-left: 0;
+  }
+
+  .list li {
+    padding-left: 20px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    /* 🔥 Перенос слов без тире */
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+  }
+
+  .list li::before {
+    top: 9px;
+    left: 0;
+    width: 6px;
+    height: 6px;
+  }
+
+  .map {
+    height: 300px;
+    border-radius: 12px;
+  }
+}
+
+/* ========== SMALL MOBILE: < 480px ========== */
+@media (max-width: 479px) {
+  .address {
+    padding: 0 16px 48px;
+  }
+
+  .title {
+    font-size: 1.375rem;
+  }
+
+  .content {
+    gap: 24px;
+  }
+
+  .info {
+    gap: 20px;
+    font-size: 1rem;
+  }
+
+  .text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .action {
+    padding-block: 12px;
+    font-size: 0.9375rem;
+    max-width: 100%;
+  }
+
+  .textSecondary {
+    font-size: 1rem;
+  }
+
+  .textSecondary p {
+    font-size: 1rem;
+  }
+
+  .list li {
+    font-size: 0.9375rem;
+    padding-left: 18px;
+    margin-bottom: 8px;
+  }
+
+  .list li::before {
+    top: 8px;
+  }
+
+  .map {
+    height: 250px;
+    border-radius: 10px;
+  }
+}
+
