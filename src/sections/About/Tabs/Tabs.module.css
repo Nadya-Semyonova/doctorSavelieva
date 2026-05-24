@@ -14,6 +14,9 @@
   color: var(--button-text-secondary);
   border: none;
   cursor: pointer;
+  /* 🔥 Разрешаем сжатие */
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 
@@ -26,24 +29,56 @@
   color: var(--button-text-primary);
 }
 
-/* Адаптив для планшетов */
-@media (max-width: 1390px) {
-    .tabs {
-        gap: 16px;
-        flex-wrap: wrap;
-    }
-    .tabButton {
-        flex: 1 1 auto;
-        min-width: 180px;
-        width: auto;
-        padding-block: 14px;
-    }
+/* ========== TABLET: < 1440px ========== */
+@media (max-width: 1439px) {
+  .tabs {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tabButton {
+    inline-size: auto;
+    padding-block: 14px;
+    padding-inline: 20px;
+    font-size: clamp(0.9375rem, 2vw, var(--font-size-small));
+    flex-shrink: 1;
+  }
 }
 
-/* Адаптив для мобильных телефонов */
+/* ========== MOBILE: < 768px (ВЕРТИКАЛЬНЫЙ СТЕК) ========== */
 @media (max-width: 767px) {
-    .tabButton {
-        width: 100%;
-        min-width: unset;
-    }
+  .tabs {
+    flex-direction: column; /* 🔥 Кнопки одна под другой */
+    gap: 10px;
+    width: 100%;
+    max-width: 280px; /* Ограничиваем ширину для эстетики */
+    margin-inline: auto; /* Центрируем стек */
+    overflow: visible; /* Убираем скролл */
+    scroll-snap-type: none;
+  }
+
+  .tabButton {
+    inline-size: 100%; /*  На всю ширину контейнера */
+    padding-block: 14px;
+    padding-inline: 16px;
+    font-size: 1rem;
+    min-height: 48px; /* Удобная зона тапа */
+    white-space: normal;
+    text-align: center;
+    flex-shrink: 0;
+  }
+}
+
+/* ========== SMALL MOBILE: < 480px ========== */
+@media (max-width: 479px) {
+  .tabs {
+    max-width: 100%;
+    gap: 8px;
+  }
+
+  .tabButton {
+    padding-block: 12px;
+    font-size: 0.9375rem;
+  }
 }

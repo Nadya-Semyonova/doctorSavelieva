@@ -72,16 +72,35 @@
 }
 
 
-@media (max-width: 1390px) {
-  .container {
-    margin-top: 16px;
+/* ========== MOBILE: < 768px для variant="bottom" ========== */
+@media (max-width: 767px) {
+  /* Кнопки снизу — делаем крупнее для тапа */
+  .bottom {
+    width: 44px;
+    height: 44px;
+    min-height: 44px; /* Доступность */
   }
-  .controls {
-    padding-top: 12px;
+  
+  .bottom svg {
+    width: 18px;
+    height: 18px;
   }
-}
-@media (max-width: 480px) {
+  
   .controls {
     gap: 12px;
+    padding-top: 12px;
+  }
+  
+  /* Pagination Swiper */
+  :global(.swiper-pagination-bullet) {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+@media (max-width: 479px) {
+  .bottom {
+    width: 40px;
+    height: 40px;
   }
 }

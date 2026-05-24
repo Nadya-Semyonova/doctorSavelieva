@@ -2,11 +2,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 70px;
+  min-width: 0; /* 🔥 Это должно помочь! */
 }
 
 .left {
   display: flex;
   flex-direction: column;
+  min-width: 0; /* 🔥 И это! */
+
 }
 
 .intro {
@@ -17,6 +20,7 @@
 .right {
   width: 100%;
   max-width: 628px;
+  min-width: 0; /* 🔥 И это! */
 }
 
 .right img {
@@ -94,29 +98,132 @@
   }
 }
 
-/* Адаптив для планшетов */
-@media (max-width: 1390px) {
-    .education {
-        gap: 40px;
-    }
-    .right {
-        max-width: 100%;
-    }
+/* ========== TABLET: < 1440px ========== */
+@media (max-width: 1439px) {
+  .education {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .intro {
+    padding-bottom: 24px;
+    font-size: clamp(1.125rem, 2.5vw, var(--font-size-text));
+  }
+
+  .right {
+    max-width: 100%;
+  }
+
+  .right img {
+    max-height: 380px;
+  }
+
+  /* Модальное окно */
+  .modalPrev,
+  .modalNext {
+    width: 40px;
+    height: 40px;
+    left: 12px;
+    right: 12px;
+  }
 }
 
-/* Адаптив для мобильных телефонов */
+/* ========== MOBILE: < 768px ========== */
 @media (max-width: 767px) {
-    .education {
-        grid-template-columns: 1fr; /* Ставим блоки друг под другом */
-        gap: 30px;
-    }
-    .right {
-        order: 2;
-    }
-    .right img {
-        max-height: 300px; /* Уменьшаем высоту на маленьких экранах */
-    }
-    .intro {
-        padding-bottom: 20px;
-    }
+  .education {
+    /* 🔥 Одна колонка: текст сверху, галерея снизу */
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .intro {
+    padding-bottom: 20px;
+    font-size: 1.125rem;
+    text-align: center;
+  }
+
+  .left {
+    order: 1;
+  }
+
+  .right {
+    order: 2;
+    max-width: 100%;
+  }
+
+  .right img {
+    max-height: 300px;
+    border-radius: 10px;
+  }
+
+  /* Модальное окно */
+  .modal {
+    padding: 10px;
+  }
+
+  .modalImage {
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 80px);
+  }
+
+  .modalPrev,
+  .modalNext {
+    width: 36px;
+    height: 36px;
+    left: 8px;
+    right: 8px;
+    bottom: 20px;
+    top: auto;
+    transform: none;
+  }
+
+  .modalPrev {
+    left: 50%;
+    transform: translateX(-50px);
+  }
+
+  .modalNext {
+    right: 50%;
+    transform: translateX(50px);
+  }
 }
+
+/* ========== SMALL MOBILE: < 480px ========== */
+@media (max-width: 479px) {
+  .education {
+    gap: 24px;
+  }
+
+  .intro {
+    font-size: 1rem;
+  }
+.right {
+    max-width: 100%; /* 🔥 Убираем ограничение 628px */
+  }
+  .right img {
+    max-height: 240px;
+  }
+
+  .modalPrev,
+  .modalNext {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+  
+  .modalPrev {
+    transform: translateX(-44px);
+  }
+  
+  .modalNext {
+    transform: translateX(44px);
+  }
+}
+
+
+
+.left,
+.right {
+  min-width: 0; /* 🔥 И это! */
+}
+

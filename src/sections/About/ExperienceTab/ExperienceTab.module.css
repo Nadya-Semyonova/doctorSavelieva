@@ -12,6 +12,10 @@
 .right {
   width: 100%;
   max-width: 628px;
+  /* 🔥 Гарантируем, что контейнер не схлопнется и не расширится бесконечно */
+  min-width: 0; 
+  height: auto;
+  overflow: hidden; /* Обрезаем всё, что вылезает во время анимации пересчета */
 }
 
 .right img {
@@ -21,23 +25,54 @@
   border-radius: 12px;
 }
 
-/* Адаптив для планшетов */
-@media (max-width: 1390px) {
-    .experience {
-        gap: 40px;
-    }
-    .right {
-        max-width: 100%;
-    }
+/* ========== TABLET: < 1440px ========== */
+@media (max-width: 1439px) {
+  .experience {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .intro {
+    font-size: clamp(1.125rem, 2.5vw, var(--font-size-text));
+    line-height: 1.5;
+  }
+
+  .right {
+    max-width: 100%;
+  }
+
+  .right img {
+    border-radius: 10px;
+  }
 }
 
-/* Адаптив для мобильных телефонов */
+/* ========== MOBILE: < 768px ========== */
 @media (max-width: 767px) {
-    .experience {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    .right {
-        order: 2;
-    }
+  .experience {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .intro {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    text-align: center;
+    white-space: normal; /* Убираем pre-line, если мешает */
+  }
+
+  .right {
+    order: 2;
+    max-width: 100%;
+  }
+}
+
+/* ========== SMALL MOBILE: < 480px ========== */
+@media (max-width: 479px) {
+  .experience {
+    gap: 24px;
+  }
+
+  .intro {
+    font-size: 1rem;
+  }
 }

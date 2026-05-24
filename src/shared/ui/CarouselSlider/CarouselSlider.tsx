@@ -50,6 +50,8 @@ export default function CarouselSlider({
         modules={[Pagination]}
         pagination={showPagination ? { clickable: true } : false}
         breakpoints={breakpoints}
+         observer={true}       // Включить наблюдение за Swiper и его слайдами
+        observeParents={true} // Включить наблюдение за родительскими элементами Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         onSlideChange={(swiper) => {
           setIsBeginning(swiper.isBeginning);

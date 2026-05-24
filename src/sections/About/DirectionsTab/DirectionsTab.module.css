@@ -33,20 +33,85 @@
   border-radius: 50%;
 }
 
-/* Адаптив для планшетов */
-@media (max-width: 1390px) {
-    .directions {
-        width: 100%;
-        gap: 40px;
-    }
+/* ========== TABLET: < 1440px ========== */
+@media (max-width: 1439px) {
+  .directions {
+    width: 100%;
+    gap: 40px;
+  }
+
+  .directionsContent {
+    font-size: clamp(1.125rem, 2.5vw, var(--font-size-text));
+  }
+
+  .directionsList li {
+    padding-left: 16px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    /* 🔥 Перенос без тире */
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+  }
+
+  .directionsList li::before {
+    top: 10px;
+  }
 }
 
-/* Адаптив для мобильных телефонов */
+/* ========== MOBILE: < 768px ========== */
 @media (max-width: 767px) {
-    .directions {
-        gap: 30px;
-    }
-    .directionsList li {
-        word-break: break-word; /* Добавляем перенос длинных слов */
-    }
+  .directions {
+    gap: 32px;
+    text-align: center;
+  }
+
+  .directionsContent {
+    font-size: 1.125rem;
+  }
+
+  .directionsTitle {
+    margin-bottom: 16px;
+  }
+
+  .directionsList {
+    text-align: left;
+    max-width: 400px;
+    margin-inline: auto;
+    padding-left: 0;
+  }
+
+  .directionsList li {
+    font-size: 1.0625rem;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+
+  .directionsList li::before {
+    top: 9px;
+    left: 0;
+  }
+}
+
+/* ========== SMALL MOBILE: < 480px ========== */
+@media (max-width: 479px) {
+  .directions {
+    gap: 24px;
+  }
+
+  .directionsContent {
+    font-size: 1rem;
+  }
+
+  .directionsList li {
+    font-size: 0.9375rem;
+    padding-left: 18px;
+  }
+
+  .directionsList li::before {
+    top: 8px;
+  }
 }
