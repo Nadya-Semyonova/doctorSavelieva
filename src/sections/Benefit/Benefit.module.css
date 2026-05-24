@@ -50,3 +50,87 @@
   width: 100%;
   display: block;
 }
+
+/* ========== планшет: < 1440px ========== */
+@media (max-width: 1439px) {
+  .benefit {
+    padding: 30px;
+  }
+
+  .title {
+    font-size: clamp(28px, 5vw, 32px);
+  }
+
+  .subtitle {
+    font-size: clamp(15px, 2.5vw, 16px);
+  }
+
+  .grid {
+    gap: 16px;
+  }
+
+  .card {
+    padding: 18px;
+    font-size: clamp(14px, 2vw, 16px);
+  }
+}
+
+/* ========== MOBILE: < 768px ========== */
+@media (max-width: 767px) {
+  .benefit {
+    padding:40px;
+  }
+
+  .wrapper {
+    gap: 24px;
+  }
+
+  .title {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* Одна колонка на мобильных */
+    gap: 12px;
+  }
+
+  .card {
+    padding: 16px;
+    border-radius: 16px;
+    font-size: 14px;
+    text-align: center; /* Опционально: центрируем текст на мобильных */
+  }
+
+  .wave {
+    opacity: 0.9; /* Чуть приглушаем декоративный элемент */
+  }
+}
+
+/* ========== SMALL MOBILE: < 480px ========== */
+@media (max-width: 479px) {
+  .benefit {
+    padding-inline: 16px;
+    padding-block: 32px 48px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .card {
+    padding: 14px;
+    font-size: 13px;
+    border-radius: 14px;
+  }
+}
