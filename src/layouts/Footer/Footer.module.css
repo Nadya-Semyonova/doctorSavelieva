@@ -66,3 +66,106 @@
   font-size: var(--font-size-sm);
   margin: 0;
 }
+
+/* ========== TABLET: < 1440px ========== */
+@media (max-width: 1439px) {
+  .footer {
+    padding-inline: 40px;
+    padding-block-start: 16px;
+  }
+
+  .footerContent {
+    gap: var(--spacing-md);
+    justify-content: center;
+    text-align: center;
+  }
+
+  .legalSection {
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .legalLink {
+    font-size: clamp(0.9375rem, 2vw, var(--font-size-small));
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .copyright {
+    padding-top: var(--spacing-md);
+    padding-bottom: 16px;
+  }
+
+  .copyright p {
+    font-size: clamp(0.875rem, 1.8vw, var(--font-size-sm, 0.875rem));
+  }
+}
+
+/* ========== MOBILE: < 768px ========== */
+@media (max-width: 767px) {
+  .footer {
+    padding-inline: 20px;
+    padding-block-start: 12px;
+  }
+
+  .footerContent {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+
+  .legalSection {
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .legalLink {
+    font-size: 0.9375rem;
+    padding: 6px 12px;
+    /* 🔥 Увеличенная область тапа для доступности */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: normal; /* Разрешаем перенос длинных названий */
+    text-align: center;
+  }
+
+  .copyright {
+    width: 100%;
+    padding-top: 16px;
+    padding-bottom: 12px;
+    border-top: 1px solid var(--border-color-light, rgba(0, 72, 135, 0.15));
+  }
+
+  .copyright p {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    text-align: center;
+  }
+}
+
+/* ========== SMALL MOBILE: < 480px ========== */
+@media (max-width: 479px) {
+  .footer {
+    padding-inline: 16px;
+    padding-block-start: 10px;
+  }
+
+  .legalLink {
+    font-size: 0.875rem;
+    padding: 4px 8px;
+    min-height: 40px;
+  }
+
+  .copyright {
+    padding-top: 12px;
+    padding-bottom: 10px;
+  }
+
+  .copyright p {
+    font-size: 0.75rem;
+  }
+}
+
+
