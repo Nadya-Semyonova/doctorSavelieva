@@ -16,7 +16,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
               Договор оферты
             </RouterLink>
             <RouterLink to="/privacy-policy" className={styles.legalLink}>
-              Политика конфиденциальности
+              Политика обработки персональных данных
             </RouterLink>
           </div>
         </div>
