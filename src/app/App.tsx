@@ -15,7 +15,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/offer-agreement" element={<OfferAgreement />} />
-          <Route path="/consent" element={<ConsentForDataProcessing />} />
+          <Route path="/consent-personal-data" element={<ConsentForDataProcessing />} />
           <Route path="/school" element={<SchoolPage />} />
         </Routes>
       </MainLayout>

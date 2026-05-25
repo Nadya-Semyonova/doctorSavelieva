@@ -9,8 +9,9 @@ const Appointment = () => {
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [consentPersonal, setConsentPersonal] = useState(false);
-  const [consentOffer, setConsentOffer] = useState(false);
+  const [consentData, setConsentData] = useState(false); // ← согласие на обработку ПДн
+  const [consentPolicy, setConsentPolicy] = useState(false); // ← ознакомление с Политикой
+  const [consentOffer, setConsentOffer] = useState(false); // ← принятие Оферты
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [errors, setErrors] = useState({
@@ -103,7 +104,14 @@ const Appointment = () => {
     const isPhoneValid = validatePhone(phone);
     const isEmailValid = validateEmail(email);
 
-    return isFullNameValid && isPhoneValid && isEmailValid && consentPersonal && consentOffer;
+    return (
+      isFullNameValid &&
+      isPhoneValid &&
+      isEmailValid &&
+      consentData && // ← отдельное согласие на обработку ПДн
+      consentPolicy && // ← ознакомление с Политикой
+      consentOffer
+    ); // ← принятие Оферты
   };
 
   const isFormValid = () => {
@@ -119,7 +127,8 @@ const Appointment = () => {
       isEmailFilled &&
       isEmailFormatValid &&
       hasNoErrors &&
-      consentPersonal &&
+      consentData && // ← обновлено
+      consentPolicy && // ← обновлено
       consentOffer
     );
   };
@@ -132,18 +141,20 @@ const Appointment = () => {
     setIsSubmitting(true);
 
     try {
+      // Здесь ваш код отправки данных на бэкенд (Telegram + Google Sheets)
+
       // Очистка формы
       setFullName("");
       setPhone("");
       setEmail("");
-      setConsentPersonal(false);
+      setConsentData(false);
+      setConsentPolicy(false);
       setConsentOffer(false);
       setErrors({ fullName: "", phone: "", email: "" });
 
-      // Показать модальное окно
       setIsModalOpen(true);
     } catch (error) {
-      console.error("Error sending email:", error);
+      console.error("Error:", error);
       alert("Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.");
     } finally {
       setIsSubmitting(false);
@@ -214,25 +225,36 @@ const Appointment = () => {
             />
 
             <div className={styles.checkboxes}>
+              {/* НОВЫЙ: Отдельный чек-бокс для согласия на обработку ПДн */}
               <Checkbox
-                checked={consentPersonal}
-                onChange={setConsentPersonal}
-                labelText="согласен на"
-                linkText="обработку персональных данных"
+                checked={consentData}
+                onChange={setConsentData}
+                labelText="Я даю "
+                linkText="согласие на обработку персональных данных"
+                linkHref="/consent-personal-data"
+              />
+
+              {/* НОВЫЙ: Отдельный чек-бокс для ознакомления с Политикой */}
+              <Checkbox
+                checked={consentPolicy}
+                onChange={setConsentPolicy}
+                labelText="Я ознакомлен(а) с "
+                linkText="Политикой обработки персональных данных"
                 linkHref="/privacy-policy"
               />
 
+              {/* Существующий: принятие Оферты */}
               <Checkbox
                 checked={consentOffer}
                 onChange={setConsentOffer}
-                labelText="принимаю"
+                labelText="Я принимаю "
                 linkText="условия договора-оферты"
                 linkHref="/offer-agreement"
               />
             </div>
 
             <ButtonDefault
-              name="Записаться на консультацию"
+              name={isSubmitting ? "Отправка..." : "Записаться на консультацию"}
               handleClick={handleSubmit}
               type="button"
               status={!isSubmitting && isFormValid()}

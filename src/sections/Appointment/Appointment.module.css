@@ -92,13 +92,243 @@
   transform: translateY(-2px);
 }
 
-/* @media (max-width: 968px) {
+/* ========== TABLET: < 1440px ========== */
+@media (max-width: 1439px) {
+  .appointment {
+    padding: 0 40px;
+  }
+
   .container {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: 48px 32px;
   }
 
   .title {
-    font-size: calc(var(--font-size-h1) * 0.9);
+    font-size: clamp(1.5rem, 4vw, var(--font-size-h2));
   }
-} */
+
+  .infoBlock {
+    font-size: clamp(1.125rem, 2.5vw, var(--font-size-text));
+    gap: 16px;
+  }
+
+  .rightColumn {
+    padding-inline-end: 24px;
+  }
+
+  .form {
+    gap: var(--spacing-sm);
+  }
+
+  .checkboxes {
+    margin: var(--spacing-sm) 0;
+  }
+
+  .submitButton {
+    padding: var(--spacing-sm);
+    font-size: clamp(1rem, 2vw, var(--font-size-text));
+  }
+}
+
+/* ========== MOBILE: < 768px (ОДНА КОЛОНКА) ========== */
+@media (max-width: 767px) {
+  .appointment {
+    padding: 0 20px;
+  }
+
+  .container {
+    /* 🔥 Вертикальный стек: инфо сверху, форма снизу */
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 24px;
+    border-radius: var(--border-radius-md);
+  }
+
+  .leftColumn {
+    gap: var(--spacing-xl);
+    text-align: center; /* Центрируем заголовок и текст */
+    align-items: center;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+  }
+
+  .infoBlock {
+    font-size: 1.125rem;
+    gap: 14px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .infoText {
+    line-height: 1.5;
+  }
+
+  .price {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .price strong {
+    display: block;
+    margin-top: 4px;
+  }
+
+  .notice {
+    padding: var(--spacing-md);
+    border-left: none;
+    border-top: 4px solid var(--color-bg-secondary);
+    border-radius: var(--border-radius-md);
+    text-align: left; /* Текст внутри — по левому краю для читаемости */
+    margin-inline: auto;
+    max-width: 400px;
+  }
+
+  .noticeTitle {
+    margin-bottom: var(--spacing-xs);
+    text-align: center;
+  }
+
+  .noticeText {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Правая колонка — форма */
+  .rightColumn {
+    padding-inline-end: 0;
+    width: 100%;
+  }
+
+  .form {
+    gap: var(--spacing-sm);
+  }
+
+  /* Чекбоксы: текст + ссылка */
+  .checkboxes {
+    margin: var(--spacing-sm) 0 var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+  }
+
+  /* Если Checkbox рендерит <label> с инлайном — помогаем переносом */
+  .checkboxes :is(label, span) {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    align-items: baseline;
+    line-height: 1.4;
+  }
+
+  .checkboxes a {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    text-decoration: none;
+    color: var(--color-bg-secondary);
+  }
+
+  .checkboxes a:hover {
+    text-decoration: underline;
+  }
+
+  /* Кнопка отправки */
+  .submitButton {
+    width: 100%;
+    max-width: 320px;
+    margin-inline: auto;
+    padding: 14px 16px;
+    font-size: 1rem;
+    min-height: 48px; /* Доступность: тап-зона ≥44px */
+    display: block;
+  }
+
+  /* Убираем transform-анимацию на тач-устройствах */
+  @media (hover: none) {
+    .submitButton:hover {
+      transform: none;
+    }
+  }
+}
+
+/* ========== SMALL MOBILE: < 480px ========== */
+@media (max-width: 479px) {
+  .appointment {
+    padding: 0 16px;
+  }
+
+  .container {
+    padding: 24px 20px;
+    gap: 24px;
+  }
+
+  .title {
+    font-size: 1.375rem;
+  }
+
+  .infoBlock {
+    font-size: 1rem;
+    gap: 12px;
+  }
+
+  .price {
+    font-size: 1.125rem;
+  }
+
+  .notice {
+    padding: 12px 14px;
+    font-size: 0.9375rem;
+  }
+
+  .checkboxes {
+    gap: 10px;
+  }
+
+  .checkboxes :is(label, span) {
+    font-size: 0.9375rem;
+    gap: 2px 4px;
+  }
+
+  .submitButton {
+    max-width: 100%;
+    padding: 12px 14px;
+    font-size: 0.9375rem;
+    min-height: 44px;
+  }
+}
+
+/* ========== Модальное окно — адаптив (если не глобальный) ========== */
+/* Если стили модалки локальные, добавьте: */
+@media (max-width: 767px) {
+  /* Предположим, что Modal рендерит .modal, .modalContent */
+  :global(.modalContent) {
+    width: calc(100vw - 32px) !important;
+    max-width: 400px !important;
+    padding: 24px 20px !important;
+    margin: 16px auto !important;
+  }
+
+  :global(.modalContent p) {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+  }
+}
+
+/* ========== Доступность ========== */
+@media (prefers-reduced-motion: reduce) {
+  .submitButton {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+.submitButton:focus-visible {
+  outline: 2px solid var(--color-bg-secondary);
+  outline-offset: 2px;
+}
