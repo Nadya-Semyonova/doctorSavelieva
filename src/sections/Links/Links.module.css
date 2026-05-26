@@ -58,7 +58,7 @@
 }
 
 /* ========== TABLET: < 1440px ========== */
-@media (max-width: 1439px) {
+@media (width <= 1439px) {
   .links {
     grid-template-columns: 1fr 1fr;
     gap: 24px;
@@ -76,6 +76,7 @@
   .card {
     padding: 20px;
     gap: 12px;
+
     /* 🔥 Две строки: [иконка + текст] / [кнопка снизу] */
     grid-template-columns: auto 1fr;
     grid-template-areas:
@@ -99,6 +100,7 @@
 
   .text {
     grid-area: text;
+
     /* 🔥 Текст переносится автоматически */
     font-size: clamp(1rem, 2.5vw, var(--font-size-small));
     text-align: left;
@@ -122,7 +124,7 @@
 }
 
 /* ========== MOBILE: < 768px ========== */
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .links {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -144,6 +146,7 @@
     padding: 20px 16px;
     gap: 12px 16px;
     text-align: left;
+
     /* 🔥 Предотвращаем вылезание контента */
     min-width: 0;
     overflow: hidden;
@@ -166,6 +169,7 @@
     font-size: 1.125rem;
     line-height: 1.4;
     margin: 0;
+
     /* 🔥 Разрешаем перенос длинных слов */
     min-width: 0;
     overflow-wrap: break-word;
@@ -195,7 +199,7 @@
 }
 
 /* ========== SMALL MOBILE: < 480px ========== */
-@media (max-width: 479px) {
+@media (width <= 479px) {
   .links {
     padding: 30px;
     gap: 16px;
@@ -221,11 +225,9 @@
   }
 
   .text {
-    font-size: 1rem;
-    line-height: 1.45;
     hyphens: none;
-    -webkit-hyphens: none;
-    -ms-hyphens: none;
+    hyphens: none;
+    hyphens: none;
     word-break: normal;
     overflow-wrap: break-word; /* Оставляем мягкий перенос без тире */
     font-size: 0.9375rem;

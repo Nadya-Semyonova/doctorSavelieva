@@ -62,7 +62,7 @@
 }
 
 /* Планшеты (768px - 1023px) */
-@media (max-width: 1023px) {
+@media (width <= 1023px) {
   .content {
     gap: 40px;
     padding: 40px;
@@ -84,7 +84,7 @@
 }
 
 /* Мобильные (до 767px) */
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .content {
     grid-template-columns: 1fr;
     gap: 30px;

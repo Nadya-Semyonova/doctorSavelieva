@@ -73,7 +73,7 @@
 
 
 /* ========== MOBILE: < 768px для variant="bottom" ========== */
-@media (max-width: 767px) {
+@media (width <= 767px) {
   /* Кнопки снизу — делаем крупнее для тапа */
   .bottom {
     width: 44px;
@@ -98,7 +98,7 @@
   }
 }
 
-@media (max-width: 479px) {
+@media (width <= 479px) {
   .bottom {
     width: 40px;
     height: 40px;
