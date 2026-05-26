@@ -99,7 +99,7 @@
 }
 
 /* ========== TABLET: < 1440px ========== */
-@media (max-width: 1439px) {
+@media (width <= 1439px) {
   .education {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -129,7 +129,7 @@
 }
 
 /* ========== MOBILE: < 768px ========== */
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .education {
     /* 🔥 Одна колонка: текст сверху, галерея снизу */
     grid-template-columns: 1fr;
@@ -170,10 +170,7 @@
   .modalNext {
     width: 36px;
     height: 36px;
-    left: 8px;
-    right: 8px;
-    bottom: 20px;
-    top: auto;
+    inset: auto 8px 20px;
     transform: none;
   }
 
@@ -189,7 +186,7 @@
 }
 
 /* ========== SMALL MOBILE: < 480px ========== */
-@media (max-width: 479px) {
+@media (width <= 479px) {
   .education {
     gap: 24px;
   }
@@ -197,9 +194,11 @@
   .intro {
     font-size: 1rem;
   }
+
 .right {
     max-width: 100%; /* 🔥 Убираем ограничение 628px */
   }
+
   .right img {
     max-height: 240px;
   }

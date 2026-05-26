@@ -14,6 +14,7 @@
   color: var(--button-text-secondary);
   border: none;
   cursor: pointer;
+
   /* 🔥 Разрешаем сжатие */
   flex-shrink: 0;
   white-space: nowrap;
@@ -30,7 +31,7 @@
 }
 
 /* ========== TABLET: < 1440px ========== */
-@media (max-width: 1439px) {
+@media (width <= 1439px) {
   .tabs {
     gap: 12px;
     flex-wrap: wrap;
@@ -47,7 +48,7 @@
 }
 
 /* ========== MOBILE: < 768px (ВЕРТИКАЛЬНЫЙ СТЕК) ========== */
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .tabs {
     flex-direction: column; /* 🔥 Кнопки одна под другой */
     gap: 10px;
@@ -71,7 +72,7 @@
 }
 
 /* ========== SMALL MOBILE: < 480px ========== */
-@media (max-width: 479px) {
+@media (width <= 479px) {
   .tabs {
     max-width: 100%;
     gap: 8px;

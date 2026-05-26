@@ -12,6 +12,7 @@
 .right {
   width: 100%;
   max-width: 628px;
+
   /* 🔥 Гарантируем, что контейнер не схлопнется и не расширится бесконечно */
   min-width: 0; 
   height: auto;
@@ -26,7 +27,7 @@
 }
 
 /* ========== TABLET: < 1440px ========== */
-@media (max-width: 1439px) {
+@media (width <= 1439px) {
   .experience {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -47,7 +48,7 @@
 }
 
 /* ========== MOBILE: < 768px ========== */
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .experience {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -67,7 +68,7 @@
 }
 
 /* ========== SMALL MOBILE: < 480px ========== */
-@media (max-width: 479px) {
+@media (width <= 479px) {
   .experience {
     gap: 24px;
   }

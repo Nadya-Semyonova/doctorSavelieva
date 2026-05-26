@@ -95,6 +95,9 @@
   height: 350px;
   display: flex;
   flex-direction: column;
+
+  /* 🔥 Разрешаем карточке адаптироваться по высоте */
+  min-height: 300px;
 }
 
 .reviewHeader {
@@ -146,10 +149,11 @@
   flex: 1;
   overflow-y: auto;
   font-family: var(--font-secondary);
-  font-size: var(--font-size-small);
   color: var(--color-text);
   padding-right: 8px;
   text-align: left;
+  font-size: var(--font-size-text);
+  line-height: 1.5;
 }
 
 /* Стилизация скроллбара для текста отзыва */
@@ -190,6 +194,11 @@
   .reviewsHeader {
     gap: 32px;
     margin-bottom: 40px;
+    padding-inline: 12px;
+  }
+
+  .headerLeft {
+    max-width: calc(100% - 24px);
   }
 
   .title {
@@ -215,6 +224,7 @@
 
   .reviewCard {
     padding: 20px;
+    min-height: 280px;
   }
 
   .reviewHeader {
@@ -223,13 +233,18 @@
   }
 
   .ratingValue,
-  .star,
+  .star {
+    font-size: clamp(0.875rem, 2vw, var(--font-size-small));
+  }
+
   .reviewText {
-    font-size: clamp(1rem, 2vw, var(--font-size-small));
+    font-size: 16px;
+    line-height: 1.55;
   }
 }
 
 /* ========== MOBILE: < 768px ========== */
+
 @media (max-width: 767px) {
   .reviews {
     padding: 40px 0;
@@ -245,20 +260,33 @@
     text-align: center;
     gap: 24px;
     margin-bottom: 32px;
+    padding-inline: 0;
+  }
+
+  .sliderWrapper {
+    padding-inline: 12px;
+    box-sizing: border-box;
   }
 
   .headerLeft {
     align-items: center;
     width: 100%;
+    max-width: 100%;
+    padding-inline: 12px;
+    box-sizing: border-box;
   }
 
   .title {
     font-size: 1.5rem;
     margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   .ratingBlock {
     align-items: center;
+    width: 100%;
   }
 
   .ratingDisplay {
@@ -275,17 +303,19 @@
   }
 
   .allReviewsButton {
-    width: 100%;
+    width: calc(100% - 24px);
     max-width: 300px;
     padding: 12px 16px;
     font-size: 1rem;
-    order: 3; /* Кнопка внизу на мобильных */
+    margin-inline: auto;
+    order: 3;
   }
 
-  /* Карточка отзыва */
   .reviewCard {
     padding: 16px 14px;
     border-radius: var(--border-radius-md);
+    min-height: 240px;
+    height: auto;
   }
 
   .reviewHeader {
@@ -316,15 +346,25 @@
   }
 
   .reviewText {
-    font-size: 0.9375rem;
+    font-size: 13px;
     line-height: 1.6;
+    max-height: 180px;
   }
 }
 
 /* ========== SMALL MOBILE: < 480px ========== */
+/* 🔥 ТОЖЕ НА КОРНЕВОМ УРОВНЕ */
 @media (max-width: 479px) {
   .container {
-    padding: 30px;
+    padding: 20px 16px;
+  }
+
+  .sliderWrapper {
+    padding-inline: 8px;
+  }
+
+  .headerLeft {
+    padding-inline: 8px;
   }
 
   .title {
@@ -340,12 +380,15 @@
   }
 
   .allReviewsButton {
+    width: calc(100% - 16px);
+    max-width: 280px;
     padding: 10px 14px;
     font-size: 0.9375rem;
   }
 
   .reviewCard {
     padding: 14px 12px;
+    min-height: 220px;
   }
 
   .ratingValue {
@@ -361,6 +404,8 @@
   }
 
   .reviewText {
-    font-size: 0.875rem;
+    font-size: 14px;
+    line-height: 1.65;
+    max-height: 160px;
   }
 }

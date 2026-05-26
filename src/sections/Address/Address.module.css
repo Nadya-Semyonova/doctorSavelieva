@@ -78,7 +78,7 @@
 }
 
 /* ========== TABLET: < 1440px ========== */
-@media (max-width: 1439px) {
+@media (width <= 1439px) {
   .address {
     padding: 0 40px 80px;
     gap: 24px;
@@ -122,12 +122,13 @@
     padding-left: 16px;
     margin-bottom: 12px;
     line-height: 1.5;
+
     /* 🔥 Разрешаем перенос без тире */
     overflow-wrap: break-word;
     word-break: normal;
     hyphens: none;
-    -webkit-hyphens: none;
-    -ms-hyphens: none;
+    hyphens: none;
+    hyphens: none;
   }
 
   .list li::before {
@@ -142,7 +143,7 @@
 }
 
 /* ========== MOBILE: < 768px ========== */
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .address {
     padding: 0 20px 60px;
     gap: 20px;
@@ -199,12 +200,13 @@
     padding-left: 20px;
     margin-bottom: 10px;
     line-height: 1.5;
+
     /* 🔥 Перенос слов без тире */
     overflow-wrap: break-word;
     word-break: normal;
     hyphens: none;
-    -webkit-hyphens: none;
-    -ms-hyphens: none;
+    hyphens: none;
+    hyphens: none;
   }
 
   .list li::before {
@@ -221,7 +223,7 @@
 }
 
 /* ========== SMALL MOBILE: < 480px ========== */
-@media (max-width: 479px) {
+@media (width <= 479px) {
   .address {
     padding: 0 16px 48px;
   }

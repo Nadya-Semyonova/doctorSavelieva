@@ -93,7 +93,7 @@
 }
 
 /* ========== TABLET: < 1440px ========== */
-@media (max-width: 1439px) {
+@media (width <= 1439px) {
   .appointment {
     padding: 0 40px;
   }
@@ -132,7 +132,7 @@
 }
 
 /* ========== MOBILE: < 768px (ОДНА КОЛОНКА) ========== */
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .appointment {
     padding: 0 20px;
   }
@@ -257,7 +257,7 @@
 }
 
 /* ========== SMALL MOBILE: < 480px ========== */
-@media (max-width: 479px) {
+@media (width <= 479px) {
   .appointment {
     padding: 0 16px;
   }
@@ -303,8 +303,9 @@
 }
 
 /* ========== Модальное окно — адаптив (если не глобальный) ========== */
+
 /* Если стили модалки локальные, добавьте: */
-@media (max-width: 767px) {
+@media (width <= 767px) {
   /* Предположим, что Modal рендерит .modal, .modalContent */
   :global(.modalContent) {
     width: calc(100vw - 32px) !important;
