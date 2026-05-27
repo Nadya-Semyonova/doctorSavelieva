@@ -29,22 +29,27 @@
 .title {
   color: var(--color-text-primary);
 }
-
+.text {
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-text);
+}
 .imageWrapper {
   width: 100%;
   max-width: 535px;
   height: auto;
-  aspect-ratio: 535 / 515; 
+  aspect-ratio: 535 / 515;
   overflow: hidden;
   border-radius: 100px;
   margin: 0 auto;
 }
-
 .image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.4);
+  object-position: left 19px top 0px;
+  scale: 1.1;
+
 }
 
 .wave {
@@ -74,7 +79,7 @@
   }
 
   .title {
-    font-size: var(--font-size-h2); 
+    font-size: var(--font-size-h2);
   }
 
   .imageWrapper {

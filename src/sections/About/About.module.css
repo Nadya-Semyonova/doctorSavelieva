@@ -5,7 +5,11 @@
   gap: 50px;
   position: relative;
 }
-
+.intro {
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-text);
+}
 .info {
   display: flex;
   flex-direction: column;
