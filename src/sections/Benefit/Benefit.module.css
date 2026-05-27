@@ -19,6 +19,9 @@
 
 .subtitle {
   text-align: left;
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-text);
 }
 
 .grid {
@@ -78,7 +81,7 @@
 /* ========== MOBILE: < 768px ========== */
 @media (width <= 767px) {
   .benefit {
-    padding:40px;
+    padding: 40px;
   }
 
   .wrapper {
