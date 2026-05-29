@@ -3,7 +3,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-background);
 }
 
 .container {
@@ -47,7 +47,7 @@
   font-family: var(--font-secondary);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-regular);
-  color: var(--button-text-secondary);
+  color: var(--color-text-secondary);
   cursor: pointer;
   transition: color var(--transition-fast);
   white-space: nowrap;
@@ -61,7 +61,7 @@
 }
 
 .navLink:hover {
-  color: var(--button-bg-secondary);
+  color: var(--color-surface);
 }
 
 .navLink:active {
@@ -85,8 +85,8 @@
   font-family: var(--font-secondary);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-bold);
-  background-color: var(--button-bg-color-blue);
-  color: var(--button-text-primary);
+  background-color: var(--color-primary);
+  color: var(--color-primary-light);
   border: none;
   border-radius: var(--border-radius-md);
   cursor: pointer;
@@ -99,7 +99,7 @@
 }
 
 .buttonConsultation:hover {
-  background-color: var(--button-bg-secondary);
+  background-color: var(--color-surface);
   color: var(--text-inverse);
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
@@ -129,7 +129,7 @@
   top: 100%;
   left: 0;
   right: 0;
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-background);
   padding: var(--spacing-md);
   box-shadow: var(--shadow-md);
   z-index: 999;
@@ -158,21 +158,21 @@
   font-family: var(--font-secondary);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-regular);
-  color: var(--button-text-secondary);
+  color: var(--color-text-secondary);
   cursor: pointer;
   transition: background-color var(--transition-fast);
   border-radius: var(--border-radius-sm);
 }
 
 .mobileNavLink:hover {
-  background-color: var(--color-bg-accent);
+  background-color: var(--color-primary-light);
 }
 
 .mobileConsultBtn {
   width: 50%;
   margin-top: var(--spacing-sm);
-  background-color: var(--button-bg-color-blue);
-  color: var(--button-text-primary);
+  background-color: var(--color-primary);
+  color: var(--color-primary-light);
   border: none;
   padding: var(--spacing-md);
   border-radius: var(--border-radius-md);
@@ -184,7 +184,7 @@
 }
 
 .mobileConsultBtn:hover {
-  background-color: var(--button-bg-secondary);
+  background-color: var(--color-surface);
   color: var(--color-text-primary);
 }
 

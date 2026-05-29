@@ -1,11 +1,11 @@
 .accordion {
   background: transparent;
-  border-bottom: 1px solid var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-primary);
   padding: 30px 0;
 }
 
 .accordion:first-of-type {
-  border-top: 1px solid var(--color-bg-secondary);
+  border-top: 1px solid var(--color-primary);
 }
 
 .accordionHeader {
@@ -29,7 +29,7 @@
 .accordionIcon {
   width: 17px;
   height: 17px;
-  color: var(--button-bg-color-blue);
+  color: var(--color-primary);
   transition: transform 0.3s ease;
 }
 
@@ -135,7 +135,7 @@
 }
 
 .accordionHeader:focus-visible {
-  outline: 2px solid var(--color-bg-secondary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
   border-radius: 4px;
 }

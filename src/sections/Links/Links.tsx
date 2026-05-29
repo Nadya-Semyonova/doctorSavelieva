@@ -3,6 +3,7 @@ import Telegram from "../../assets/images/IconsSvg/Telegram";
 import ThumbsUp from "../../assets/images/IconsSvg/ThumbsUp";
 import ButtonDefault from "../../shared/ui/Button/ButtonDefault";
 import styles from "./Links.module.css";
+import Wave from "../../shared/ui/Waves/Wave";
 
 export default function Links() {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ export default function Links() {
           styleButton={styles.LinkButton}
         />
       </div>
+      <Wave className={styles.wave} variant="links" compact={window.innerWidth <= 1440} />
     </section>
   );
 }

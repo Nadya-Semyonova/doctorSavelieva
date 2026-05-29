@@ -7,7 +7,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--color-bg-accent);
+  background: var(--color-primary-light);
   border: none;
   cursor: pointer;
   display: flex;
@@ -42,7 +42,7 @@
 /* hover ТОЛЬКО для боковых */
 .customButtonPrev:hover:not(.buttonDeactive),
 .customButtonNext:hover:not(.buttonDeactive) {
-  background: var(--button-bg-color-blue);
+  background: var(--color-primary);
   transform: translateY(-50%) scale(1.05);
   box-shadow: var(--shadow-lg);
 }
@@ -60,7 +60,7 @@
 }
 
 .bottom:hover:not(.buttonDeactive) {
-  background: var(--button-bg-color-blue);
+  background: var(--color-primary);
   transform: scale(1.05);
   box-shadow: var(--shadow-lg);
 }

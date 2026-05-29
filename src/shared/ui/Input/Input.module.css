@@ -7,9 +7,9 @@
   padding: var(--spacing-md);
   font-size: var(--font-size-text);
   font-family: var(--font-secondary);
-  border: 2px solid var(--color-bg-secondary);
+  border: 2px solid var(--color-primary);
   border-radius: var(--border-radius-md);
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-background);
   transition: all var(--transition-fast);
   color: var(--color-text-primary);
   box-sizing: border-box;
