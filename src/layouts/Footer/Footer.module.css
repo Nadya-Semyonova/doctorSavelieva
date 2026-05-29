@@ -8,7 +8,7 @@
   overflow: visible;
   position: relative;
   z-index: 0;
-  background-color: var(--button-text-primary);
+  background-color: var(--color-primary-light);
 }
 
 .container {
@@ -46,7 +46,7 @@
 }
 
 .legalLink:hover {
-  color: var(--button-bg-secondary);
+  color: var(--color-surface);
 }
 
 .legalLink:hover::after {

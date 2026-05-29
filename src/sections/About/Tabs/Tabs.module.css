@@ -10,8 +10,8 @@
   padding-block: 18px;
   inline-size: 240px;
   border-radius: 10px;
-  background: var(--button-bg-secondary);
-  color: var(--button-text-secondary);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
   border: none;
   cursor: pointer;
 
@@ -26,8 +26,8 @@
 }
 
 .active {
-  background: var(--button-bg-color-blue);
-  color: var(--button-text-primary);
+  background: var(--color-primary);
+  color: var(--color-primary-light);
 }
 
 /* ========== TABLET: < 1440px ========== */

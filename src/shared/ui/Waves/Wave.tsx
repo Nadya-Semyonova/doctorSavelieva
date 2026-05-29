@@ -1,14 +1,14 @@
 import {
   WaveHero,
   WaveBenefit,
-  WaveReviews,
+  WaveLinks,
   WaveAddress,
 } from "../../../assets/images/IconsSvg/Waves";
 
 const map = {
   hero: WaveHero,
   benefit: WaveBenefit,
-  reviews: WaveReviews,
+  links: WaveLinks,
   address: WaveAddress,
 } as const;
 
@@ -17,6 +17,7 @@ type WaveVariant = keyof typeof map;
 interface WaveProps {
   variant?: WaveVariant;
   className?: string;
+  compact?: boolean;
 }
 
 export default function Wave({ variant = "hero", className }: WaveProps) {
