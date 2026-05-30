@@ -34,7 +34,7 @@
 
 .legalLink {
   background: transparent;
-  color: var(--color-text);
+  color: var(--color-text-primary);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-regular);
   text-decoration: none;
@@ -57,12 +57,12 @@
 .copyright {
   text-align: center;
   padding-top: var(--spacing-lg);
-  border-top: 1px solid var(--border-color-light);
+  border-top: 1px solid var(--color-border);
   padding-bottom: 20px;
 }
 
 .copyright p {
-  color: var(--text-secondary);
+  color: var(--color-text-primary);
   font-size: var(--font-size-sm);
   margin: 0;
 }
@@ -96,7 +96,7 @@
   }
 
   .copyright p {
-    font-size: clamp(0.875rem, 1.8vw, var(--font-size-sm, 0.875rem));
+    font-size: clamp(0.875rem, 1.8vw, var(--font-size-small, 0.875rem));
   }
 }
 
@@ -136,7 +136,7 @@
     width: 100%;
     padding-top: 16px;
     padding-bottom: 12px;
-    border-top: 1px solid var(--border-color-light, rgb(0 72 135 / 15%));
+    border-top: 1px solid var(--color-border);
   }
 
   .copyright p {
@@ -168,5 +168,3 @@
     font-size: 0.75rem;
   }
 }
-
-

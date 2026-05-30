@@ -4,7 +4,7 @@
 }
 
 .schoolHero {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-text-primary) 100%);
   padding: 60px 0;
   margin-bottom: 48px;
 }
@@ -18,14 +18,14 @@
 .schoolHero__title {
   font-size: 48px;
   font-weight: 700;
-  color: var(--color-primary-dark);
+  color: var(--color-text-primary);
   text-align: center;
   margin-bottom: 16px;
 }
 
 .schoolHero__subtitle {
   font-size: 20px;
-  color: var(--color-primary-dark);
+  color: var(--color-text-primary);
   text-align: center;
 }
 

@@ -59,7 +59,7 @@
 
 .LinkButton:hover {
   background-color: var(--color-surface);
-  color: var(--text-inverse);
+  color: var(--color-text-secondary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
 }
