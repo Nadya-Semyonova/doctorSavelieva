@@ -1,25 +1,26 @@
 .tabs {
   display: flex;
-  gap: 20px;
+  gap: clamp(8px, 1.2vw, 20px);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .tabButton {
   font-family: var(--font-secondary);
   font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-small);
-  padding-block: 18px;
-  inline-size: 240px;
+  font-size: clamp(0.875rem, 1vw + 0.4rem, var(--font-size-small));
+  padding-block: clamp(12px, 1.5vw, 18px);
+  padding-inline: clamp(14px, 2vw, 24px);
+  inline-size: clamp(140px, 22vw, 240px);
   border-radius: 10px;
   background: var(--color-surface);
   color: var(--color-text-secondary);
   border: none;
   cursor: pointer;
-
-  /* 🔥 Разрешаем сжатие */
   flex-shrink: 0;
   white-space: nowrap;
+  transition: color 0.2s ease, background 0.2s ease;
 }
-
 
 .tabButton:hover {
   color: var(--color-text-primary);
@@ -30,56 +31,21 @@
   color: var(--color-primary-light);
 }
 
-/* ========== TABLET: < 1440px ========== */
-@media (width <= 1439px) {
-  .tabs {
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .tabButton {
-    inline-size: auto;
-    padding-block: 14px;
-    padding-inline: 20px;
-    font-size: clamp(0.9375rem, 2vw, var(--font-size-small));
-    flex-shrink: 1;
-  }
-}
-
 /* ========== MOBILE: < 768px (ВЕРТИКАЛЬНЫЙ СТЕК) ========== */
 @media (width <= 767px) {
   .tabs {
-    flex-direction: column; /* 🔥 Кнопки одна под другой */
-    gap: 10px;
+    flex-flow: column nowrap;
+    align-items: center;
     width: 100%;
-    max-width: 280px; /* Ограничиваем ширину для эстетики */
-    margin-inline: auto; /* Центрируем стек */
-    overflow: visible; /* Убираем скролл */
+    max-width: 280px;
+    margin-inline: auto;
     scroll-snap-type: none;
   }
 
   .tabButton {
-    inline-size: 100%; /*  На всю ширину контейнера */
-    padding-block: 14px;
-    padding-inline: 16px;
-    font-size: 1rem;
-    min-height: 48px; /* Удобная зона тапа */
+    inline-size: min(100%, 320px);
+    min-height: 48px;
     white-space: normal;
     text-align: center;
-    flex-shrink: 0;
-  }
-}
-
-/* ========== SMALL MOBILE: < 480px ========== */
-@media (width <= 479px) {
-  .tabs {
-    max-width: 100%;
-    gap: 8px;
-  }
-
-  .tabButton {
-    padding-block: 12px;
-    font-size: 0.9375rem;
   }
 }

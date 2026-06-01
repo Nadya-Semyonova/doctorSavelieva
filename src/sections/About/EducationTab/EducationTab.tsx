@@ -19,34 +19,56 @@ import pkUs3 from "../../../assets/images/Gallery/Full/PK_US3.png";
 import pkUs4 from "../../../assets/images/Gallery/Full/PK_US4.png";
 import pkUs5 from "../../../assets/images/Gallery/Full/PK_US5.png";
 
-export default function EducationTab() {
-  const images = [
-    diploma,
-    diplomaRevma,
-    diplomaUltrasound,
-    pkGibt,
-    pkGibt2,
-    pkLit,
-    pkUs2,
-    pkUs3,
-    pkUs4,
-    pkUs5,
-  ];
+const certificates = [
+  diploma,
+  diplomaRevma,
+  diplomaUltrasound,
+  pkGibt,
+  pkGibt2,
+  pkLit,
+  pkUs2,
+  pkUs3,
+  pkUs4,
+  pkUs5,
+];
 
+export default function EducationTab() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const swiperRef = useRef<SwiperType | null>(null);
+  const closeModal = () => setSelectedIndex(null);
 
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (selectedIndex === null) return;
+    if (selectedIndex === null) return;
 
-      if (e.key === "Escape") setSelectedIndex(null);
-      if (e.key === "ArrowRight") swiperRef.current?.slideNext();
-      if (e.key === "ArrowLeft") swiperRef.current?.slidePrev();
+    const handleKey = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case "Escape":
+          closeModal();
+          break;
+
+        case "ArrowRight":
+          swiperRef.current?.slideNext();
+          break;
+
+        case "ArrowLeft":
+          swiperRef.current?.slidePrev();
+          break;
+      }
     };
 
     window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
+
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+    };
+  }, [selectedIndex]);
+
+  useEffect(() => {
+    document.body.style.overflow = selectedIndex !== null ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [selectedIndex]);
 
   return (
@@ -70,7 +92,7 @@ export default function EducationTab() {
           slidesPerViewDesktop={1}
           variant="bottom"
         >
-          {images.map((src, index) => (
+          {certificates.map((src, index) => (
             <img
               key={index}
               src={src}
@@ -83,7 +105,7 @@ export default function EducationTab() {
       </div>
 
       {selectedIndex !== null && (
-        <div className={styles.modal} onClick={() => setSelectedIndex(null)}>
+        <div className={styles.modal} onClick={closeModal}>
           <Swiper
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             initialSlide={selectedIndex}
@@ -91,7 +113,7 @@ export default function EducationTab() {
             spaceBetween={0}
             className={styles.modalSwiper}
           >
-            {images.map((src, index) => (
+            {certificates.map((src, index) => (
               <SwiperSlide key={index}>
                 <div className={styles.slideCenter}>
                   <img

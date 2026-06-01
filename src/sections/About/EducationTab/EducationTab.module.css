@@ -1,44 +1,43 @@
 .education {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 70px;
-  min-width: 0; /* 🔥 Это должно помочь! */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 4.375rem);
+}
+
+.left,
+.right {
+  min-width: 0;
 }
 
 .left {
   display: flex;
   flex-direction: column;
-  min-width: 0; /* 🔥 И это! */
-
 }
 
 .intro {
-  padding-bottom: 30px;
+  padding-bottom: clamp(1.25rem, 2vw, 1.875rem);
   text-align: left;
-    font-family: var(--font-secondary);
+  font-family: var(--font-secondary);
   font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-text);
+  font-size: clamp(1.125rem, 2.5vw, var(--font-size-text));
+  color: var(--color-text-primary);
 }
 
 .right {
-  width: 100%;
-  max-width: 628px;
-  min-width: 0; /* 🔥 И это! */
+  max-width: 100%;
 }
 
 .right img {
   width: 100%;
-  max-height: 460px;
+  max-height: clamp(15rem, 35vw, 28.75rem);
   object-fit: contain;
-  border-radius: 12px;
+  border-radius: var(--border-radius-lg);
 }
 
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
+  padding: clamp(0.5rem, 2vw, 1rem);
   background: rgba(0 0 0 / 85%);
   display: flex;
   align-items: center;
@@ -46,14 +45,13 @@
   z-index: 1000;
 }
 
-.modalSwiper {
+.modalSwiper,
+.slideCenter {
   width: 100%;
   height: 100%;
 }
 
 .slideCenter {
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,30 +61,30 @@
   max-width: calc(100vw - 20px);
   max-height: calc(100vh - 20px);
   object-fit: contain;
-  border-radius: 12px;
+  border-radius: var(--border-radius-lg);
   animation: zoom-in 0.25s ease;
 }
 
 .modalPrev,
 .modalNext {
   position: absolute;
+  z-index: 10;
   top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
+  width: clamp(2.25rem, 3vw, 2.75rem);
+  height: clamp(2.25rem, 3vw, 2.75rem);
+  border: none;
   border-radius: 50%;
   background: var(--color-primary-light);
-  border: none;
   cursor: pointer;
-  z-index: 10;
+  transform: translateY(-50%);
 }
 
 .modalPrev {
-  left: 20px;
+  left: clamp(0.5rem, 2vw, 1.25rem);
 }
 
 .modalNext {
-  right: 20px;
+  right: clamp(0.5rem, 2vw, 1.25rem);
 }
 
 @keyframes zoom-in {
@@ -101,67 +99,18 @@
   }
 }
 
-/* ========== TABLET: < 1440px ========== */
-@media (width <= 1439px) {
-  .education {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-
-  .intro {
-    padding-bottom: 24px;
-    font-size: clamp(1.125rem, 2.5vw, var(--font-size-text));
-  }
-
-  .right {
-    max-width: 100%;
-  }
-
-  .right img {
-    max-height: 380px;
-  }
-
-  /* Модальное окно */
-  .modalPrev,
-  .modalNext {
-    width: 40px;
-    height: 40px;
-    left: 12px;
-    right: 12px;
-  }
-}
-
 /* ========== MOBILE: < 768px ========== */
 @media (width <= 767px) {
   .education {
-    /* 🔥 Одна колонка: текст сверху, галерея снизу */
     grid-template-columns: 1fr;
-    gap: 32px;
   }
 
   .intro {
-    padding-bottom: 20px;
-    font-size: 1.125rem;
     text-align: center;
   }
 
-  .left {
-    order: 1;
-  }
-
-  .right {
-    order: 2;
-    max-width: 100%;
-  }
-
   .right img {
-    max-height: 300px;
-    border-radius: 10px;
-  }
-
-  /* Модальное окно */
-  .modal {
-    padding: 10px;
+    max-height: 18.75rem;
   }
 
   .modalImage {
@@ -171,9 +120,8 @@
 
   .modalPrev,
   .modalNext {
-    width: 36px;
-    height: 36px;
-    inset: auto 8px 20px;
+    top: auto;
+    bottom: 20px;
     transform: none;
   }
 
@@ -187,45 +135,3 @@
     transform: translateX(50px);
   }
 }
-
-/* ========== SMALL MOBILE: < 480px ========== */
-@media (width <= 479px) {
-  .education {
-    gap: 24px;
-  }
-
-  .intro {
-    font-size: 1rem;
-  }
-
-.right {
-    max-width: 100%; /* 🔥 Убираем ограничение 628px */
-  }
-
-  .right img {
-    max-height: 240px;
-  }
-
-  .modalPrev,
-  .modalNext {
-    width: 32px;
-    height: 32px;
-    font-size: 14px;
-  }
-  
-  .modalPrev {
-    transform: translateX(-44px);
-  }
-  
-  .modalNext {
-    transform: translateX(44px);
-  }
-}
-
-
-
-.left,
-.right {
-  min-width: 0; /* 🔥 И это! */
-}
-

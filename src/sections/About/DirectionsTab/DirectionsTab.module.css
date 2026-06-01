@@ -1,16 +1,23 @@
 .directions {
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  width: 80%;
+  gap: clamp(var(--spacing-lg), 4vw, var(--spacing-2xl));
+  width: min(100%, 80%);
   text-align: left;
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-regular);
+  font-size: clamp(
+    calc(var(--font-size-text) * 0.67),
+    2vw,
+    var(--font-size-text)
+  );
+  color: var(--color-text-primary);
 }
 
 .directionsContent {
-  font-family: var(--font-secondary);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-text);
-  color: var(--color-text-primary);
+  gap: var(--spacing-xs);
+  display: flex;
+  flex-direction: column;
 }
 
 .directionsList {
@@ -19,58 +26,29 @@
 
 .directionsList li {
   position: relative;
-  padding-left: 18px;
+  padding-left: var(--spacing-md);
+  line-height: var(--line-height-medium);
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
 }
 
 .directionsList li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 8px;
+  top: 0.75em;
+  transform: translateY(-50%);
   width: 6px;
   height: 6px;
   background-color: var(--color-text-primary);
-  border-radius: 50%;
-}
-
-/* ========== TABLET: < 1440px ========== */
-@media (width <= 1439px) {
-  .directions {
-    width: 100%;
-    gap: 40px;
-  }
-
-  .directionsContent {
-    font-size: clamp(1.125rem, 2.5vw, var(--font-size-text));
-  }
-
-  .directionsList li {
-    padding-left: 16px;
-    margin-bottom: 12px;
-    line-height: 1.5;
-
-    /* 🔥 Перенос без тире */
-    overflow-wrap: break-word;
-    word-break: normal;
-    hyphens: none;
-    hyphens: none;
-    hyphens: none;
-  }
-
-  .directionsList li::before {
-    top: 10px;
-  }
+  border-radius: var(--border-radius-full);
 }
 
 /* ========== MOBILE: < 768px ========== */
 @media (width <= 767px) {
   .directions {
-    gap: 32px;
     text-align: center;
-  }
-
-  .directionsContent {
-    font-size: 1.125rem;
   }
 
   .directionsTitle {
@@ -81,38 +59,5 @@
     text-align: left;
     max-width: 400px;
     margin-inline: auto;
-    padding-left: 0;
-  }
-
-  .directionsList li {
-    font-size: 1.0625rem;
-    padding-left: 20px;
-    margin-bottom: 10px;
-    line-height: 1.5;
-  }
-
-  .directionsList li::before {
-    top: 9px;
-    left: 0;
-  }
-}
-
-/* ========== SMALL MOBILE: < 480px ========== */
-@media (width <= 479px) {
-  .directions {
-    gap: 24px;
-  }
-
-  .directionsContent {
-    font-size: 1rem;
-  }
-
-  .directionsList li {
-    font-size: 0.9375rem;
-    padding-left: 18px;
-  }
-
-  .directionsList li::before {
-    top: 8px;
   }
 }

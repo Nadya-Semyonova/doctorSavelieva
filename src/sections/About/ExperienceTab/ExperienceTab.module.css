@@ -1,79 +1,38 @@
 .experience {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 70px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 4.375rem);
 }
 
 .intro {
   white-space: pre-line;
   text-align: left;
+  font-size: clamp(1rem, 1.5vw, var(--font-size-text));
+  line-height: 1.6;
+  color: var(--color-text-primary);
 }
 
 .right {
   width: 100%;
-  max-width: 628px;
-
-  /* 🔥 Гарантируем, что контейнер не схлопнется и не расширится бесконечно */
-  min-width: 0; 
-  height: auto;
-  overflow: hidden; /* Обрезаем всё, что вылезает во время анимации пересчета */
+  min-width: 0;
+  overflow: hidden;
 }
 
 .right img {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 12px;
-}
-
-/* ========== TABLET: < 1440px ========== */
-@media (width <= 1439px) {
-  .experience {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-
-  .intro {
-    font-size: clamp(1.125rem, 2.5vw, var(--font-size-text));
-    line-height: 1.5;
-  }
-
-  .right {
-    max-width: 100%;
-  }
-
-  .right img {
-    border-radius: 10px;
-  }
+  border-radius: var(--border-radius-lg);
 }
 
 /* ========== MOBILE: < 768px ========== */
 @media (width <= 767px) {
   .experience {
     grid-template-columns: 1fr;
-    gap: 32px;
   }
 
   .intro {
-    font-size: 1.125rem;
-    line-height: 1.6;
     text-align: center;
-    white-space: normal; /* Убираем pre-line, если мешает */
-  }
-
-  .right {
-    order: 2;
-    max-width: 100%;
-  }
-}
-
-/* ========== SMALL MOBILE: < 480px ========== */
-@media (width <= 479px) {
-  .experience {
-    gap: 24px;
-  }
-
-  .intro {
-    font-size: 1rem;
+    white-space: normal;
   }
 }
