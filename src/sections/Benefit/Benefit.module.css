@@ -42,10 +42,10 @@
 .wave {
   position: absolute;
   z-index: 0;
-  top: -600px;
+  top: 0;
   left: 0;
+  transform: translateY(-37%);
   width: 100%;
-  height: clamp(1500px, 20vw, 1600px);
   pointer-events: none;
 }
 
@@ -77,9 +77,5 @@
   .card {
     font-size: 14px;
     text-align: center;
-  }
-
-  .wave {
-    opacity: 0.9;
   }
 }
