@@ -54,14 +54,6 @@
   grid-column: 1 / -1;
   width: 100%;
   justify-self: center;
-  transition: all var(--transition-base, 0.3s ease);
-}
-
-.LinkButton:hover {
-  background-color: var(--color-surface);
-  color: var(--color-text-secondary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
 }
 
 .wave {
@@ -129,15 +121,5 @@
     width: 100%;
     max-width: 280px;
     margin-inline: auto;
-    font-size: 1rem;
-    text-align: center;
-    box-sizing: border-box;
-  }
-
-  @media (hover: none) {
-    .LinkButton:hover {
-      transform: none;
-      box-shadow: none;
-    }
   }
 }

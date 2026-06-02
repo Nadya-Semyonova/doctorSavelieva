@@ -30,17 +30,7 @@
 }
 
 .action {
-  text-align: center;
   width: 80%;
-  cursor: pointer;
-  transition: all var(--transition-base, 0.3s ease);
-}
-
-.action:hover {
-  background-color: var(--color-surface);
-  color: var(--color-text-secondary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
 }
 
 .list {

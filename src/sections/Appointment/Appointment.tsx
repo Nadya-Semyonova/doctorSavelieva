@@ -254,12 +254,13 @@ const Appointment = () => {
             </div>
 
             <ButtonDefault
-              name={isSubmitting ? "Отправка..." : "Записаться на консультацию"}
-              handleClick={handleSubmit}
               type="button"
-              status={!isSubmitting && isFormValid()}
+              handleClick={handleSubmit}
+              disabled={isSubmitting || !isFormValid()}
               styleButton={styles.submitButton}
-            />
+            >
+              {isSubmitting ? "Отправка..." : "Записаться на консультацию"}
+            </ButtonDefault>
           </form>
         </div>
       </div>

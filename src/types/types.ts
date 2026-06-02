@@ -9,6 +9,7 @@ export interface IButtonDefault {
   status?: boolean;
   href?: string;
   target?: "_blank" | "_self";
+  disabled?: boolean;
 }
 
 export interface IUsersCardsSwiper {

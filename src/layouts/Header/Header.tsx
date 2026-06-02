@@ -115,23 +115,12 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
         </nav>
 
         {/* Десктопная кнопка консультации  */}
-        <div className={styles.consultationButton}>
-          <Link
-            to="/"
-            onClick={(e) => {
-              e.preventDefault();
-              handleConsultation();
-            }}
-          >
-            <ButtonDefault
-              name="Записаться на консультацию"
-              handleClick={handleConsultation}
-              styleButton={styles.buttonConsultation}
-              ariaLabel="Записаться на консультацию"
-              type="button"
-            />
-          </Link>
-        </div>
+        <ButtonDefault
+          name="Записаться на консультацию"
+          handleClick={handleConsultation}
+          styleButton={styles.consultationButton}
+          ariaLabel="Записаться"
+        />
 
         {/* Бургер-меню для мобильных */}
         <div className={styles.burgerMenu}>

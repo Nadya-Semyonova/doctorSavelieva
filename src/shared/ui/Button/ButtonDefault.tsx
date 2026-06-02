@@ -5,47 +5,43 @@ export default function ButtonDefault({
   name,
   handleClick,
   styleButton,
-  type,
+  type = "button",
   ariaLabel,
   children,
   status = true,
   href,
   target = "_self",
+  disabled = false,
 }: IButtonDefault) {
-  // Если есть href, рендерим как ссылку
+  const content = children ?? name;
+  const className = `${style.button} ${styleButton ?? ""}`;
+
+  const commonProps = {
+    className,
+    "aria-label": ariaLabel,
+  };
+
   if (href) {
     return (
       <a
+        {...commonProps}
         href={href}
         target={target}
         rel={target === "_blank" ? "noopener noreferrer" : undefined}
-        className={`${style.button} ${styleButton}`}
-        aria-label={ariaLabel}
       >
-        {children || name}
+        {content}
       </a>
     );
   }
 
-  // Если есть handleClick, рендерим кнопку с обработчиком
-  if (handleClick) {
-    return (
-      <button
-        type={type}
-        onClick={handleClick}
-        className={`${style.button} ${styleButton}`}
-        aria-label={ariaLabel}
-        disabled={!status}
-      >
-        {children || name}
-      </button>
-    );
-  }
-
-  // Обычная кнопка
   return (
-    <button type={type} className={`${style.button} ${styleButton}`}>
-      {children || name}
+    <button
+      {...commonProps}
+      type={type}
+      onClick={handleClick}
+      disabled={disabled || !status}
+    >
+      {content}
     </button>
   );
 }
