@@ -6,24 +6,11 @@
 }
 
 .tabButton {
-  font-family: var(--font-secondary);
-  font-weight: var(--font-weight-regular);
-  font-size: clamp(0.875rem, 1vw + 0.4rem, var(--font-size-small));
-  padding-block: clamp(12px, 1.5vw, 18px);
-  padding-inline: clamp(14px, 2vw, 24px);
   inline-size: clamp(140px, 22vw, 240px);
-  border-radius: 10px;
   background: var(--color-surface);
   color: var(--color-text-secondary);
-  border: none;
-  cursor: pointer;
   flex-shrink: 0;
   white-space: nowrap;
-  transition: color 0.2s ease, background 0.2s ease;
-}
-
-.tabButton:hover {
-  color: var(--color-text-primary);
 }
 
 .active {

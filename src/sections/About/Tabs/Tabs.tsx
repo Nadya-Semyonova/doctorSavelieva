@@ -1,3 +1,4 @@
+import ButtonDefault from "../../../shared/ui/Button/ButtonDefault";
 import styles from "./Tabs.module.css";
 
 export type TabId = "education" | "experience" | "directions";
@@ -20,15 +21,15 @@ export default function Tabs({ activeTab, onTabChange }: ITabsProps) {
         const isActive = activeTab === id;
 
         return (
-          <button
+          <ButtonDefault
             key={id}
             type="button"
-            onClick={() => onTabChange(id)}
-            className={`${styles.tabButton} ${isActive ? styles.active : ""}`}
-            aria-pressed={isActive}
+            handleClick={() => onTabChange(id)}
+            ariaLabel={label}
+            styleButton={`${styles.tabButton} ${isActive ? styles.active : ""}`}
           >
             {label}
-          </button>
+          </ButtonDefault>
         );
       })}
     </div>

@@ -71,25 +71,9 @@
   text-align: left;
 }
 
-.submitButton {
-  width: 100%;
-  color: var(--color-primary-light);
-  border: none;
-  border-radius: var(--border-radius-md);
-  font-size: clamp(1rem, 2vw, var(--font-size-text));
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  
-}
-
 .submitButton:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-}
-
-.submitButton:hover:not(:disabled) {
-  opacity: 0.9;
-  transform: translateY(-2px);
 }
 
 /* ========== MOBILE: < 768px (ОДНА КОЛОНКА) ========== */

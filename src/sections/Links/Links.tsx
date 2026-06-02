@@ -4,9 +4,11 @@ import ThumbsUp from "../../assets/images/IconsSvg/ThumbsUp";
 import ButtonDefault from "../../shared/ui/Button/ButtonDefault";
 import styles from "./Links.module.css";
 import Wave from "../../shared/ui/Waves/Wave";
+import { useMemo } from "react";
 
 export default function Links() {
   const navigate = useNavigate();
+  const isCompact = useMemo(() => window.innerWidth <= 1440, []);
 
   const handleSchoolNavigate = () => {
     navigate("/school");
@@ -36,7 +38,7 @@ export default function Links() {
           styleButton={styles.LinkButton}
         />
       </div>
-      <Wave className={styles.wave} variant="links" compact={window.innerWidth <= 1440} />
+      <Wave className={styles.wave} variant="links" compact={isCompact} />
     </section>
   );
 }
