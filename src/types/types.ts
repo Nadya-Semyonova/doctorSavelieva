@@ -56,3 +56,17 @@ export interface IAppointmentFormData {
   consentPersonal: boolean;
   consentOffer: boolean;
 }
+
+export interface NavItem {
+  id: string;
+  label: string;
+}
+
+export interface BurgerMenuProps {
+  isOpen: boolean;
+  navItems: readonly NavItem[];
+  onToggle: () => void;
+  onNavClick: (sectionId: string) => void;
+  onSchoolClick: () => void;
+  onConsultationClick: () => void;
+}
