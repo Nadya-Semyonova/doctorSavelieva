@@ -1,12 +1,14 @@
-import { useState, useRef } from "react";
+import { Children, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
+
 import type { IUsersCardsSwiper } from "../../../types/types";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import styles from "./CarouselSlider.module.css";
-import ChevronRight from "../../../assets/images/IconsSvg/ChevronRight";
+import SliderNavigationButton from "./SliderNavigationButton";
 
 type Props = IUsersCardsSwiper & {
   variant?: "side" | "bottom";
@@ -27,6 +29,8 @@ export default function CarouselSlider({
 
   const swiperRef = useRef<SwiperType | null>(null);
 
+  const slides = Children.toArray(children);
+
   const breakpoints = {
     320: {
       slidesPerView: slidesPerViewMobile,
@@ -42,71 +46,61 @@ export default function CarouselSlider({
     },
   };
 
-  const slidesArray = Array.isArray(children) ? children : [children];
+  const updateNavigationState = (swiper: SwiperType) => {
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
+  };
+
+  const handleSwiperInit = (swiper: SwiperType) => {
+    swiperRef.current = swiper;
+    updateNavigationState(swiper);
+  };
+
+  const navigationButtons = (
+    <>
+      <SliderNavigationButton
+        direction="prev"
+        disabled={isBeginning}
+        onClick={() => swiperRef.current?.slidePrev()}
+        variant={variant}
+      />
+
+      <SliderNavigationButton
+        direction="next"
+        disabled={isEnd}
+        onClick={() => swiperRef.current?.slideNext()}
+        variant={variant}
+      />
+    </>
+  );
 
   return (
-    <div className={`${styles.container} ${variant === "side" ? styles.side : ""}`} id={sliderId}>
+    <div
+      id={sliderId}
+      className={`${styles.container} ${
+        variant === "side" ? styles.side : ""
+      }`}
+    >
       <Swiper
         modules={[Pagination]}
         pagination={showPagination ? { clickable: true } : false}
         breakpoints={breakpoints}
-         observer={true}       // Включить наблюдение за Swiper и его слайдами
-        observeParents={true} // Включить наблюдение за родительскими элементами Swiper
-        onSwiper={(swiper) => (swiperRef.current = swiper)}
-        onSlideChange={(swiper) => {
-          setIsBeginning(swiper.isBeginning);
-          setIsEnd(swiper.isEnd);
-        }}
+        observer
+        observeParents
+        onSwiper={handleSwiperInit}
+        onSlideChange={updateNavigationState}
       >
-        {slidesArray.map((slide, index) => (
+        {slides.map((slide, index) => (
           <SwiperSlide key={index}>{slide}</SwiperSlide>
         ))}
       </Swiper>
 
       {variant === "bottom" ? (
         <div className={styles.controls}>
-          <button
-            className={`${styles.customButtonPrev} ${styles.bottom} ${
-              isBeginning ? styles.buttonDeactive : ""
-            }`}
-            onClick={() => swiperRef.current?.slidePrev()}
-            type="button"
-            aria-label="Предыдущий слайд"
-          >
-            <ChevronRight />
-          </button>
-
-          <button
-            className={`${styles.customButtonNext} ${styles.bottom} ${
-              isEnd ? styles.buttonDeactive : ""
-            }`}
-            onClick={() => swiperRef.current?.slideNext()}
-            type="button"
-            aria-label="Следующий слайд"
-          >
-            <ChevronRight />
-          </button>
+          {navigationButtons}
         </div>
       ) : (
-        <>
-          <button
-            className={`${styles.customButtonPrev} ${isBeginning ? styles.buttonDeactive : ""}`}
-            onClick={() => swiperRef.current?.slidePrev()}
-            type="button"
-            aria-label="Предыдущий слайд"
-          >
-            <ChevronRight />
-          </button>
-
-          <button
-            className={`${styles.customButtonNext} ${isEnd ? styles.buttonDeactive : ""}`}
-            onClick={() => swiperRef.current?.slideNext()}
-            type="button"
-            aria-label="Следующий слайд"
-          >
-            <ChevronRight />
-          </button>
-        </>
+        navigationButtons
       )}
     </div>
   );
