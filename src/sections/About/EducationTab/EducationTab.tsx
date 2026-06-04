@@ -18,6 +18,8 @@ import pkUs2 from "../../../assets/images/Gallery/Full/PK_US2.png";
 import pkUs3 from "../../../assets/images/Gallery/Full/PK_US3.png";
 import pkUs4 from "../../../assets/images/Gallery/Full/PK_US4.png";
 import pkUs5 from "../../../assets/images/Gallery/Full/PK_US5.png";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { createPortal } from "react-dom";
 
 const certificates = [
   diploma,
@@ -36,6 +38,8 @@ export default function EducationTab() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const swiperRef = useRef<SwiperType | null>(null);
   const closeModal = () => setSelectedIndex(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
 
   useEffect(() => {
     if (selectedIndex === null) return;
@@ -104,50 +108,65 @@ export default function EducationTab() {
         </CarouselSlider>
       </div>
 
-      {selectedIndex !== null && (
-        <div className={styles.modal} onClick={closeModal}>
-          <Swiper
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            initialSlide={selectedIndex}
-            slidesPerView={1}
-            spaceBetween={0}
-            className={styles.modalSwiper}
-          >
-            {certificates.map((src, index) => (
-              <SwiperSlide key={index}>
-                <div className={styles.slideCenter}>
-                  <img
-                    src={src}
-                    alt="Документ"
-                    className={styles.modalImage}
-                    onClick={(e) => e.stopPropagation()}
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+      {selectedIndex !== null &&
+        createPortal(
+          <div className={styles.modal}>
+            <button className={styles.modalClose} onClick={closeModal} aria-label="Закрыть">
+              <X size={32} />
+            </button>
+            <Swiper
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              onSlideChange={(swiper) => {
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              initialSlide={selectedIndex}
+              slidesPerView={1}
+              spaceBetween={0}
+              className={styles.modalSwiper}
+            >
+              {certificates.map((src, index) => (
+                <SwiperSlide key={index}>
+                  <div className={styles.slideCenter}>
+                    <img
+                      src={src}
+                      alt="Документ"
+                      className={styles.modalImage}
+                      onClick={(e) => e.stopPropagation()}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
 
-          <button
-            className={styles.modalPrev}
-            onClick={(e) => {
-              e.stopPropagation();
-              swiperRef.current?.slidePrev();
-            }}
-          >
-            ←
-          </button>
+            <button
+              className={styles.modalPrev}
+              onClick={(e) => {
+                e.stopPropagation();
+                swiperRef.current?.slidePrev();
+              }}
+              disabled={isBeginning}
+            >
+              <ChevronLeft size={36} />
+            </button>
 
-          <button
-            className={styles.modalNext}
-            onClick={(e) => {
-              e.stopPropagation();
-              swiperRef.current?.slideNext();
-            }}
-          >
-            →
-          </button>
-        </div>
-      )}
+            <button
+              className={styles.modalNext}
+              onClick={(e) => {
+                e.stopPropagation();
+                swiperRef.current?.slideNext();
+              }}
+              disabled={isEnd}
+            >
+              <ChevronRight size={36} />
+            </button>
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }

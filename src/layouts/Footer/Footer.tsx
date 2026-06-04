@@ -1,33 +1,41 @@
-import { Link as RouterLink } from "react-router-dom";
+import { Copyright } from "lucide-react";
+import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
 
 interface FooterProps {
   className?: string;
 }
 
-const Footer: React.FC<FooterProps> = ({ className }) => {
-  return (
-    <footer className={`${styles.footer} ${className || ""}`}>
-      <div className={styles.container}>
-        <div className={styles.footerContent}>
-          {/* Левая колонка - юридические документы */}
-          <div className={styles.legalSection}>
-            <RouterLink to="/offer-agreement" className={styles.legalLink}>
-              Договор оферты
-            </RouterLink>
-            <RouterLink to="/privacy-policy" className={styles.legalLink}>
-              Политика обработки персональных данных
-            </RouterLink>
-          </div>
-        </div>
+const LEGAL_LINKS = [
+  {
+    to: "/offer-agreement",
+    label: "Договор оферты",
+  },
+  {
+    to: "/privacy-policy",
+    label: "Политика обработки персональных данных",
+  },
+];
 
-        {/* Нижняя строка с копирайтом */}
-        <div className={styles.copyright}>
-          <p>© {new Date().getFullYear()} Все права защищены</p>
-        </div>
+export default function Footer({ className }: FooterProps) {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className={`${styles.footer} ${className ?? ""}`}>
+      <div className={styles.container}>
+        <nav className={styles.legalLinks}>
+          {LEGAL_LINKS.map(({ to, label }) => (
+            <Link key={to} to={to} className={styles.legalLink}>
+              {label}
+            </Link>
+          ))}
+        </nav>
+
+        <p className={styles.copyright}>
+          <Copyright size={16} />
+          <span>{currentYear} Все права защищены</span>
+        </p>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

@@ -2,29 +2,29 @@
   position: relative;
 }
 
+.side {
+  padding-inline: clamp(30px, 6vw, 60px);
+}
+
 .customButtonPrev,
 .customButtonNext {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--color-primary-light);
-  border: none;
-  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: clamp(40px, 3vw, 48px);
+  height: clamp(40px, 3vw, 48px);
+  border: none;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  cursor: pointer;
+  transform: translateY(-50%);
   transition:
     background var(--transition-base, 0.3s ease),
     transform var(--transition-base, 0.3s ease),
     box-shadow var(--transition-base, 0.3s ease);
-  z-index: 10;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.side {
-  padding: 0 50px;
 }
 
 .customButtonPrev {
@@ -35,11 +35,6 @@
   right: 0;
 }
 
-.customButtonPrev svg {
-  transform: rotate(180deg);
-}
-
-/* hover ТОЛЬКО для боковых */
 .customButtonPrev:hover:not(.buttonDeactive),
 .customButtonNext:hover:not(.buttonDeactive) {
   background: var(--color-primary);
@@ -50,8 +45,8 @@
 .controls {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  padding-top: 16px;
+  gap: clamp(12px, 1.5vw, 16px);
+  padding-top: clamp(12px, 2vw, 16px);
 }
 
 .bottom {
@@ -71,36 +66,16 @@
   pointer-events: none;
 }
 
-
-/* ========== MOBILE: < 768px для variant="bottom" ========== */
 @media (width <= 767px) {
-  /* Кнопки снизу — делаем крупнее для тапа */
   .bottom {
-    width: 44px;
-    height: 44px;
-    min-height: 44px; /* Доступность */
-  }
-  
-  .bottom svg {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .controls {
-    gap: 12px;
-    padding-top: 12px;
+    min-width: 44px;
+    min-height: 44px;
   }
   
   /* Pagination Swiper */
+  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
   :global(.swiper-pagination-bullet) {
     width: 6px;
     height: 6px;
-  }
-}
-
-@media (width <= 479px) {
-  .bottom {
-    width: 40px;
-    height: 40px;
   }
 }
