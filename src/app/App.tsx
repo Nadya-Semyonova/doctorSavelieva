@@ -1,27 +1,33 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/HomePage";
-import "./App.css";
-import PrivacyPolicy from "../pages/documents/PrivacyPolicy";
-import OfferAgreement from "../pages/documents/OfferAgreement";
-import { SchoolPage } from "../pages/SchoolPage/SchoolPage";
 import ConsentForDataProcessing from "../pages/documents/ConsentForDataProcessing";
+import OfferAgreement from "../pages/documents/OfferAgreement";
+import PrivacyPolicy from "../pages/documents/PrivacyPolicy";
+import { SchoolPage } from "../pages/SchoolPage/SchoolPage";
+import "./App.css";
 
-function App() {
+const routes = [
+  { path: "/", element: <HomePage /> },
+  { path: "/privacy-policy", element: <PrivacyPolicy /> },
+  { path: "/offer-agreement", element: <OfferAgreement /> },
+  {
+    path: "/consent-personal-data",
+    element: <ConsentForDataProcessing />,
+  },
+  { path: "/school", element: <SchoolPage /> },
+];
+
+export default function App() {
   return (
     <Router>
       <MainLayout>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/offer-agreement" element={<OfferAgreement />} />
-          <Route path="/consent-personal-data" element={<ConsentForDataProcessing />} />
-          <Route path="/school" element={<SchoolPage />} />
+          {routes.map(({ path, element }) => (
+            <Route key={path} path={path} element={element} />
+          ))}
         </Routes>
       </MainLayout>
     </Router>
   );
 }
-
-export default App;
-// позже вынести роуты в отдельный файл

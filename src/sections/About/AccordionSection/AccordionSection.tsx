@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import ChevronUp from "./../../../assets/images/IconsSvg/ChevronUp";
 import style from "./AccordionSection.module.css";
+import { ChevronUp } from "lucide-react";
 
 type Props = {
   title: React.ReactNode;
@@ -27,7 +27,7 @@ export default function AccordionSection({ title, children, defaultOpen = false 
       >
         <h3 className={style.accordionTitle}>{title}</h3>
 
-        <ChevronUp className={`${style.accordionIcon} ${open ? style.accordionIconOpen : ""}`} />
+        <ChevronUp size={24} className={`${style.accordionIcon} ${open ? style.accordionIconOpen : ""}`} />
       </button>
 
       <div className={style.accordionContent} style={{ height }}>
