@@ -12,43 +12,47 @@ interface IInputProps {
   onBlur?: () => void;
 }
 
-const Input = forwardRef<HTMLInputElement, IInputProps>(
-  (
-    { type, value, onChange, placeholder, error, required = false, disabled = false, onBlur },
-    ref,
-  ) => {
-    const [isTouched, setIsTouched] = useState(false);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      onChange(e.target.value);
-    };
-
-    const handleBlur = () => {
-      setIsTouched(true);
-      onBlur?.();
-    };
-
-    const showError = isTouched && error;
-
-    return (
-      <div className={styles.inputWrapper}>
-        <input
-          ref={ref}
-          type={type}
-          value={value}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          placeholder={placeholder}
-          disabled={disabled}
-          className={`${styles.input} ${showError ? styles.inputError : ""}`}
-          required={required}
-        />
-        {showError && <span className={styles.errorMessage}>{error}</span>}
-      </div>
-    );
+const Input = forwardRef<HTMLInputElement, IInputProps>(function Input(
+  {
+    type,
+    value,
+    onChange,
+    placeholder,
+    error,
+    required = false,
+    disabled = false,
+    onBlur,
   },
-);
+  ref,
+) {
+  const [isTouched, setIsTouched] = useState(false);
 
-Input.displayName = "Input";
+  const showError = Boolean(isTouched && error);
+
+  const handleBlur = () => {
+    setIsTouched(true);
+    onBlur?.();
+  };
+
+  return (
+    <div className={styles.inputWrapper}>
+      <input
+        ref={ref}
+        type={type}
+        value={value}
+        placeholder={placeholder}
+        disabled={disabled}
+        required={required}
+        onChange={(e) => onChange(e.target.value)}
+        onBlur={handleBlur}
+        className={`${styles.input} ${showError ? styles.inputError : ""}`}
+      />
+
+      {showError && (
+        <span className={styles.errorMessage}>{error}</span>
+      )}
+    </div>
+  );
+});
 
 export default Input;
