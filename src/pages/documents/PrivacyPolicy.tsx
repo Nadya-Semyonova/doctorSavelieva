@@ -220,7 +220,7 @@ const PrivacyPolicy = () => {
         
         <p>
           9.3. Для реализации своих прав Пользователь направляет запрос на электронный адрес 
-          [ваш email] с пометкой «Персональные данные».
+          doc.savelieva@mail.ru с пометкой «Персональные данные».
         </p>
 
         <p>
@@ -246,7 +246,7 @@ const PrivacyPolicy = () => {
         <div className={styles.contactInfo}>
           <p><strong>Контактная информация Оператора:</strong></p>
           <p>Савельева Юлия Олеговна (ИНН 519091069853)</p>
-          <p>Email для обращений: [ваш email]</p>
+          <p>Email для обращений: doc.savelieva@mail.ru</p>
         </div>
       </div>
     </div>
