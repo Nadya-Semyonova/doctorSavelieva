@@ -1,8 +1,10 @@
+/* сделать стили нормальные (?) шрифт (?) и подкорректировать сам текст */
+
 /* ========== БАЗОВЫЕ СТИЛИ ========== */
 .container {
   padding: 100px;
   font-family: var(--font-secondary);
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-background);
 }
 
 .content {
@@ -15,7 +17,7 @@
 } 
 
 /* ========== TABLET: < 1440px ========== */
-@media (max-width: 1439px) {
+@media (width <= 1439px) {
   .container {
     padding: 60px 40px;
   }
@@ -27,7 +29,7 @@
 }
 
 /* ========== MOBILE: < 768px ========== */
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .container {
     padding: 40px 20px;
   }
@@ -44,7 +46,7 @@
 }
 
 /* ========== SMALL MOBILE: < 480px ========== */
-@media (max-width: 479px) {
+@media (width <= 479px) {
   .container {
     padding: 32px 20px;
   }

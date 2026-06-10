@@ -9,6 +9,7 @@ export interface IButtonDefault {
   status?: boolean;
   href?: string;
   target?: "_blank" | "_self";
+  disabled?: boolean;
 }
 
 export interface IUsersCardsSwiper {
@@ -54,4 +55,18 @@ export interface IAppointmentFormData {
   email: string;
   consentPersonal: boolean;
   consentOffer: boolean;
+}
+
+export interface NavItem {
+  id: string;
+  label: string;
+}
+
+export interface BurgerMenuProps {
+  isOpen: boolean;
+  navItems: readonly NavItem[];
+  onToggle: () => void;
+  onNavClick: (sectionId: string) => void;
+  onSchoolClick: () => void;
+  onConsultationClick: () => void;
 }

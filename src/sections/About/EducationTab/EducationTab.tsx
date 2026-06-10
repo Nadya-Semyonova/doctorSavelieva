@@ -18,35 +18,61 @@ import pkUs2 from "../../../assets/images/Gallery/Full/PK_US2.png";
 import pkUs3 from "../../../assets/images/Gallery/Full/PK_US3.png";
 import pkUs4 from "../../../assets/images/Gallery/Full/PK_US4.png";
 import pkUs5 from "../../../assets/images/Gallery/Full/PK_US5.png";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { createPortal } from "react-dom";
+
+const certificates = [
+  diploma,
+  diplomaRevma,
+  diplomaUltrasound,
+  pkGibt,
+  pkGibt2,
+  pkLit,
+  pkUs2,
+  pkUs3,
+  pkUs4,
+  pkUs5,
+];
 
 export default function EducationTab() {
-  const images = [
-    diploma,
-    diplomaRevma,
-    diplomaUltrasound,
-    pkGibt,
-    pkGibt2,
-    pkLit,
-    pkUs2,
-    pkUs3,
-    pkUs4,
-    pkUs5,
-  ];
-
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const swiperRef = useRef<SwiperType | null>(null);
+  const closeModal = () => setSelectedIndex(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
 
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (selectedIndex === null) return;
+    if (selectedIndex === null) return;
 
-      if (e.key === "Escape") setSelectedIndex(null);
-      if (e.key === "ArrowRight") swiperRef.current?.slideNext();
-      if (e.key === "ArrowLeft") swiperRef.current?.slidePrev();
+    const handleKey = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case "Escape":
+          closeModal();
+          break;
+
+        case "ArrowRight":
+          swiperRef.current?.slideNext();
+          break;
+
+        case "ArrowLeft":
+          swiperRef.current?.slidePrev();
+          break;
+      }
     };
 
     window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
+
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+    };
+  }, [selectedIndex]);
+
+  useEffect(() => {
+    document.body.style.overflow = selectedIndex !== null ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [selectedIndex]);
 
   return (
@@ -70,7 +96,7 @@ export default function EducationTab() {
           slidesPerViewDesktop={1}
           variant="bottom"
         >
-          {images.map((src, index) => (
+          {certificates.map((src, index) => (
             <img
               key={index}
               src={src}
@@ -82,50 +108,65 @@ export default function EducationTab() {
         </CarouselSlider>
       </div>
 
-      {selectedIndex !== null && (
-        <div className={styles.modal} onClick={() => setSelectedIndex(null)}>
-          <Swiper
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            initialSlide={selectedIndex}
-            slidesPerView={1}
-            spaceBetween={0}
-            className={styles.modalSwiper}
-          >
-            {images.map((src, index) => (
-              <SwiperSlide key={index}>
-                <div className={styles.slideCenter}>
-                  <img
-                    src={src}
-                    alt="Документ"
-                    className={styles.modalImage}
-                    onClick={(e) => e.stopPropagation()}
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+      {selectedIndex !== null &&
+        createPortal(
+          <div className={styles.modal}>
+            <button className={styles.modalClose} onClick={closeModal} aria-label="Закрыть">
+              <X size={32} />
+            </button>
+            <Swiper
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              onSlideChange={(swiper) => {
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              initialSlide={selectedIndex}
+              slidesPerView={1}
+              spaceBetween={0}
+              className={styles.modalSwiper}
+            >
+              {certificates.map((src, index) => (
+                <SwiperSlide key={index}>
+                  <div className={styles.slideCenter}>
+                    <img
+                      src={src}
+                      alt="Документ"
+                      className={styles.modalImage}
+                      onClick={(e) => e.stopPropagation()}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
 
-          <button
-            className={styles.modalPrev}
-            onClick={(e) => {
-              e.stopPropagation();
-              swiperRef.current?.slidePrev();
-            }}
-          >
-            ←
-          </button>
+            <button
+              className={styles.modalPrev}
+              onClick={(e) => {
+                e.stopPropagation();
+                swiperRef.current?.slidePrev();
+              }}
+              disabled={isBeginning}
+            >
+              <ChevronLeft size={36} />
+            </button>
 
-          <button
-            className={styles.modalNext}
-            onClick={(e) => {
-              e.stopPropagation();
-              swiperRef.current?.slideNext();
-            }}
-          >
-            →
-          </button>
-        </div>
-      )}
+            <button
+              className={styles.modalNext}
+              onClick={(e) => {
+                e.stopPropagation();
+                swiperRef.current?.slideNext();
+              }}
+              disabled={isEnd}
+            >
+              <ChevronRight size={36} />
+            </button>
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import ButtonDefault from "../../../shared/ui/Button/ButtonDefault";
 import styles from "./Tabs.module.css";
 
 export type TabId = "education" | "experience" | "directions";
@@ -7,24 +8,30 @@ interface ITabsProps {
   onTabChange: (tab: TabId) => void;
 }
 
-export default function Tabs({ activeTab, onTabChange }: ITabsProps) {
-  const tabs = [
-    { id: "education", label: "Образование" },
-    { id: "experience", label: "Опыт работы" },
-    { id: "directions", label: "Направления работы" },
-  ] as const;
+const TABS: ReadonlyArray<{ id: TabId; label: string }> = [
+  { id: "education", label: "Образование" },
+  { id: "experience", label: "Опыт работы" },
+  { id: "directions", label: "Направления работы" },
+];
 
+export default function Tabs({ activeTab, onTabChange }: ITabsProps) {
   return (
     <div className={styles.tabs}>
-      {tabs.map((tab) => (
-        <button
-          key={tab.id}
-          className={`${styles.tabButton} ${activeTab === tab.id ? styles.active : ""}`}
-          onClick={() => onTabChange(tab.id)}
-        >
-          {tab.label}
-        </button>
-      ))}
+      {TABS.map(({ id, label }) => {
+        const isActive = activeTab === id;
+
+        return (
+          <ButtonDefault
+            key={id}
+            type="button"
+            handleClick={() => onTabChange(id)}
+            ariaLabel={label}
+            styleButton={`${styles.tabButton} ${isActive ? styles.active : ""}`}
+          >
+            {label}
+          </ButtonDefault>
+        );
+      })}
     </div>
   );
 }

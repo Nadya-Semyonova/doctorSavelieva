@@ -1,6 +1,6 @@
 .benefit {
   position: relative;
-  padding-inline: 95px;
+  padding-inline: clamp(1rem, 5vw, 6rem);
   overflow: visible;
 }
 
@@ -9,35 +9,33 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: clamp(1.25rem, 3vw, 2rem);
 }
 
 .title {
   text-align: left;
-  color: var(--color-text-primary);
+  font-size: clamp(1.75rem, 4vw, var(--font-size-h2));
 }
 
 .subtitle {
   text-align: left;
-  font-family: var(--font-secondary);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-text);
+  font-size: clamp(1rem, 2vw, 1.125rem);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.25rem);
 }
 
 .card {
-  padding: 20px;
-  border-radius: 20px;
-  border: 1px solid #004887;
-  background-color: #e8f5ff;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-primary-light);
   font-family: var(--font-secondary);
   font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-text);
+  font-size: clamp(1rem, 2vw, var(--font-size-text));
   text-align: left;
 }
 
@@ -46,94 +44,38 @@
   z-index: 0;
   top: 0;
   left: 0;
+  transform: translateY(-37%);
   width: 100%;
+  pointer-events: none;
 }
 
 .wave svg {
   width: 100%;
+  height: 100%;
   display: block;
-}
-
-/* ========== планшет: < 1440px ========== */
-@media (width <= 1439px) {
-  .benefit {
-    padding: 30px;
-  }
-
-  .title {
-    font-size: clamp(28px, 5vw, 32px);
-  }
-
-  .subtitle {
-    font-size: clamp(15px, 2.5vw, 16px);
-  }
-
-  .grid {
-    gap: 16px;
-  }
-
-  .card {
-    padding: 18px;
-    font-size: clamp(14px, 2vw, 16px);
-  }
 }
 
 /* ========== MOBILE: < 768px ========== */
 @media (width <= 767px) {
   .benefit {
-    padding: 40px;
+    padding-inline: 1rem;
   }
 
   .wrapper {
-    gap: 24px;
+    gap: 1.25rem;
   }
 
-  .title {
-    font-size: 24px;
-    text-align: center;
-  }
-
+  .title,
   .subtitle {
-    font-size: 15px;
     text-align: center;
-    margin-inline: auto;
   }
 
   .grid {
-    grid-template-columns: 1fr; /* Одна колонка на мобильных */
-    gap: 12px;
+    grid-template-columns: 1fr; 
   }
 
   .card {
-    padding: 16px;
-    border-radius: 16px;
     font-size: 14px;
-    text-align: center; /* Опционально: центрируем текст на мобильных */
-  }
-
-  .wave {
-    opacity: 0.9; /* Чуть приглушаем декоративный элемент */
-  }
-}
-
-/* ========== SMALL MOBILE: < 480px ========== */
-@media (width <= 479px) {
-  .benefit {
-    padding-inline: 16px;
-    padding-block: 32px 48px;
-  }
-
-  .title {
-    font-size: 22px;
-  }
-
-  .subtitle {
-    font-size: 14px;
-  }
-
-  .card {
-    padding: 14px;
-    font-size: 13px;
-    border-radius: 14px;
+    text-align: center;
   }
 }

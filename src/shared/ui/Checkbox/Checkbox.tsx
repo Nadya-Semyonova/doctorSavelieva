@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./Checkbox.module.css";
 
-interface ICheckboxProps {
+interface CheckboxProps {
   checked: boolean;
   onChange: (checked: boolean) => void;
   labelText: string;
@@ -10,28 +10,24 @@ interface ICheckboxProps {
   disabled?: boolean;
 }
 
-const Checkbox: React.FC<ICheckboxProps> = ({
+export default function Checkbox({
   checked,
   onChange,
   labelText,
   linkText,
   linkHref,
   disabled = false,
-}) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.checked);
-  };
-
+}: CheckboxProps) {
   return (
     <label className={`${styles.checkboxLabel} ${disabled ? styles.disabled : ""}`}>
       <input
         type="checkbox"
         checked={checked}
-        onChange={handleChange}
+        onChange={(e) => onChange(e.target.checked)}
         disabled={disabled}
         className={styles.checkboxInput}
       />
-      <span className={styles.checkboxCustom}></span>
+      <span className={styles.checkboxCustom} />
       <span className={styles.checkboxText}>
         {labelText}{" "}
         <Link to={linkHref} className={styles.checkboxLink}>
@@ -40,6 +36,4 @@ const Checkbox: React.FC<ICheckboxProps> = ({
       </span>
     </label>
   );
-};
-
-export default Checkbox;
+}

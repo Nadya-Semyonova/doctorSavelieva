@@ -168,13 +168,13 @@ const Appointment = () => {
           <h2 className={styles.title}>Записаться на онлайн-информационную консультацию</h2>
           <div className={styles.infoBlock}>
             <p className={styles.infoText}>
-              Консультация проводится в формате видеозвонка или текстовом.
+              Консультация проводится в формате видеозвонка или текстовом
             </p>
             <p className={styles.infoText}>
               После вашей заявки с вами свяжется доктор для обсуждения деталей
             </p>
             <p className={styles.price}>
-              Стоимость консультации составляет <strong>2500 рублей</strong>.
+              Стоимость консультации составляет <strong>2500 рублей</strong>
             </p>
             <div className={styles.notice}>
               <p className={styles.noticeTitle}>Обратите внимание:</p>
@@ -254,12 +254,13 @@ const Appointment = () => {
             </div>
 
             <ButtonDefault
-              name={isSubmitting ? "Отправка..." : "Записаться на консультацию"}
-              handleClick={handleSubmit}
               type="button"
-              status={!isSubmitting && isFormValid()}
+              handleClick={handleSubmit}
+              disabled={isSubmitting || !isFormValid()}
               styleButton={styles.submitButton}
-            />
+            >
+              {isSubmitting ? "Отправка..." : "Записаться на консультацию"}
+            </ButtonDefault>
           </form>
         </div>
       </div>

@@ -1,15 +1,42 @@
 .button {
   font-family: var(--font-secondary);
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-small);
-  padding-block: 12px;
-  padding-inline: 12px;
-  inline-size: 100%;
-  border-radius: 10px;
-  background: var(--button-bg-color-blue);
-  color: var(--button-text-primary);
+  font-size: clamp(1rem, 2vw, var(--font-size-small));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: none;
+  border-radius: 10px;
   cursor: pointer;
+  padding-block: clamp(12px, 1.5vw, 18px);
+  padding-inline: clamp(14px, 2vw, 24px);
+  transition: all var(--transition-base, 0.3s ease);
+  text-decoration: none;
+  background: var(--color-primary);
+  color: var(--color-primary-light);
+  user-select: none;
 }
 
-/* подумать и сделать общий стиль для кнопок при ховере и нажатии */
+.button:hover {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}

@@ -1,32 +1,64 @@
-import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import type { IHeader } from "../../types/types";
 import ButtonDefault from "../../shared/ui/Button/ButtonDefault";
-import styles from "./Header.module.css";
 import Logo from "../../shared/ui/Logo/Logo";
+import BurgerMenu from "./BurgerMenu";
+import styles from "./Header.module.css";
 
-export default function Header({ onNavigate, onConsultationClick }: IHeader) {
+const DESKTOP_BREAKPOINT = 1200;
+
+const NAV_ITEMS = [
+  { id: "about", label: "Обо мне" },
+  { id: "benefit", label: "Польза" },
+  { id: "reviews", label: "Отзывы" },
+] as const;
+
+export default function Header({
+  onNavigate,
+  onConsultationClick,
+}: IHeader) {
   const location = useLocation();
   const navigate = useNavigate();
+
   const isHomePage = location.pathname === "/";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 1200 && isMobileMenuOpen) {
+      if (window.innerWidth > DESKTOP_BREAKPOINT) {
         setIsMobileMenuOpen(false);
       }
     };
+
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [isMobileMenuOpen]);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handleToggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
+  };
 
   const handleScrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-      setIsMobileMenuOpen(false);
-    }
+
+    if (!element) return;
+
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
+  const navigateAndScroll = (sectionId: string) => {
+    navigate("/");
+
+    setTimeout(() => {
+      handleScrollToSection(sectionId);
+    }, 100);
   };
 
   const handleNavClick = (sectionId: string) => {
@@ -35,11 +67,9 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
     } else if (isHomePage) {
       handleScrollToSection(sectionId);
     } else {
-      navigate("/");
-      setTimeout(() => {
-        handleScrollToSection(sectionId);
-      }, 100);
+      navigateAndScroll(sectionId);
     }
+
     setIsMobileMenuOpen(false);
   };
 
@@ -54,37 +84,29 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
     } else if (isHomePage) {
       handleScrollToSection("appointment");
     } else {
-      navigate("/");
-      setTimeout(() => {
-        handleScrollToSection("appointment");
-      }, 100);
+      navigateAndScroll("appointment");
     }
+
     setIsMobileMenuOpen(false);
   };
-
-  const navItems = [
-    { id: "about", label: "Обо мне" },
-    { id: "benefit", label: "Польза" },
-    { id: "reviews", label: "Отзывы" },
-  ];
 
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        {/* Логотип */}
         <div className={styles.logoLeft}>
           <Logo />
         </div>
 
-        {/* Десктопная навигация  */}
         <nav className={styles.nav} aria-label="Основная навигация">
           <ul className={styles.navList}>
-            {navItems.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <li key={item.id} className={styles.navItem}>
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
-                    isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+                    isActive
+                      ? `${styles.navLink} ${styles.active}`
+                      : styles.navLink
                   }
                   onClick={(e) => {
                     e.preventDefault();
@@ -96,11 +118,14 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
                 </NavLink>
               </li>
             ))}
+
             <li className={styles.navItem}>
               <NavLink
                 to="/school"
                 className={({ isActive }) =>
-                  isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+                  isActive
+                    ? `${styles.navLink} ${styles.active}`
+                    : styles.navLink
                 }
                 onClick={(e) => {
                   e.preventDefault();
@@ -114,65 +139,21 @@ export default function Header({ onNavigate, onConsultationClick }: IHeader) {
           </ul>
         </nav>
 
-        {/* Десктопная кнопка консультации  */}
-        <div className={styles.consultationButton}>
-          <Link
-            to="/"
-            onClick={(e) => {
-              e.preventDefault();
-              handleConsultation();
-            }}
-          >
-            <ButtonDefault
-              name="Записаться на консультацию"
-              handleClick={handleConsultation}
-              styleButton={styles.buttonConsultation}
-              ariaLabel="Записаться на консультацию"
-              type="button"
-            />
-          </Link>
-        </div>
+        <ButtonDefault
+          name="Записаться на консультацию"
+          handleClick={handleConsultation}
+          styleButton={styles.consultationButton}
+          ariaLabel="Записаться"
+        />
 
-        {/* Бургер-меню для мобильных */}
-        <div className={styles.burgerMenu}>
-          <button
-            className={`${styles.burgerButton} ${isMobileMenuOpen ? styles.open : ""}`}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
-            aria-expanded={isMobileMenuOpen}
-          >
-            <span className={styles.burgerLine}></span>
-            <span className={styles.burgerLine}></span>
-            <span className={styles.burgerLine}></span>
-          </button>
-
-          {isMobileMenuOpen && (
-            <nav className={styles.mobileNav}>
-              <ul className={styles.mobileNavList}>
-                {navItems.map((item) => (
-                  <li key={item.id} className={styles.mobileNavItem}>
-                    <button
-                      className={styles.mobileNavLink}
-                      onClick={() => handleNavClick(item.id)}
-                    >
-                      {item.label}
-                    </button>
-                  </li>
-                ))}
-                <li className={styles.mobileNavItem}>
-                  <button className={styles.mobileNavLink} onClick={handleSchoolClick}>
-                    Школа для пациентов
-                  </button>
-                </li>
-                <li className={styles.mobileNavItem}>
-                  <button className={styles.mobileConsultBtn} onClick={handleConsultation}>
-                    Записаться на консультацию
-                  </button>
-                </li>
-              </ul>
-            </nav>
-          )}
-        </div>
+        <BurgerMenu
+          isOpen={isMobileMenuOpen}
+          navItems={NAV_ITEMS}
+          onToggle={handleToggleMobileMenu}
+          onNavClick={handleNavClick}
+          onSchoolClick={handleSchoolClick}
+          onConsultationClick={handleConsultation}
+        />
       </div>
     </header>
   );

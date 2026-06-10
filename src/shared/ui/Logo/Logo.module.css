@@ -16,8 +16,8 @@
   height: 48px;
   background: linear-gradient(
     135deg,
-    var(--button-bg-color-blue) 0%,
-    var(--button-text-secondary) 100%
+    var(--color-primary) 0%,
+    var(--color-text-secondary) 100%
   );
   border-radius: 50%;
   display: flex;
@@ -33,7 +33,7 @@
 }
 
 .logoInitials {
-  color: var(--button-text-primary);
+  color: var(--color-primary-light);
   font-size: var(--font-size-small);
   font-weight: bold;
   font-family: var(--font-primary);
