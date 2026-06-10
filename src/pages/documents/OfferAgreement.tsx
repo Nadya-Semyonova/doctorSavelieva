@@ -560,6 +560,7 @@ const OfferAgreement = () => {
           <strong>8. Реквизиты Администратора</strong>
           <br />
           Савельева Юлия Олеговна (ИНН 519091069853)
+          email для связи: doc.savelieva@mail.ru
         </p>
       </div>
     </div>

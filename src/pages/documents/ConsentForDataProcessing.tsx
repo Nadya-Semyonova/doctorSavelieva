@@ -118,7 +118,7 @@ const ConsentForDataProcessing = () => {
         </p>
 
         <p className={styles.contactInfo}>
-          <strong>Email для отзыва согласия:</strong> [ваш email для приема заявлений]
+          <strong>Email для отзыва согласия:</strong> doc.savelieva@mail.ru
         </p>
 
         <p>
@@ -198,10 +198,9 @@ const ConsentForDataProcessing = () => {
         </p>
 
         <div className={styles.contactInfo}>
-          <p><strong>Индивидуальный предприниматель:</strong> Савельева Юлия Олеговна</p>
+          <p>Савельева Юлия Олеговна</p>
           <p><strong>ИНН:</strong> 519091069853</p>
-          <p><strong>Адрес для корреспонденции:</strong> [ваш юридический адрес или адрес для писем]</p>
-          <p><strong>Email для обращений:</strong> [ваш email]</p>
+          <p><strong>Email для обращений:</strong> doc.savelieva@mail.ru</p>
         </div>
 
         <div className={styles.important}>
