@@ -19,17 +19,16 @@ export const SchoolPage: React.FC = () => {
           <div className={style.comingSoonBanner}>
             <div className={style.bannerDecoration}></div>
             <div className={style.bannerContent}>
-              <div className={style.bannerIcon}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                  <circle cx="12" cy="12" r="3" fill="currentColor" />
-                </svg>
-              </div>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+                <circle cx="12" cy="12" r="3" fill="currentColor" />
+              </svg>
+
               <h2 className={style.bannerTitle}>Скоро здесь появится что-то полезное!</h2>
               <p className={style.bannerText}>
                 Мы готовим для вас образовательную платформу, где вы сможете найти:
