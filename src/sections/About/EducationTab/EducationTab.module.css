@@ -27,7 +27,7 @@
   max-width: 100%;
 }
 
-.right img {
+.rightimg {
   width: 100%;
   max-height: clamp(240px, 35vw, 460px);
   object-fit: contain;
@@ -132,25 +132,53 @@
     transform: scale(0.9);
     opacity: 0;
   }
-
   to {
     transform: scale(1);
     opacity: 1;
   }
 }
 
+/* ========== TABLET: 768px - 1023px ========== */
+@media (width >= 768px) and (width < 1024px) {
+  .education {
+    gap: var(--spacing-2xl);
+  }
+
+  .intro {
+    font-size: var(--font-size-text-tablet);
+    padding-bottom: var(--spacing-lg);
+  }
+
+  .rightimg {
+    max-height: 380px;
+  }
+
+  .modalPrev,
+  .modalNext {
+    width: 44px;
+    height: 44px;
+  }
+}
+
 /* ========== MOBILE: < 768px ========== */
-@media (width <= 767px) {
+@media (width < 768px) {
   .education {
     grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
   }
 
   .intro {
     text-align: center;
+    font-size: var(--font-size-text-mobile);
+    padding-bottom: var(--spacing-md);
   }
 
-  .right img {
-    max-height: 18.75rem;
+  .rightimg {
+    max-height: 300px;
+  }
+
+  .slideCenter {
+    padding: 0 var(--spacing-md);
   }
 
   .modalImage {
@@ -163,6 +191,8 @@
     top: auto;
     bottom: 20px;
     transform: none;
+    width: 44px;
+    height: 44px;
   }
 
   .modalPrev {

@@ -45,19 +45,38 @@
   border-radius: var(--border-radius-full);
 }
 
-/* ========== MOBILE: < 768px ========== */
-@media (width <= 767px) {
+/* ========== TABLET: 768px - 1023px ========== */
+@media (width >= 768px) and (width < 1024px) {
   .directions {
-    text-align: center;
+    gap: var(--spacing-xl);
+    font-size: var(--font-size-text-tablet);
   }
 
   .directionsTitle {
-    margin-bottom: 16px;
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+/* ========== MOBILE: < 768px ========== */
+@media (width < 768px) {
+  .directions {
+    text-align: center;
+    font-size: var(--font-size-text-mobile);
+    width: 100%;
+    gap: var(--spacing-lg);
+  }
+
+  .directionsTitle {
+    margin-bottom: var(--spacing-md);
   }
 
   .directionsList {
     text-align: left;
     max-width: 400px;
     margin-inline: auto;
+  }
+
+  .directionsList li {
+    font-size: var(--font-size-text-mobile);
   }
 }

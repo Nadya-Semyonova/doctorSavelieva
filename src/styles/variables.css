@@ -1,6 +1,5 @@
 :root {
-  /*********** COLORS **************/
-
+  /*********** COLORS ***********/
   --color-primary: #004887;
   --color-primary-light: #e8f5ff;
   --color-text-primary: #032645;
@@ -10,14 +9,28 @@
   --color-surface: #fff;
   --color-border: rgb(0 72 135 / 15%);
 
-  /*********** FONTS **************/
-
+  /*********** FONTS ***********/
   --font-primary: "Roboto", -apple-system, blinkmacsystemfont, "Segoe UI", arial, sans-serif;
   --font-secondary: "Lato", -apple-system, blinkmacsystemfont, "Segoe UI", arial, sans-serif;
+  
+  /* Desktop font sizes */
   --font-size-small: 1.25rem; /* 20px */
   --font-size-text: 1.5rem; /* 24px */
   --font-size-h2: 2rem; /* 32px */
   --font-size-h1: 2.5rem; /* 40px */
+  
+  /* Tablet font sizes */
+  --font-size-small-tablet: 1.125rem; /* 18px */
+  --font-size-text-tablet: 1.25rem; /* 20px */
+  --font-size-h2-tablet: 1.75rem; /* 28px */
+  --font-size-h1-tablet: 2rem; /* 32px */
+  
+  /* Mobile font sizes */
+  --font-size-small-mobile: 1rem; /* 16px */
+  --font-size-text-mobile: 1.125rem; /* 18px */
+  --font-size-h2-mobile: 1.5rem; /* 24px */
+  --font-size-h1-mobile: 1.75rem; /* 28px */
+  
   --font-weight-regular: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
@@ -25,8 +38,7 @@
   --line-height-medium: 1.5;
   --line-height-large: 1.7;
 
-  /*********** SPACING **************/
-
+  /*********** SPACING ***********/
   /* Базовый отступ (8px) */
   --spacing-unit: 0.5rem; /* 8px */
   --spacing-xs: calc(var(--spacing-unit) * 0.5); /* 4px */
@@ -37,12 +49,23 @@
   --spacing-2xl: calc(var(--spacing-unit) * 6); /* 48px */
   --spacing-3xl: calc(var(--spacing-unit) * 8); /* 64px */
 
+  /* Desktop spacing */
+  --spacing-section-desktop: 6rem; /* 96px */
+  --spacing-container-desktop: 2rem; /* 32px */
+  
+  /* Tablet spacing */
+  --spacing-section-tablet: 4rem; /* 64px */
+  --spacing-container-tablet: 1.5rem; /* 24px */
+  
+  /* Mobile spacing */
+  --spacing-section-mobile: 3rem; /* 48px */
+  --spacing-container-mobile: 1rem; /* 16px */
+
   /* Отступы контейнера */
   --container-padding: var(--spacing-md);
   --container-max-width: 1200px;
 
   /*********** Границы и тени **************/
-
   /* Радиус границ */
   --border-radius-sm: 0.25rem; /* 4px */
   --border-radius-md: 0.5rem; /* 8px */
@@ -55,8 +78,7 @@
   --shadow-lg: 0 10px 15px rgb(0 0 0 / 10%);
   --shadow-xl: 0 20px 25px rgb(0 0 0 / 15%);
 
-  /*********** Анимации и переходы **************/
-
+  /*********** Анимации и переходы ***********/
   --transition-fast: 0.15s ease;
   --transition-base: 0.3s ease;
   --transition-slow: 0.5s ease;

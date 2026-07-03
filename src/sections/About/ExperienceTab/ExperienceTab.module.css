@@ -10,6 +10,7 @@
   font-size: clamp(1rem, 1.5vw, var(--font-size-text));
   line-height: 1.6;
   color: var(--color-text-primary);
+  font-family: var(--font-secondary);
 }
 
 .right {
@@ -18,21 +19,39 @@
   overflow: hidden;
 }
 
-.right img {
+.rightimg {
   width: 100%;
   height: auto;
   object-fit: cover;
   border-radius: var(--border-radius-lg);
 }
 
+/* ========== TABLET: 768px - 1023px ========== */
+@media (width >= 768px) and (width < 1024px) {
+  .experience {
+    gap: var(--spacing-2xl);
+  }
+
+  .intro {
+    font-size: var(--font-size-text-tablet);
+  }
+}
+
 /* ========== MOBILE: < 768px ========== */
-@media (width <= 767px) {
+@media (width < 768px) {
   .experience {
     grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
   }
 
   .intro {
     text-align: center;
     white-space: normal;
+    font-size: var(--font-size-text-mobile);
+  }
+
+  .rightimg {
+    max-width: 400px;
+    margin-inline: auto;
   }
 }

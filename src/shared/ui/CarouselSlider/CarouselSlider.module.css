@@ -22,9 +22,9 @@
   cursor: pointer;
   transform: translateY(-50%);
   transition:
-    background var(--transition-base, 0.3s ease),
-    transform var(--transition-base, 0.3s ease),
-    box-shadow var(--transition-base, 0.3s ease);
+    background var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
 .customButtonPrev {
@@ -66,12 +66,34 @@
   pointer-events: none;
 }
 
-@media (width <= 767px) {
+/* ========== TABLET: 768px - 1023px ========== */
+@media (width >= 768px) and (width < 1024px) {
+  .side {
+    padding-inline: var(--spacing-xl);
+  }
+
+  .controls {
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-md);
+  }
+}
+
+/* ========== MOBILE: < 768px ========== */
+@media (width < 768px) {
+  .side {
+    padding-inline: var(--spacing-container-mobile);
+  }
+
   .bottom {
     min-width: 44px;
     min-height: 44px;
   }
-  
+
+  .controls {
+    gap: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+  }
+
   :global(.swiper-pagination-bullet) {
     width: 6px;
     height: 6px;
