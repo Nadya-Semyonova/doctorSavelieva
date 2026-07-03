@@ -72,8 +72,6 @@
     min-height: 44px;
   }
   
-  /* Pagination Swiper */
-  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
   :global(.swiper-pagination-bullet) {
     width: 6px;
     height: 6px;

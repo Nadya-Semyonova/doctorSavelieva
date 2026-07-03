@@ -108,10 +108,10 @@ const Appointment = () => {
       isFullNameValid &&
       isPhoneValid &&
       isEmailValid &&
-      consentData && // ← отдельное согласие на обработку ПДн
-      consentPolicy && // ← ознакомление с Политикой
+      consentData && 
+      consentPolicy &&
       consentOffer
-    ); // ← принятие Оферты
+    ); 
   };
 
   const isFormValid = () => {
@@ -127,8 +127,8 @@ const Appointment = () => {
       isEmailFilled &&
       isEmailFormatValid &&
       hasNoErrors &&
-      consentData && // ← обновлено
-      consentPolicy && // ← обновлено
+      consentData &&
+      consentPolicy && 
       consentOffer
     );
   };
@@ -141,8 +141,6 @@ const Appointment = () => {
     setIsSubmitting(true);
 
     try {
-      // Здесь ваш код отправки данных на бэкенд (Telegram + Google Sheets)
-
       // Очистка формы
       setFullName("");
       setPhone("");
@@ -225,7 +223,7 @@ const Appointment = () => {
             />
 
             <div className={styles.checkboxes}>
-              {/* НОВЫЙ: Отдельный чек-бокс для согласия на обработку ПДн */}
+
               <Checkbox
                 checked={consentData}
                 onChange={setConsentData}
@@ -234,7 +232,6 @@ const Appointment = () => {
                 linkHref="/consent-personal-data"
               />
 
-              {/* НОВЫЙ: Отдельный чек-бокс для ознакомления с Политикой */}
               <Checkbox
                 checked={consentPolicy}
                 onChange={setConsentPolicy}
@@ -243,7 +240,7 @@ const Appointment = () => {
                 linkHref="/privacy-policy"
               />
 
-              {/* Существующий: принятие Оферты */}
+
               <Checkbox
                 checked={consentOffer}
                 onChange={setConsentOffer}
