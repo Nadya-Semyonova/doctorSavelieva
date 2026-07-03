@@ -79,7 +79,7 @@
 
   .info {
     text-align: center;
-    order: 2; /* Текст после картинки */
+    order: 2;
   }
 
   .imageWrapper {

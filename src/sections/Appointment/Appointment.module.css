@@ -129,10 +129,10 @@
     width: 100%;
     max-width: 320px;
     margin-inline: auto;
-    min-height: 48px; /* Доступность: тап-зона ≥44px */
+    min-height: 48px; 
   }
 
-  /* Убираем transform-анимацию на тач-устройствах */
+ 
   @media (hover: none) {
     .submitButton:hover {
       transform: none;
@@ -140,13 +140,3 @@
   }
 }
 
-/* ========== Доступность ========== */
-@media (prefers-reduced-motion: reduce) {
-  .submitButton {
-    transition: none;
-  }
-
-  .submitButton:hover:not(:disabled) {
-    transform: none;
-  }
-}
