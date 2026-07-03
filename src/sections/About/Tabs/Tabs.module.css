@@ -1,6 +1,6 @@
 .tabs {
   display: flex;
-  gap: clamp(8px, 1.2vw, 20px);
+  gap: clamp(var(--spacing-md), 1.2vw, var(--spacing-xl));
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -11,6 +11,13 @@
   color: var(--color-text-secondary);
   flex-shrink: 0;
   white-space: nowrap;
+  font-size: var(--font-size-small);
+  transition: all var(--transition-base);
+}
+
+.tabButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .active {
@@ -18,21 +25,36 @@
   color: var(--color-primary-light);
 }
 
+/* ========== TABLET: 768px - 1023px ========== */
+@media (width >= 768px) and (width < 1024px) {
+  .tabs {
+    gap: var(--spacing-lg);
+  }
+
+  .tabButton {
+    inline-size: clamp(120px, 20vw, 200px);
+    font-size: var(--font-size-small-tablet);
+    padding-block: var(--spacing-md);
+  }
+}
+
 /* ========== MOBILE: < 768px (ВЕРТИКАЛЬНЫЙ СТЕК) ========== */
-@media (width <= 767px) {
+@media (width < 768px) {
   .tabs {
     flex-flow: column nowrap;
     align-items: center;
     width: 100%;
     max-width: 280px;
     margin-inline: auto;
-    scroll-snap-type: none;
+    gap: var(--spacing-md);
   }
 
   .tabButton {
-    inline-size: min(100%, 320px);
+    inline-size: 100%;
     min-height: 48px;
     white-space: normal;
     text-align: center;
+    font-size: var(--font-size-small-mobile);
+    padding-block: var(--spacing-md);
   }
 }

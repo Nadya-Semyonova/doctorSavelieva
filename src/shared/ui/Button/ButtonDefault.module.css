@@ -6,11 +6,11 @@
   align-items: center;
   justify-content: center;
   border: none;
-  border-radius: 10px;
+  border-radius: var(--border-radius-md);
   cursor: pointer;
   padding-block: clamp(12px, 1.5vw, 18px);
   padding-inline: clamp(14px, 2vw, 24px);
-  transition: all var(--transition-base, 0.3s ease);
+  transition: all var(--transition-base);
   text-decoration: none;
   background: var(--color-primary);
   color: var(--color-primary-light);
@@ -39,4 +39,23 @@
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
+}
+
+/* ========== TABLET: 768px - 1023px ========== */
+@media (width >= 768px) and (width < 1024px) {
+  .button {
+    font-size: var(--font-size-small-tablet);
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-lg);
+  }
+}
+
+/* ========== MOBILE: < 768px ========== */
+@media (width < 768px) {
+  .button {
+    font-size: var(--font-size-small-mobile);
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-md);
+    min-height: 48px;
+  }
 }

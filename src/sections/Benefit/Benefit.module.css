@@ -19,7 +19,8 @@
 
 .subtitle {
   text-align: left;
-  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-size: clamp(1rem, 2vw, var(--font-size-text));
+  font-family: var(--font-secondary);
 }
 
 .grid {
@@ -55,14 +56,42 @@
   display: block;
 }
 
-/* ========== MOBILE: < 768px ========== */
-@media (width <= 767px) {
+/* ========== TABLET: 768px - 1023px ========== */
+@media (width >= 768px) and (width < 1024px) {
   .benefit {
-    padding-inline: 1rem;
+    padding-inline: var(--spacing-container-tablet);
   }
 
   .wrapper {
-    gap: 1.25rem;
+    gap: var(--spacing-lg);
+  }
+
+  .title {
+    font-size: var(--font-size-h2-tablet);
+  }
+
+  .subtitle {
+    font-size: var(--font-size-small-tablet);
+  }
+
+  .grid {
+    gap: var(--spacing-md);
+  }
+
+  .card {
+    padding: var(--spacing-md);
+    font-size: var(--font-size-text-tablet);
+  }
+}
+
+/* ========== MOBILE: < 768px ========== */
+@media (width < 768px) {
+  .benefit {
+    padding-inline: var(--spacing-container-mobile);
+  }
+
+  .wrapper {
+    gap: var(--spacing-lg);
   }
 
   .title,
@@ -70,12 +99,22 @@
     text-align: center;
   }
 
+  .title {
+    font-size: var(--font-size-h2-mobile);
+  }
+
+  .subtitle {
+    font-size: var(--font-size-small-mobile);
+  }
+
   .grid {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
   }
 
   .card {
-    font-size: 14px;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-text-mobile);
     text-align: center;
   }
 }

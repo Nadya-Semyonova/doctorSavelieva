@@ -58,14 +58,37 @@
 
 .checkboxText {
   flex: 1;
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-text);
+  font-weight: var(--font-weight-regular);
 }
 
 .checkboxLink {
   color: var(--color-text-secondary);
   text-decoration: underline;
   transition: opacity var(--transition-fast);
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-text);
+  font-weight: var(--font-weight-regular);
 }
 
 .checkboxLink:hover {
   opacity: 0.8;
+}
+
+/* ========== TABLET: 768px - 1023px ========== */
+@media (width >= 768px) and (width < 1024px) {
+ .checkboxLink
+ .checkboxText {
+  font-size: var(--font-size-text-tablet);
+ } 
+
+}
+
+/* ========== MOBILE: < 768px (ОДНА КОЛОНКА) ========== */
+@media (width < 768px) {
+  .checkboxLink
+  .checkboxText {
+    font-size: var(--font-size-text-mobile);
+  }
 }

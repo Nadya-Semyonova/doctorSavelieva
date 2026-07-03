@@ -25,9 +25,43 @@
   font-size: clamp(1.5rem, 3vw, var(--font-size-h2));
 }
 
+/* ========== TABLET: 768px - 1023px ========== */
+@media (width >= 768px) and (width < 1024px) {
+  .about {
+    padding: var(--spacing-section-tablet) var(--spacing-container-tablet);
+    gap: var(--spacing-xl);
+  }
+
+  .intro {
+    font-size: var(--font-size-text-tablet);
+  }
+
+  .info {
+    gap: var(--spacing-md);
+  }
+
+  .title {
+    font-size: var(--font-size-h2-tablet);
+  }
+}
+
 /* ========== MOBILE: < 768px ========== */
-@media (width <= 767px) {
+@media (width < 768px) {
+  .about {
+    padding: var(--spacing-section-mobile) var(--spacing-container-mobile);
+    gap: var(--spacing-lg);
+  }
+
+  .intro {
+    font-size: var(--font-size-text-mobile);
+  }
+
   .info {
     text-align: center;
+    gap: var(--spacing-md);
+  }
+
+  .title {
+    font-size: var(--font-size-h2-mobile);
   }
 }

@@ -24,7 +24,7 @@
 .textBlock {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--spacing-sm);
 }
 
 .textBlock p {
@@ -71,19 +71,52 @@
   display: block;
 }
 
+/* ========== TABLET: 768px - 1023px ========== */
+@media (width >= 768px) and (width < 1024px) {
+  .content {
+    padding-inline: var(--spacing-container-tablet);
+    padding-top: var(--spacing-section-tablet);
+    gap: var(--spacing-xl);
+  }
 
-@media (width <= 767px) {
+  .info {
+    gap: var(--spacing-xl);
+  }
+
+  .textBlock p {
+    font-size: var(--font-size-text-tablet);
+  }
+
+  .text {
+    font-size: var(--font-size-text-tablet);
+  }
+}
+
+/* ========== MOBILE: < 768px ========== */
+@media (width < 768px) {
   .content {
     grid-template-columns: 1fr;
+    padding-inline: var(--spacing-container-mobile);
+    padding-top: var(--spacing-section-mobile);
+    gap: var(--spacing-xl);
   }
 
   .info {
     text-align: center;
     order: 2;
+    gap: var(--spacing-lg);
   }
 
   .imageWrapper {
     order: 1;
+  }
+
+  .textBlock p {
+    font-size: var(--font-size-text-mobile);
+  }
+
+  .text {
+    font-size: var(--font-size-text-mobile);
   }
 
   .wave svg {

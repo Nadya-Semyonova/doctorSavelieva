@@ -31,7 +31,7 @@
   font-family: var(--font-secondary);
   font-size: var(--font-size-text);
   font-weight: var(--font-weight-regular);
-  gap: 20px;
+  gap: var(--spacing-lg);
 }
 
 .price {
@@ -76,10 +76,54 @@
   cursor: not-allowed;
 }
 
+/* ========== TABLET: 768px - 1023px ========== */
+@media (width >= 768px) and (width < 1024px) {
+  .appointment {
+    padding-inline: var(--spacing-container-tablet);
+  }
+
+  .container {
+    gap: var(--spacing-2xl);
+    padding: var(--spacing-xl);
+  }
+
+  .leftColumn {
+    gap: var(--spacing-xl);
+  }
+
+  .title {
+    font-size: var(--font-size-h2-tablet);
+  }
+
+  .infoBlock {
+    font-size: var(--font-size-text-tablet);
+    gap: var(--spacing-md);
+  }
+
+  .price {
+    font-size: var(--font-size-text-tablet);
+  }
+
+  .notice {
+    padding: var(--spacing-md);
+  }
+
+  .noticeText {
+    font-size: var(--font-size-small-tablet);
+  }
+  
+}
+
 /* ========== MOBILE: < 768px (ОДНА КОЛОНКА) ========== */
-@media (width <= 767px) {
+@media (width < 768px) {
+  .appointment {
+    padding-inline: var(--spacing-container-mobile);
+  }
+
   .container {
     grid-template-columns: 1fr;
+    padding: var(--spacing-lg);
+    gap: var(--spacing-xl);
   }
 
   .leftColumn {
@@ -93,20 +137,24 @@
     text-align: center;
   }
 
+  .title {
+    font-size: var(--font-size-h2-mobile);
+  }
+
   .infoBlock {
-    font-size: 1.125rem;
-    gap: 14px;
+    font-size: var(--font-size-text-mobile);
+    gap: var(--spacing-md);
     text-align: center;
     align-items: center;
   }
 
   .infoText {
-    line-height: 1.5;
+    line-height: var(--line-height-medium);
   }
 
   .price strong {
     display: block;
-    margin-top: 4px;
+    margin-top: var(--spacing-xs);
   }
 
   .notice {
@@ -121,22 +169,20 @@
   }
 
   .noticeText {
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: var(--font-size-small-mobile);
+    line-height: var(--line-height-medium);
   }
 
   .submitButton {
     width: 100%;
-    max-width: 320px;
+    max-width: 280px;
     margin-inline: auto;
-    min-height: 48px; 
+    min-height: 48px;
   }
 
- 
   @media (hover: none) {
     .submitButton:hover {
       transform: none;
     }
   }
 }
-
