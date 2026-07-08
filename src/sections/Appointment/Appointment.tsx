@@ -108,10 +108,10 @@ const Appointment = () => {
       isFullNameValid &&
       isPhoneValid &&
       isEmailValid &&
-      consentData && 
+      consentData &&
       consentPolicy &&
       consentOffer
-    ); 
+    );
   };
 
   const isFormValid = () => {
@@ -128,7 +128,7 @@ const Appointment = () => {
       isEmailFormatValid &&
       hasNoErrors &&
       consentData &&
-      consentPolicy && 
+      consentPolicy &&
       consentOffer
     );
   };
@@ -141,19 +141,39 @@ const Appointment = () => {
     setIsSubmitting(true);
 
     try {
-      // Очистка формы
-      setFullName("");
-      setPhone("");
-      setEmail("");
-      setConsentData(false);
-      setConsentPolicy(false);
-      setConsentOffer(false);
-      setErrors({ fullName: "", phone: "", email: "" });
+      // ⬇️ ВРЕМЕННАЯ ЗАГЛУШКА для локального теста
+    await new Promise((resolve) => setTimeout(resolve, 1500)); // имитация задержки
+    const data = { success: true, message: "Заявка отправлена (мок)" };
+    // ⬆️ когда будет реальный PHP — замените на fetch ниже
 
-      setIsModalOpen(true);
+    /*
+    // Реальный запрос (раскомментируйте, когда PHP будет работать)
+    const response = await fetch("/api/appointment.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ fullName, phone, email, website: honeypot }),
+    });
+    const data = await response.json();
+    */
+
+
+      if (data.success) {
+        // Очистка формы
+        setFullName("");
+        setPhone("");
+        setEmail("");
+        setConsentData(false);
+        setConsentPolicy(false);
+        setConsentOffer(false);
+        setErrors({ fullName: "", phone: "", email: "" });
+
+        setIsModalOpen(true);
+      } else {
+        alert(data.message || "Ошибка при отправке. Попробуйте позже.");
+      }
     } catch (error) {
-      console.error("Error:", error);
-      alert("Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.");
+      console.error("Ошибка отправки:", error);
+      alert("Не удалось связаться с сервером. Проверьте интернет и попробуйте позже.");
     } finally {
       setIsSubmitting(false);
     }
@@ -186,6 +206,21 @@ const Appointment = () => {
 
         <div className={styles.rightColumn}>
           <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
+            {/* Honeypot — невидимое поле для ботов */}
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              style={{
+                position: "absolute",
+                left: "-9999px",
+                opacity: 0,
+                pointerEvents: "none",
+              }}
+              value=""
+              onChange={() => {}}
+            />
             <Input
               type="text"
               value={fullName}
@@ -223,7 +258,6 @@ const Appointment = () => {
             />
 
             <div className={styles.checkboxes}>
-
               <Checkbox
                 checked={consentData}
                 onChange={setConsentData}
@@ -239,7 +273,6 @@ const Appointment = () => {
                 linkText="Политикой обработки персональных данных"
                 linkHref="/privacy-policy"
               />
-
 
               <Checkbox
                 checked={consentOffer}
