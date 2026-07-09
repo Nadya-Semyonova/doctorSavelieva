@@ -142,11 +142,11 @@ const Appointment = () => {
 
     try {
       // ⬇️ ВРЕМЕННАЯ ЗАГЛУШКА для локального теста
-    await new Promise((resolve) => setTimeout(resolve, 1500)); // имитация задержки
-    const data = { success: true, message: "Заявка отправлена (мок)" };
-    // ⬆️ когда будет реальный PHP — замените на fetch ниже
+      await new Promise((resolve) => setTimeout(resolve, 1500)); // имитация задержки
+      const data = { success: true, message: "Заявка отправлена (мок)" };
+      // ⬆️ когда будет реальный PHP — замените на fetch ниже
 
-    /*
+      /*
     // Реальный запрос (раскомментируйте, когда PHP будет работать)
     const response = await fetch("/api/appointment.php", {
       method: "POST",
@@ -155,7 +155,6 @@ const Appointment = () => {
     });
     const data = await response.json();
     */
-
 
       if (data.success) {
         // Очистка формы
@@ -197,8 +196,9 @@ const Appointment = () => {
             <div className={styles.notice}>
               <p className={styles.noticeTitle}>Обратите внимание:</p>
               <p className={styles.noticeText}>
-                онлайн консультация не предполагает выписку справок, рецептов, заключений врача и
-                других медицинских документов.
+                Услуги по настоящему Договору носят исключительно информационный и консультационный
+                характер и НЕ являются медицинскими услугами. Онлайн консультация не предполагает
+                выписку справок, рецептов, заключений врача и других медицинских документов.
               </p>
             </div>
           </div>
