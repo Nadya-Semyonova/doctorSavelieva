@@ -78,17 +78,24 @@
 
 /* ========== TABLET: 768px - 1023px ========== */
 @media (width >= 768px) and (width < 1024px) {
- .checkboxLink
- .checkboxText {
+ .checkboxLink {
   font-size: var(--font-size-text-tablet);
  } 
+
+ .checkboxText {
+    font-size: var(--font-size-text-mobile); 
+  }
 
 }
 
 /* ========== MOBILE: < 768px (ОДНА КОЛОНКА) ========== */
 @media (width < 768px) {
   .checkboxLink
+   {
+    font-size: var(--font-size-text-mobile); 
+  }
+
   .checkboxText {
-    font-size: var(--font-size-text-mobile);
+    font-size: var(--font-size-text-mobile); 
   }
 }
