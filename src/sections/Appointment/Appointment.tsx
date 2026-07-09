@@ -9,16 +9,20 @@ const Appointment = () => {
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [consentData, setConsentData] = useState(false); // ← согласие на обработку ПДн
-  const [consentPolicy, setConsentPolicy] = useState(false); // ← ознакомление с Политикой
-  const [consentOffer, setConsentOffer] = useState(false); // ← принятие Оферты
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [consentData, setConsentData] = useState(false);
+  const [consentPolicy, setConsentPolicy] = useState(false);
+  const [consentOffer, setConsentOffer] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false); 
+  const [isModalOpen, setIsModalOpen] = useState(false);   
   const [errors, setErrors] = useState({
     fullName: "",
     phone: "",
     email: "",
   });
+
+  // Флаг: форма временно недоступна (до подтверждения РКН)
+  const isFormDisabled = true; // ← измените на false после подтверждения РКН
 
   // Функция для маски телефона
   const formatPhoneNumber = (value: string) => {
@@ -134,27 +138,31 @@ const Appointment = () => {
   };
 
   const handleSubmit = async () => {
+    // Проверка honeypot
+    if (honeypot) {
+      console.warn("Бот обнаружен");
+      return;
+    }
+
     if (!validateForm()) {
+      return;
+    }
+
+    // Если форма заблокирована — не отправляем
+    if (isFormDisabled) {
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      // ⬇️ ВРЕМЕННАЯ ЗАГЛУШКА для локального теста
-      await new Promise((resolve) => setTimeout(resolve, 1500)); // имитация задержки
-      const data = { success: true, message: "Заявка отправлена (мок)" };
-      // ⬆️ когда будет реальный PHP — замените на fetch ниже
-
-      /*
-    // Реальный запрос (раскомментируйте, когда PHP будет работать)
-    const response = await fetch("/api/appointment.php", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ fullName, phone, email, website: honeypot }),
-    });
-    const data = await response.json();
-    */
+      // Реальный запрос к PHP-скрипту
+      const response = await fetch("/api/appointment.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fullName, phone, email, website: honeypot }),
+      });
+      const data = await response.json();
 
       if (data.success) {
         // Очистка формы
@@ -165,7 +173,9 @@ const Appointment = () => {
         setConsentPolicy(false);
         setConsentOffer(false);
         setErrors({ fullName: "", phone: "", email: "" });
+        setHoneypot("");
 
+        // Показываем модалку с подтверждением
         setIsModalOpen(true);
       } else {
         alert(data.message || "Ошибка при отправке. Попробуйте позже.");
@@ -212,15 +222,28 @@ const Appointment = () => {
               name="website"
               tabIndex={-1}
               autoComplete="off"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
               style={{
                 position: "absolute",
                 left: "-9999px",
                 opacity: 0,
                 pointerEvents: "none",
               }}
-              value=""
-              onChange={() => {}}
             />
+
+            {/* Сообщение о временной недоступности */}
+            {isFormDisabled && (
+              <div className={styles.formNotice}>
+                <div className={styles.formNoticeIcon}>⏳</div>
+                <p className={styles.formNoticeTitle}>Форма записи временно недоступна</p>
+                <p className={styles.formNoticeText}>
+                  Мы готовим всё необходимое для приёма заявок. Пожалуйста, свяжитесь с нами по
+                  email: <a href="mailto:doc.savelieva@mail.ru">doc.savelieva@mail.ru</a>
+                </p>
+              </div>
+            )}
+
             <Input
               type="text"
               value={fullName}
@@ -231,6 +254,7 @@ const Appointment = () => {
               placeholder="Фамилия Имя Отчество"
               error={errors.fullName}
               required
+              disabled={isFormDisabled}
               onBlur={() => validateFullName(fullName)}
             />
 
@@ -241,6 +265,7 @@ const Appointment = () => {
               placeholder="+7 (___) ___-__-__"
               error={errors.phone}
               required
+              disabled={isFormDisabled}
               onBlur={() => validatePhone(phone)}
             />
 
@@ -254,6 +279,7 @@ const Appointment = () => {
               placeholder="E-mail"
               error={errors.email}
               required
+              disabled={isFormDisabled}
               onBlur={() => validateEmail(email)}
             />
 
@@ -264,6 +290,7 @@ const Appointment = () => {
                 labelText="Я даю "
                 linkText="согласие на обработку персональных данных"
                 linkHref="/consent-personal-data"
+                disabled={isFormDisabled}
               />
 
               <Checkbox
@@ -272,6 +299,7 @@ const Appointment = () => {
                 labelText="Я ознакомлен(а) с "
                 linkText="Политикой обработки персональных данных"
                 linkHref="/privacy-policy"
+                disabled={isFormDisabled}
               />
 
               <Checkbox
@@ -280,16 +308,21 @@ const Appointment = () => {
                 labelText="Я принимаю "
                 linkText="условия договора-оферты"
                 linkHref="/offer-agreement"
+                disabled={isFormDisabled}
               />
             </div>
 
             <ButtonDefault
               type="button"
               handleClick={handleSubmit}
-              disabled={isSubmitting || !isFormValid()}
+              disabled={isFormDisabled || isSubmitting || !isFormValid()}
               styleButton={styles.submitButton}
             >
-              {isSubmitting ? "Отправка..." : "Записаться на консультацию"}
+              {isFormDisabled
+                ? "Скоро откроется"
+                : isSubmitting
+                ? "Отправка..."
+                : "Записаться на консультацию"}
             </ButtonDefault>
           </form>
         </div>
