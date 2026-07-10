@@ -11,7 +11,6 @@
     2vw,
     var(--font-size-text)
   );
-  color: var(--color-text-primary);
 }
 
 .directionsContent {

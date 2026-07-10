@@ -34,7 +34,7 @@ li {
   padding: 0;
 }
 
-h1,
+
 h2,
 h3,
 h4,
@@ -48,6 +48,7 @@ h1 {
   font-family: var(--font-primary);
   font-size: var(--font-size-h1);
   font-weight: var(--font-weight-bold);
+   color: var(--color-primary);
 }
 
 h2 {

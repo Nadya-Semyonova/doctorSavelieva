@@ -20,7 +20,6 @@
   font-family: var(--font-secondary);
   font-weight: var(--font-weight-regular);
   font-size: clamp(1.125rem, 2.5vw, var(--font-size-text));
-  color: var(--color-text-primary);
 }
 
 .right {

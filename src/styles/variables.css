@@ -10,8 +10,8 @@
   --color-border: rgb(0 72 135 / 15%);
 
   /*********** FONTS ***********/
-  --font-primary: "Roboto", -apple-system, blinkmacsystemfont, "Segoe UI", arial, sans-serif;
-  --font-secondary: "Lato", -apple-system, blinkmacsystemfont, "Segoe UI", arial, sans-serif;
+  --font-primary: 'Roboto', -apple-system, blinkmacsystemfont, "Segoe UI", arial, sans-serif;
+  --font-secondary: 'Merriweather', -apple-system, blinkmacsystemfont, "Segoe UI", arial, sans-serif;
   
   /* Desktop font sizes */
   --font-size-small: 1.25rem; /* 20px */
@@ -27,7 +27,7 @@
   
   /* Mobile font sizes */
   --font-size-small-mobile: 1rem; /* 16px */
-  --font-size-text-mobile: 1.125rem; /* 18px */
+  --font-size-text-mobile: 1rem; /* 18px */
   --font-size-h2-mobile: 1.5rem; /* 24px */
   --font-size-h1-mobile: 1.75rem; /* 28px */
   

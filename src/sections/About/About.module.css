@@ -5,6 +5,7 @@
   gap: clamp(24px, 4vw, 50px);
   position: relative;
   z-index: 1;
+  justify-content: flex-start;
 }
 
 .intro {
