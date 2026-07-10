@@ -26,10 +26,10 @@
   --font-size-h1-tablet: 2rem; /* 32px */
   
   /* Mobile font sizes */
-  --font-size-small-mobile: 1rem; /* 16px */
-  --font-size-text-mobile: 1rem; /* 18px */
-  --font-size-h2-mobile: 1.5rem; /* 24px */
-  --font-size-h1-mobile: 1.75rem; /* 28px */
+  --font-size-small-mobile: 0.75rem; /* 16px */
+  --font-size-text-mobile: 1rem; /* 16px */
+  --font-size-h2-mobile: 1.25rem; /* 20px */
+  --font-size-h1-mobile: 1.5rem; /* 24px */
   
   --font-weight-regular: 400;
   --font-weight-semibold: 600;

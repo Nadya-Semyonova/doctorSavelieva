@@ -94,6 +94,10 @@
 
 /* ========== MOBILE: < 768px ========== */
 @media (width < 768px) {
+  h1 {
+    font-size: var(--font-size-h1-mobile);
+  }
+
   .content {
     grid-template-columns: 1fr;
     padding-inline: var(--spacing-container-mobile);
