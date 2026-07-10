@@ -1,9 +1,13 @@
 import CarouselSlider from "../../../shared/ui/CarouselSlider/CarouselSlider";
 import styles from "./ExperienceTab.module.css";
-import orthosisPhoto from "../../../assets/images/Gallery/Photo/2jw25Zv1QU.png";
+import orthosisPhoto from "../../../assets/images/Gallery/Photo/photo.png";
+import orthosisPhoto2 from "../../../assets/images/Gallery/Photo/photo1.png"; 
+import orthosisPhoto3 from "../../../assets/images/Gallery/Photo/photo2.png";
 
 export default function ExperienceTab() {
-  const photos = [orthosisPhoto];
+  const photos = [orthosisPhoto,
+    orthosisPhoto2,
+    orthosisPhoto3,];
   const experienceText = `
   Опыт работы более 16 лет.
 
