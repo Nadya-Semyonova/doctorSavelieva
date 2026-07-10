@@ -17,7 +17,7 @@ import pkLit from "../../../assets/images/Gallery/Full/PK_LIT.png";
 import pkUs2 from "../../../assets/images/Gallery/Full/PK_US2.png";
 import pkUs3 from "../../../assets/images/Gallery/Full/PK_US3.png";
 import pkUs4 from "../../../assets/images/Gallery/Full/PK_US4.png";
-import pkUs5 from "../../../assets/images/Gallery/Full/PK_US5.png";
+// import pkUs5 from "../../../assets/images/Gallery/Full/PK_US5.png";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { createPortal } from "react-dom";
 
@@ -31,7 +31,7 @@ const certificates = [
   pkUs2,
   pkUs3,
   pkUs4,
-  pkUs5,
+  // pkUs5,
 ];
 
 export default function EducationTab() {
@@ -115,6 +115,7 @@ export default function EducationTab() {
               <X size={32} />
             </button>
             <Swiper
+              autoHeight={true}
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;
                 setIsBeginning(swiper.isBeginning);

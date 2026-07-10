@@ -48,7 +48,7 @@ h1 {
   font-family: var(--font-primary);
   font-size: var(--font-size-h1);
   font-weight: var(--font-weight-bold);
-   color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 h2 {
@@ -93,3 +93,4 @@ img {
   clip-path: inset(50%);
   white-space: nowrap;
 }
+

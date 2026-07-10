@@ -169,7 +169,7 @@
   }
 
   .noticeText {
-    font-size: var(--font-size-small-mobile);
+    font-size: 12px;
     line-height: var(--line-height-medium);
   }
 

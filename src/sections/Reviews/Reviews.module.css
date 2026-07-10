@@ -1,7 +1,6 @@
 .reviews {
   position: relative;
   z-index: 0;
-  padding-block: clamp(40px, 6vw, 64px);
   overflow: visible;
 }
 
@@ -160,10 +159,6 @@
 
 /* ========== TABLET: 768px - 1023px ========== */
 @media (width >= 768px) and (width < 1024px) {
-  .reviews {
-    padding-block: var(--spacing-section-tablet);
-  }
-
   .container {
     padding-inline: var(--spacing-container-tablet);
     padding-block: var(--spacing-section-tablet);
@@ -209,10 +204,6 @@
 
 /* ========== MOBILE: < 768px ========== */
 @media (width < 768px) {
-  .reviews {
-    padding-block: var(--spacing-section-mobile);
-  }
-
   .container {
     padding-inline: var(--spacing-container-mobile);
     padding-block: var(--spacing-section-mobile);
