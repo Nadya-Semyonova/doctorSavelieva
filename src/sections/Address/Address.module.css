@@ -25,7 +25,6 @@
   font-family: var(--font-secondary);
   font-size: clamp(1rem, 2vw, var(--font-size-text));
   font-weight: var(--font-weight-regular);
-  color: var(--color-text-primary);
   text-align: left;
 }
 
@@ -74,6 +73,7 @@
 
   .title {
     margin-bottom: 8px;
+    font-size: var(--font-size-h2-mobile);
   }
 
   .text {

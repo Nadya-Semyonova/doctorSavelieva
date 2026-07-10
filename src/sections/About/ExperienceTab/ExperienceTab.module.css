@@ -9,7 +9,6 @@
   text-align: left;
   font-size: clamp(1rem, 1.5vw, var(--font-size-text));
   line-height: 1.6;
-  color: var(--color-text-primary);
   font-family: var(--font-secondary);
 }
 

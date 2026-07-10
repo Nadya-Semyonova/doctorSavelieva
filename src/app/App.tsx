@@ -7,6 +7,7 @@ import PrivacyPolicy from "../pages/documents/PrivacyPolicy";
 import { SchoolPage } from "../pages/SchoolPage/SchoolPage";
 import "./App.css";
 
+
 const routes = [
   { path: "/", element: <HomePage /> },
   { path: "/privacy-policy", element: <PrivacyPolicy /> },

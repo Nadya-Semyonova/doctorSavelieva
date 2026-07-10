@@ -33,7 +33,7 @@
 
   .tabButton {
     inline-size: clamp(120px, 20vw, 200px);
-    font-size: var(--font-size-small-tablet);
+    font-size: var(--font-size-small-mobile);
     padding-block: var(--spacing-md);
   }
 }
