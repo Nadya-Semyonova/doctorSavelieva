@@ -21,8 +21,8 @@ const Appointment = () => {
     email: "",
   });
 
-  // Флаг: форма временно недоступна (до подтверждения РКН)
-  const isFormDisabled = true; // ← измените на false после подтверждения РКН
+  
+  const isFormDisabled = false; 
 
   // Функция для маски телефона
   const formatPhoneNumber = (value: string) => {
