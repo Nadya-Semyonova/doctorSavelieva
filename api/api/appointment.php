@@ -167,7 +167,7 @@ if (!empty($errors)) {
 
 // === ФОРМИРОВАНИЕ ПИСЬМА ===
 $to = $adminEmail;
-$subject = '=?UTF-8?B?' . base64_encode('🔔 Новая заявка на консультацию') . '?=';
+$subject = '=?UTF-8?B?' . base64_encode(' Новая заявка на консультацию') . '?=';
 
 $messageHTML = "
 <!DOCTYPE html>
@@ -189,11 +189,11 @@ $messageHTML = "
             <h2>Новая заявка на консультацию</h2>
         </div>
         <div class='field'>
-            <span class='label'>👤 ФИО:</span><br>
+            <span class='label'> ФИО:</span><br>
             {$fullName}
         </div>
         <div class='field'>
-            <span class='label'>📞 Телефон:</span><br>
+            <span class='label'> Телефон:</span><br>
             {$phone}
         </div>
         <div class='field'>

@@ -1,12 +1,49 @@
 # ============================================
 # .htaccess для React SPA на Beget
+# Версия: 2.0 (с поддержкой API)
 # ============================================
 
-# Включаем RewriteEngine
+# ============================================
+# 1. API — прямой доступ без редиректа
+# ============================================
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
   
+  # Запросы к /api/ обрабатываются напрямую (PHP-скрипты)
+  RewriteRule ^api/ - [L]
+</IfModule>
+
+# ============================================
+# 2. Запрет доступа к чувствительным файлам
+# ============================================
+
+# Запрещаем доступ к .env файлам
+<FilesMatch "^\.env">
+  Require all denied
+</FilesMatch>
+
+# Запрещаем доступ к логам
+<FilesMatch "\.log$">
+  Require all denied
+</FilesMatch>
+
+# Запрещаем доступ к .htaccess
+<Files .htaccess>
+  Require all denied
+</FilesMatch>
+
+# Запрещаем доступ к composer.json, package.json и т.д.
+<FilesMatch "\.(json|md|txt)$">
+  <If "%{REQUEST_URI} =~ m#^/(composer|package|readme)#i">
+    Require all denied
+  </If>
+</FilesMatch>
+
+# ============================================
+# 3. SPA Fallback — перенаправление на index.html
+# ============================================
+<IfModule mod_rewrite.c>
   # Если запрос к существующему файлу или папке — отдаём его
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
@@ -17,28 +54,47 @@
 </IfModule>
 
 # ============================================
-# Безопасность
+# 4. Безопасность
 # ============================================
 
 # Запрещаем просмотр содержимого папок
 Options -Indexes
 
-# Защищаем файл .htaccess
-<Files .htaccess>
-  Require all denied
-</Files>
+# Запрещаем выполнение PHP в папке uploads (если будет)
+<Directory "uploads">
+  <FilesMatch "\.php$">
+    Require all denied
+  </FilesMatch>
+</Directory>
 
 # ============================================
-# Кэширование статики
+# 5. CORS для API
 # ============================================
+<IfModule mod_headers.c>
+  <If "%{REQUEST_URI} =~ m#^/api/#">
+    Header set Access-Control-Allow-Origin "https://doctor-savelieva.ru"
+    Header set Access-Control-Allow-Methods "POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type"
+    Header set Access-Control-Allow-Credentials "true"
+  </If>
+</IfModule>
 
+# Обработка preflight-запросов
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_METHOD} OPTIONS
+  RewriteRule ^api/ - [R=200,L]
+</IfModule>
+
+# ============================================
+# 6. Кэширование статики
+# ============================================
 <IfModule mod_expires.c>
   ExpiresActive On
   
-  # HTML — не кэшируем
+  # HTML — не кэшируем (чтобы всегда получать свежую версию)
   ExpiresByType text/html "access plus 0 seconds"
   
-  # CSS и JS — кэшируем на 1 год
+  # CSS и JS — кэшируем на 1 год (Vite добавляет хэши к именам файлов)
   ExpiresByType text/css "access plus 1 year"
   ExpiresByType application/javascript "access plus 1 year"
   ExpiresByType text/javascript "access plus 1 year"
@@ -60,9 +116,8 @@ Options -Indexes
 </IfModule>
 
 # ============================================
-# Gzip-сжатие
+# 7. Gzip-сжатие
 # ============================================
-
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html
   AddOutputFilterByType DEFLATE text/css
@@ -79,28 +134,35 @@ Options -Indexes
 </IfModule>
 
 # ============================================
-# Заголовки безопасности
+# 8. Заголовки безопасности
 # ============================================
-
 <IfModule mod_headers.c>
   # Защита от XSS
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
   
-  # Для HTTPS
-  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+  # HSTS для HTTPS (только если соединение защищено)
+  <If "%{HTTPS} == 'on'">
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  </If>
 </IfModule>
 
 # ============================================
-# MIME-типы
+# 9. MIME-типы
 # ============================================
-
 <IfModule mod_mime.c>
-  AddType application/javascript js
+  AddType application/javascript js mjs
   AddType text/css css
   AddType image/svg+xml svg svgz
   AddType application/font-woff woff
   AddType application/font-woff2 woff2
   AddType application/json json
+  AddType text/plain log txt
 </IfModule>
+
+# ============================================
+# 10. Кодировка UTF-8 по умолчанию
+# ============================================
+AddDefaultCharset UTF-8

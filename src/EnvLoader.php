@@ -1,5 +1,6 @@
 <?php
 
+
 class EnvLoader
 {
     public static function load(string $path): void

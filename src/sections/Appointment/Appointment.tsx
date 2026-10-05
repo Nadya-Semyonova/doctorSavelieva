@@ -201,7 +201,7 @@ const Appointment = () => {
               После вашей заявки с вами свяжется доктор для обсуждения деталей
             </p>
             <p className={styles.price}>
-              Стоимость консультации составляет <strong>2500 рублей</strong>
+              Стоимость консультации составляет <strong>3000 рублей</strong>
             </p>
             <div className={styles.notice}>
               <p className={styles.noticeTitle}>Обратите внимание:</p>
